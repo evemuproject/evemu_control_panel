@@ -1,0 +1,20 @@
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\bin\Debug\Evemu DB Editor.exe.config
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\bin\Debug\MySql.Data.dll
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\bin\Debug\Evemu DB Editor.exe
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\bin\Debug\Evemu DB Editor.pdb
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\obj\Debug\Evemu_DB_Editor.acctEdit.resources
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\obj\Debug\Evemu_DB_Editor.information.resources
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\obj\Debug\Evemu_DB_Editor.itemAddEdit.resources
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\obj\Debug\Evemu_DB_Editor.main.resources
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\obj\Debug\Evemu_DB_Editor.Properties.Resources.resources
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\obj\Debug\Evemu_DB_Editor.AddModifyStartingSkill.resources
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\obj\Debug\Evemu_DB_Editor.editCharacterSkill.resources
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\obj\Debug\Evemu_DB_Editor.EditOre.resources
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\obj\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\obj\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\obj\Debug\Evemu DB Editor.exe
+C:\Documents and Settings\skelly\Desktop\evemudbeditor\obj\Debug\Evemu DB Editor.pdb
+C:\Documents and Settings\skelly\My Documents\evemu_control_panel\bin\Debug\Evemu DB Editor.exe.config
+C:\Documents and Settings\skelly\My Documents\evemu_control_panel\obj\Debug\Evemu DB Editor.exe
+C:\Documents and Settings\skelly\My Documents\evemu_control_panel\obj\Debug\Evemu DB Editor.pdb
