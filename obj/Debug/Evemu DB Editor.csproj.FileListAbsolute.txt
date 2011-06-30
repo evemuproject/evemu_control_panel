@@ -52,3 +52,6 @@ F:\evemu\evemu_control_panel\obj\Debug\Evemu_DB_Editor.editCharacterSkill.resour
 F:\evemu\evemu_control_panel\obj\Debug\Evemu_DB_Editor.EditOre.resources
 F:\evemu\evemu_control_panel\obj\Debug\GenerateResource.read.1.tlog
 F:\evemu\evemu_control_panel\obj\Debug\GenerateResource.write.1.tlog
+D:\evemu_control_panelMD\bin\Debug\Evemu DB Editor.exe.config
+D:\evemu_control_panelMD\obj\Debug\Evemu DB Editor.exe
+D:\evemu_control_panelMD\obj\Debug\Evemu DB Editor.pdb
