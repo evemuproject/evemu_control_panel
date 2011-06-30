@@ -55,6 +55,14 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabSQL = new System.Windows.Forms.TabPage();
+            this.label55 = new System.Windows.Forms.Label();
+            this.createDatabase = new System.Windows.Forms.Button();
+            this.label54 = new System.Windows.Forms.Label();
+            this.button22 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
+            this.textBoxSQLFile = new System.Windows.Forms.TextBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -309,7 +317,6 @@
             this.button18 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
-            this.DBsetup = new System.Windows.Forms.TabPage();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.connectToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -322,11 +329,6 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.textBoxSQLFile = new System.Windows.Forms.TextBox();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabSQL.SuspendLayout();
@@ -393,51 +395,51 @@
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // connectToolStripMenuItem
             // 
             this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-            this.connectToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.connectToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.connectToolStripMenuItem.Text = "Connect";
             this.connectToolStripMenuItem.Click += new System.EventHandler(this.button2_Click);
             // 
             // disconnectToolStripMenuItem
             // 
             this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
-            this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.disconnectToolStripMenuItem.Text = "Disconnect";
             this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.button3_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(192, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(197, 6);
             // 
             // saveLogonInformationToolStripMenuItem
             // 
             this.saveLogonInformationToolStripMenuItem.Name = "saveLogonInformationToolStripMenuItem";
-            this.saveLogonInformationToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.saveLogonInformationToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.saveLogonInformationToolStripMenuItem.Text = "Save logon information";
             this.saveLogonInformationToolStripMenuItem.Click += new System.EventHandler(this.saveLogonInformationToolStripMenuItem_Click);
             // 
             // loadLogonInformationToolStripMenuItem
             // 
             this.loadLogonInformationToolStripMenuItem.Name = "loadLogonInformationToolStripMenuItem";
-            this.loadLogonInformationToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.loadLogonInformationToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.loadLogonInformationToolStripMenuItem.Text = "Load logon information";
             this.loadLogonInformationToolStripMenuItem.Click += new System.EventHandler(this.loadLogonInformationToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(192, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(197, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -447,20 +449,20 @@
             this.recordQueriesDisabledToolStripMenuItem,
             this.openApplicationDataFolderToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.editToolStripMenuItem.Text = "Options";
             // 
             // recordQueriesDisabledToolStripMenuItem
             // 
             this.recordQueriesDisabledToolStripMenuItem.Name = "recordQueriesDisabledToolStripMenuItem";
-            this.recordQueriesDisabledToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.recordQueriesDisabledToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.recordQueriesDisabledToolStripMenuItem.Text = "Record queries (Disabled)";
             this.recordQueriesDisabledToolStripMenuItem.Click += new System.EventHandler(this.recordQueriesDisabledToolStripMenuItem_Click);
             // 
             // openApplicationDataFolderToolStripMenuItem
             // 
             this.openApplicationDataFolderToolStripMenuItem.Name = "openApplicationDataFolderToolStripMenuItem";
-            this.openApplicationDataFolderToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.openApplicationDataFolderToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.openApplicationDataFolderToolStripMenuItem.Text = "Open application data folder";
             this.openApplicationDataFolderToolStripMenuItem.Click += new System.EventHandler(this.openApplicationDataFolderToolStripMenuItem_Click);
             // 
@@ -471,25 +473,25 @@
             this.toolStripSeparator2,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.helpToolStripMenuItem1.Text = "Help!";
             this.helpToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(111, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(104, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -497,7 +499,7 @@
             // 
             this.toolStripMenuItem1.Enabled = false;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(124, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(138, 20);
             this.toolStripMenuItem1.Text = "Disconnected from DB";
             // 
             // tabControl1
@@ -516,7 +518,6 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.DBsetup);
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
@@ -526,6 +527,9 @@
             // 
             // tabSQL
             // 
+            this.tabSQL.Controls.Add(this.label55);
+            this.tabSQL.Controls.Add(this.createDatabase);
+            this.tabSQL.Controls.Add(this.label54);
             this.tabSQL.Controls.Add(this.button22);
             this.tabSQL.Controls.Add(this.button21);
             this.tabSQL.Controls.Add(this.textBoxSQLFile);
@@ -544,9 +548,82 @@
             this.tabSQL.Text = "SQL Settings";
             this.tabSQL.UseVisualStyleBackColor = true;
             // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(8, 244);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(257, 13);
+            this.label55.TabIndex = 16;
+            this.label55.Text = "Create the database if you have not already done so.";
+            // 
+            // createDatabase
+            // 
+            this.createDatabase.Location = new System.Drawing.Point(11, 260);
+            this.createDatabase.Name = "createDatabase";
+            this.createDatabase.Size = new System.Drawing.Size(75, 43);
+            this.createDatabase.TabIndex = 15;
+            this.createDatabase.Text = "Create Database";
+            this.createDatabase.UseVisualStyleBackColor = true;
+            this.createDatabase.Click += new System.EventHandler(this.createDatabase_Click);
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(8, 62);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(216, 13);
+            this.label54.TabIndex = 7;
+            this.label54.Text = "Please enter your Database information here";
+            // 
+            // button22
+            // 
+            this.button22.Location = new System.Drawing.Point(398, 134);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(75, 23);
+            this.button22.TabIndex = 14;
+            this.button22.Text = "Open Sql File";
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click_1);
+            // 
+            // button21
+            // 
+            this.button21.Location = new System.Drawing.Point(398, 163);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(75, 23);
+            this.button21.TabIndex = 13;
+            this.button21.Text = "Run Sql file";
+            this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.button21_Click_1);
+            // 
+            // textBoxSQLFile
+            // 
+            this.textBoxSQLFile.Location = new System.Drawing.Point(204, 137);
+            this.textBoxSQLFile.Name = "textBoxSQLFile";
+            this.textBoxSQLFile.Size = new System.Drawing.Size(188, 20);
+            this.textBoxSQLFile.TabIndex = 12;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(201, 121);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(71, 13);
+            this.label53.TabIndex = 11;
+            this.label53.Text = "SQL File here";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(201, 104);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(303, 13);
+            this.label52.TabIndex = 10;
+            this.label52.Text = "Please use evemu_setup_database.sql to setup your database";
+            // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(605, 492);
+            this.button5.Location = new System.Drawing.Point(484, 221);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(185, 23);
             this.button5.TabIndex = 9;
@@ -580,7 +657,7 @@
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(197, 37);
+            this.groupBox2.Location = new System.Drawing.Point(510, 62);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(130, 153);
             this.groupBox2.TabIndex = 6;
@@ -630,7 +707,7 @@
             this.groupBox1.Controls.Add(this.username);
             this.groupBox1.Controls.Add(this.hostTextBox);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(6, 37);
+            this.groupBox1.Location = new System.Drawing.Point(6, 78);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(185, 153);
             this.groupBox1.TabIndex = 5;
@@ -2930,16 +3007,6 @@
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
-            // DBsetup
-            // 
-            this.DBsetup.Location = new System.Drawing.Point(4, 40);
-            this.DBsetup.Name = "DBsetup";
-            this.DBsetup.Padding = new System.Windows.Forms.Padding(3);
-            this.DBsetup.Size = new System.Drawing.Size(796, 521);
-            this.DBsetup.TabIndex = 15;
-            this.DBsetup.Text = "tabPage7";
-            this.DBsetup.UseVisualStyleBackColor = true;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -3007,49 +3074,6 @@
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
-            // button22
-            // 
-            this.button22.Location = new System.Drawing.Point(300, 322);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(75, 23);
-            this.button22.TabIndex = 14;
-            this.button22.Text = "Open Sql File";
-            this.button22.UseVisualStyleBackColor = true;
-            // 
-            // button21
-            // 
-            this.button21.Location = new System.Drawing.Point(300, 361);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(75, 23);
-            this.button21.TabIndex = 13;
-            this.button21.Text = "Run Sql file";
-            this.button21.UseVisualStyleBackColor = true;
-            // 
-            // textBoxSQLFile
-            // 
-            this.textBoxSQLFile.Location = new System.Drawing.Point(102, 325);
-            this.textBoxSQLFile.Name = "textBoxSQLFile";
-            this.textBoxSQLFile.Size = new System.Drawing.Size(188, 20);
-            this.textBoxSQLFile.TabIndex = 12;
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(8, 332);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(71, 13);
-            this.label53.TabIndex = 11;
-            this.label53.Text = "SQL File here";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(8, 286);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(303, 13);
-            this.label52.TabIndex = 10;
-            this.label52.Text = "Please use evemu_setup_database.sql to setup your database";
-            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3061,7 +3085,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "main";
-            this.Text = "EvEMU DB Editor";
+            this.Text = "EveMu Control Panel";
             this.Load += new System.EventHandler(this.main_Load);
             this.ResizeEnd += new System.EventHandler(this.main_ResizeEnd);
             this.menuStrip1.ResumeLayout(false);
@@ -3418,13 +3442,15 @@
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.TextBox servworkDir;
-        private System.Windows.Forms.TabPage DBsetup;
-        private System.Windows.Forms.OpenFileDialog openFileDialog2;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.TextBox textBoxSQLFile;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Button createDatabase;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.OpenFileDialog openFileDialog2;
     }
 }
 

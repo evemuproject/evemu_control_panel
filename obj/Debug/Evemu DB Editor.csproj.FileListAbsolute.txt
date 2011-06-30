@@ -18,3 +18,37 @@ C:\Documents and Settings\skelly\Desktop\evemudbeditor\obj\Debug\Evemu DB Editor
 C:\Documents and Settings\skelly\My Documents\evemu_control_panel\bin\Debug\Evemu DB Editor.exe.config
 C:\Documents and Settings\skelly\My Documents\evemu_control_panel\obj\Debug\Evemu DB Editor.exe
 C:\Documents and Settings\skelly\My Documents\evemu_control_panel\obj\Debug\Evemu DB Editor.pdb
+D:\evemu_control_panel_murdock\bin\Debug\Evemu DB Editor.exe.config
+D:\evemu_control_panel_murdock\obj\Debug\Evemu DB Editor.exe
+D:\evemu_control_panel_murdock\obj\Debug\Evemu DB Editor.pdb
+D:\evemu_control_panel_murdock\bin\Debug\MySql.Data.dll
+D:\evemu_control_panel_murdock\bin\Debug\Evemu DB Editor.exe
+D:\evemu_control_panel_murdock\bin\Debug\Evemu DB Editor.pdb
+D:\evemu_control_panel_murdock\obj\Debug\ResolveAssemblyReference.cache
+D:\evemu_control_panel_murdock\obj\Debug\Evemu_DB_Editor.acctEdit.resources
+D:\evemu_control_panel_murdock\obj\Debug\Evemu_DB_Editor.information.resources
+D:\evemu_control_panel_murdock\obj\Debug\Evemu_DB_Editor.itemAddEdit.resources
+D:\evemu_control_panel_murdock\obj\Debug\Evemu_DB_Editor.main.resources
+D:\evemu_control_panel_murdock\obj\Debug\Evemu_DB_Editor.Properties.Resources.resources
+D:\evemu_control_panel_murdock\obj\Debug\Evemu_DB_Editor.AddModifyStartingSkill.resources
+D:\evemu_control_panel_murdock\obj\Debug\Evemu_DB_Editor.editCharacterSkill.resources
+D:\evemu_control_panel_murdock\obj\Debug\Evemu_DB_Editor.EditOre.resources
+D:\evemu_control_panel_murdock\obj\Debug\GenerateResource.read.1.tlog
+D:\evemu_control_panel_murdock\obj\Debug\GenerateResource.write.1.tlog
+F:\evemu\evemu_control_panel\bin\Debug\Evemu DB Editor.exe.config
+F:\evemu\evemu_control_panel\obj\Debug\Evemu DB Editor.exe
+F:\evemu\evemu_control_panel\obj\Debug\Evemu DB Editor.pdb
+F:\evemu\evemu_control_panel\bin\Debug\MySql.Data.dll
+F:\evemu\evemu_control_panel\bin\Debug\Evemu DB Editor.exe
+F:\evemu\evemu_control_panel\bin\Debug\Evemu DB Editor.pdb
+F:\evemu\evemu_control_panel\obj\Debug\ResolveAssemblyReference.cache
+F:\evemu\evemu_control_panel\obj\Debug\Evemu_DB_Editor.acctEdit.resources
+F:\evemu\evemu_control_panel\obj\Debug\Evemu_DB_Editor.information.resources
+F:\evemu\evemu_control_panel\obj\Debug\Evemu_DB_Editor.itemAddEdit.resources
+F:\evemu\evemu_control_panel\obj\Debug\Evemu_DB_Editor.main.resources
+F:\evemu\evemu_control_panel\obj\Debug\Evemu_DB_Editor.Properties.Resources.resources
+F:\evemu\evemu_control_panel\obj\Debug\Evemu_DB_Editor.AddModifyStartingSkill.resources
+F:\evemu\evemu_control_panel\obj\Debug\Evemu_DB_Editor.editCharacterSkill.resources
+F:\evemu\evemu_control_panel\obj\Debug\Evemu_DB_Editor.EditOre.resources
+F:\evemu\evemu_control_panel\obj\Debug\GenerateResource.read.1.tlog
+F:\evemu\evemu_control_panel\obj\Debug\GenerateResource.write.1.tlog

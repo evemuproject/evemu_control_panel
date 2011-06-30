@@ -17,6 +17,7 @@ using System.Globalization;
 using System.IO;
 using System.Xml;
 using StuffArchiver;
+using System.Threading;
 
 namespace Evemu_DB_Editor
 {
@@ -133,9 +134,9 @@ namespace Evemu_DB_Editor
             return sb.ToString();
         }
 
-        
+
         string query = "";
-        
+
         bool suc;
         private void addAccount_Click(object sender, EventArgs e)
         {
@@ -370,7 +371,7 @@ namespace Evemu_DB_Editor
                 LogonData = "Hostname=" + hostTextBox.Text + "\r\nUsername=" + username.Text + "\r\nPassword=" + password.Text + "\r\nPort=" + portBox.Text + "\r\nDatabase=" + database.Text;
                 f.Write(LogonData);
                 f.Close();
-                System.IO.File.Copy(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\" + hostTextBox.Text + ".ini", Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\EvemuDBEditor.ini",true);
+                System.IO.File.Copy(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\" + hostTextBox.Text + ".ini", Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\EvemuDBEditor.ini", true);
                 MessageBox.Show("Logon data saved to: " + Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\" + hostTextBox.Text + ".ini and has been set as default.");
             }
             catch (Exception ex)
@@ -411,7 +412,7 @@ namespace Evemu_DB_Editor
                     }
                 }
                 f.Close();
-                button2_Click(null,null);
+                button2_Click(null, null);
             }
         }
 
@@ -777,9 +778,9 @@ namespace Evemu_DB_Editor
             {
                 Selectedgroups = "''";
             }
-            
+
             // Create Selected Systems for SQL query:
-            CultureInfo culture = new CultureInfo("en-US"); 
+            CultureInfo culture = new CultureInfo("en-US");
             string Selectedsystems = "";
             long fullIndex = 0;
             float index = 0;
@@ -1208,7 +1209,7 @@ namespace Evemu_DB_Editor
             marketGroupsTree.Nodes.Clear();
             foreach (DataRow record in SelectSQL("SELECT marketGroupID, marketGroupName FROM invMarketGroups WHERE parentGroupID IS NULL").Rows)
             {
-                marketGroupsTree.Nodes.Add("", record[1].ToString(), record[0].ToString());                
+                marketGroupsTree.Nodes.Add("", record[1].ToString(), record[0].ToString());
             }
         }
 
@@ -1230,14 +1231,14 @@ namespace Evemu_DB_Editor
                     }
                 }
             }
-                        
-            switch (marketGroupsTree.SelectedNode.Level.ToString())                   
+
+            switch (marketGroupsTree.SelectedNode.Level.ToString())
             {
                 case "0":
                     marketGroupsTree.Nodes[marketGroupsTree.SelectedNode.Index].Nodes.Clear();
                     foreach (DataRow record in SelectSQL("SELECT marketGroupID, marketGroupName FROM invMarketGroups WHERE parentGroupID IN (SELECT marketGroupID FROM invMarketGroups where marketGroupID = '" + marketGroupsTree.SelectedNode.ImageKey.ToString() + "')").Rows)
                     {
-                        marketGroupsTree.Nodes[marketGroupsTree.SelectedNode.Index].Nodes.Add("", record[1].ToString(), record[0].ToString());   
+                        marketGroupsTree.Nodes[marketGroupsTree.SelectedNode.Index].Nodes.Add("", record[1].ToString(), record[0].ToString());
                     }
                     marketGroupsTree.SelectedNode.Expand();
                     break;
@@ -1270,11 +1271,11 @@ namespace Evemu_DB_Editor
 
         private void renameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string value = marketGroupsTree.SelectedNode.Text;            
+            string value = marketGroupsTree.SelectedNode.Text;
             if (inputBox("Rename Market Group", "Please input a new market name.", ref value) == DialogResult.OK)
-            {                
+            {
                 InsertSQL("UPDATE invMarketGroups SET marketGroupName = '" + value + "' WHERE marketGroupID = " + marketGroupsTree.SelectedNode.ImageKey.ToString());
-            }            
+            }
             tabPage1_Enter(null, null);
         }
 
@@ -1289,19 +1290,19 @@ namespace Evemu_DB_Editor
             int newid = 0;
             foreach (DataRow record in SelectSQL("SELECT MAX(marketGroupID) FROM invMarketGroups").Rows)
             {
-               newid =   Convert.ToInt32(record[0].ToString()) + 1;
-            }            
+                newid = Convert.ToInt32(record[0].ToString()) + 1;
+            }
             InsertSQL("INSERT INTO invMarketGroups (marketGroupID, parentGroupID, marketGroupName) VALUES (" + newid + ", " + marketGroupsTree.SelectedNode.ImageKey.ToString() + ", '" + newName + "')");
             tabPage1_Enter(null, null);
         }
 
         private void deleteMarketGroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult confirmDelete = MessageBox.Show("Are you sure you want to delete " + marketGroupsTree.SelectedNode.Text + "?" , "Confirm delete", MessageBoxButtons.YesNo);
+            DialogResult confirmDelete = MessageBox.Show("Are you sure you want to delete " + marketGroupsTree.SelectedNode.Text + "?", "Confirm delete", MessageBoxButtons.YesNo);
             if (confirmDelete == DialogResult.Yes)
             {
-            InsertSQL("DELETE FROM invMarketGroups WHERE marketGroupID = " + marketGroupsTree.SelectedNode.ImageKey.ToString());
-            tabPage1_Enter(null, null);
+                InsertSQL("DELETE FROM invMarketGroups WHERE marketGroupID = " + marketGroupsTree.SelectedNode.ImageKey.ToString());
+                tabPage1_Enter(null, null);
             }
         }
 
@@ -1466,7 +1467,7 @@ namespace Evemu_DB_Editor
         private void button11_Click(object sender, EventArgs e)
         {
             folderBrowserDialog1.ShowDialog();
-            workDir.Text = folderBrowserDialog1.SelectedPath; 
+            workDir.Text = folderBrowserDialog1.SelectedPath;
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -1546,7 +1547,7 @@ namespace Evemu_DB_Editor
                         s.Archive(@StuffDir, @destDir.Text + @"\" + Path.GetFileName(StuffDir) + ".stuff");
                     }
                 }
-            progressBar1.Value++;            
+                progressBar1.Value++;
             }
             progress.Text = "Idle";
         }
@@ -1592,11 +1593,11 @@ namespace Evemu_DB_Editor
 
         private void models_DoubleClick(object sender, EventArgs e)
         {
-             foreach (ListViewItem selectedRed in models.SelectedItems)
+            foreach (ListViewItem selectedRed in models.SelectedItems)
             {
                 Process.Start("notepad.exe", selectedRed.SubItems[1].Text);
             }
-            
+
         }
 
         private void models_SelectedIndexChanged(object sender, EventArgs e)
@@ -1637,8 +1638,8 @@ namespace Evemu_DB_Editor
 
         private void button16_Click(object sender, EventArgs e)
         {
-            
-          
+
+
             Process process = new Process();
             process.StartInfo.UseShellExecute = true;
             process.StartInfo.RedirectStandardOutput = false;
@@ -1647,7 +1648,7 @@ namespace Evemu_DB_Editor
             process.StartInfo.FileName = serverDir.Text;
             process.StartInfo.WorkingDirectory = servworkDir.Text;
             process.Start();
-        
+
         }
 
         private void button17_Click(object sender, EventArgs e)
@@ -1695,10 +1696,10 @@ namespace Evemu_DB_Editor
             process.StartInfo.CreateNoWindow = false;
             process.StartInfo.FileName = serverDir.Text;
             process.StartInfo.WorkingDirectory = servworkDir.Text;
-            process.Start();         
+            process.Start();
         }
 
-        
+
         private void button20_Click_1(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
@@ -1707,85 +1708,105 @@ namespace Evemu_DB_Editor
             }
         }
 
-        private void button22_Click(object sender, EventArgs e)
+      
+
+
+
+        public class logSystem
+        {
+            public void logAdd(string logText)
+            {
+                DateTime time = DateTime.Now;
+                string sec = time.Second.ToString();
+                string min = time.Minute.ToString();
+                string hour = time.Hour.ToString();
+                string day = time.Day.ToString();
+                string month = time.Month.ToString();
+                string year = time.Year.ToString();
+
+                if (int.Parse(sec) < 10)
+                {
+                    sec = "0" + sec;
+                }
+
+                if (int.Parse(min) < 10)
+                {
+                    min = "0" + min;
+                }
+
+                if (int.Parse(hour) < 10)
+                {
+                    hour = "0" + hour;
+                }
+                if (!System.IO.Directory.Exists(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\"))
+                {
+                    System.IO.Directory.CreateDirectory(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\");
+                }
+                // Just a test, even though i think CreateDirectory checks if the directory is there anyways...
+                //System.IO.Directory.CreateDirectory(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\");
+
+                System.IO.FileInfo fi = new System.IO.FileInfo(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\log.log");
+                System.IO.StreamWriter logAppend = fi.AppendText();
+                string logInfo = "[Log][" + day + "/" + month + "/" + year + " :: " + hour + ":" + min + ":" + sec + "]: \"" + logText + "\"\n";
+                logAppend.WriteLine(logInfo);
+                logAppend.Close();
+            }
+        }
+
+        private void button21_Click_1(object sender, EventArgs e)
+        {
+                                  
+                string sqlStr = "";    
+                StreamReader reader = new StreamReader(textBoxSQLFile.Text);
+                sqlStr = reader.ReadToEnd();
+                conn = new MySqlConnection();
+                conn.ConnectionString = Program.m.connection;
+                query = sqlStr;
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Database Populated.");
+        }
+
+        private void button22_Click_1(object sender, EventArgs e)
         {
             if (openFileDialog2.ShowDialog() == DialogResult.OK)
             {
-                textBoxSQLFile.Text = openFileDialog2.FileName;
+                textBoxSQLFile.Text = openFileDialog2.FileName; 
+            }
+            
+        }
+
+        private void createDatabase_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               
+                ProcessStartInfo psi = new ProcessStartInfo();
+                psi.FileName = "mysql";
+                psi.RedirectStandardInput = true;
+                psi.RedirectStandardOutput = false;
+                psi.Arguments = string.Format(@"-u{0} -p{1} -h{2}",
+                    username, password, hostTextBox);
+                psi.Arguments = string.Format("create" , @"{0}",
+                    "database", database);
+                psi.UseShellExecute = false;
+
+
+                Process process = Process.Start(psi);
+                process.StandardInput.Close();
+                process.WaitForExit();
+                process.Close();
+            }
+            catch (IOException )
+            {
+                MessageBox.Show("Error , Failed to create database.!");
             }
         }
 
-        private void button21_Click(object sender, EventArgs e)
-        {
-           try
-    {
-        //Read file from C:\
-        string path;
-        path = textBoxSQLFile.Text;
-        StreamReader file = new StreamReader(path);
-        string input = file.ReadToEnd();
-        file.Close();
-
-        ProcessStartInfo psi = new ProcessStartInfo();
-        psi.FileName = "mysql";
-        psi.RedirectStandardInput = true;
-        psi.RedirectStandardOutput = false;
-        psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}", 
-			username, password, hostTextBox, database);
-        psi.UseShellExecute = false;
+       
 
         
-        Process process = Process.Start(psi);
-        process.StandardInput.WriteLine(input);
-        process.StandardInput.Close();
-        process.WaitForExit();
-        process.Close();
-    }
-    catch (IOException ex)
-    {
-        MessageBox.Show("Error , unable to Restore!");
-    }
-
-    }
-
-    public class logSystem
-    {
-        public void logAdd(string logText)
-        {
-            DateTime time = DateTime.Now;
-            string sec = time.Second.ToString();
-            string min = time.Minute.ToString();
-            string hour = time.Hour.ToString();
-            string day = time.Day.ToString();
-            string month = time.Month.ToString();
-            string year = time.Year.ToString();
-
-            if (int.Parse(sec) < 10)
-            {
-                sec = "0" + sec;
-            }
-
-            if (int.Parse(min) < 10)
-            {
-                min = "0" + min;
-            }
-
-            if (int.Parse(hour) < 10)
-            {
-                hour = "0" + hour;
-            }
-            if (!System.IO.Directory.Exists(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\"))
-            {
-                System.IO.Directory.CreateDirectory(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\");
-            }
-            // Just a test, even though i think CreateDirectory checks if the directory is there anyways...
-            //System.IO.Directory.CreateDirectory(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\");
-
-            System.IO.FileInfo fi = new System.IO.FileInfo(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\log.log");
-            System.IO.StreamWriter logAppend = fi.AppendText();
-            string logInfo = "[Log][" + day + "/" + month + "/" + year + " :: " + hour + ":" + min + ":" + sec + "]: \"" + logText + "\"\n";
-            logAppend.WriteLine(logInfo);
-            logAppend.Close();
-        }
     }
 }
+
