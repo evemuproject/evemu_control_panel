@@ -41,6 +41,14 @@ namespace Evemu_DB_Editor
                 marketGroupID.Text = record["marketGroupID"].ToString();
                 chanceOfDuplicating.Text = record["chanceOfDuplicating"].ToString();
 
+                //Populate the Group ComboBox
+                int groupIndex = groupSelector.FindString(groupID.Text + " -");
+                groupSelector.SelectedIndex = groupIndex;
+
+                //Populate the MarketGroup ComboBox
+                int marketIndex = marketGroupSelector.FindString(marketGroupID.Text + " -");
+                marketGroupSelector.SelectedIndex = marketIndex;
+                
                 itemAddEdit.ActiveForm.Text = typeName.Text;                
             }
 
