@@ -189,7 +189,7 @@ namespace Evemu_DB_Editor
                     acctrole = "2";
                 }
 
-                query = "INSERT INTO account (accountName, password, role) VALUES ('" + newUsername.Text + "', '" + CalculateMD5Hash(newPassword.Text) + "', '" + acctrole + "')";
+                query = "INSERT INTO account (accountName, password, role) VALUES ('" + newUsername.Text + "', '" + newPassword.Text + "', '" + acctrole + "')";
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
 
@@ -225,12 +225,28 @@ namespace Evemu_DB_Editor
 
                 if (suc == true)
                 {
+                    newUsername.Clear();
+                    newPassword.Clear();
+                    newAcctLevel.SelectedIndex = -1;
+                    populateAccountList();
                     MessageBox.Show("Account Created!");
                 }
             }
             else
             {
                 MessageBox.Show("Please make sure all the fields are filled in.");
+            }
+        }
+
+        private void populateAccountList()
+        {
+            accountList.Items.Clear();
+            string query = "SELECT * FROM account";
+            foreach (DataRow record in SelectSQL(query).Rows)
+            {
+                string[] list = { record[0].ToString(), record[1].ToString() };
+                ListViewItem item = new ListViewItem(list);
+                accountList.Items.Add(item);
             }
         }
 
@@ -1105,8 +1121,10 @@ namespace Evemu_DB_Editor
             {
                 characterID.Text = record[0].ToString();
             }
-            listView1.Items.Clear();
+            /*
+            accountList.Items.Clear();
             string query = "SELECT * FROM account WHERE(accountName like \'" + textBox1.Text + "%\')";
+             */
             characterSkills.Items.Clear();
             foreach (DataRow record in SelectSQL("SELECT typeID, itemName, itemID AS currentitemID, (SELECT valueInt FROM entity_attributes WHERE itemID = currentitemID AND attributeid = 280) AS level, (SELECT valueInt FROM entity_attributes WHERE itemID = currentitemID AND attributeid = 276) AS skillpoints FROM entity WHERE flag = 7 AND ownerid = " + characterID.Text).Rows)
             {
@@ -1118,19 +1136,18 @@ namespace Evemu_DB_Editor
                 ListViewItem temp2 = new ListViewItem(temp);
                 characterSkills.Items.Add(temp2);
             }
+            
         }
 
         private void tabAccount_Enter(object sender, EventArgs e)
         {
+            characterName.Items.Clear();
             foreach (DataRow record in SelectSQL("SELECT itemName FROM entity WHERE flag = 57 ORDER BY itemName").Rows)
             {
                 characterName.Items.Add(record[0].ToString());
-            }/*
+            }
 
-            foreach (DataRow record in SelectSQL("SELECT accountName from account order by accountName").Rows)
-            {
-                accountName.Items.Add(record[0].ToString());
-            }*/
+            populateAccountList();
         }
 
         private void addToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1183,32 +1200,32 @@ namespace Evemu_DB_Editor
         {
             if (textBox1.Text.Length != 0)
             {
-                listView1.Items.Clear();
+                accountList.Items.Clear();
                 string query = "SELECT * FROM account WHERE(accountName like \'" + textBox1.Text + "%\')";
                 foreach (DataRow record in SelectSQL(query).Rows)
                 {
                     string[] list = { record[0].ToString(), record[1].ToString() };
                     ListViewItem item = new ListViewItem(list);
-                    listView1.Items.Add(item);
+                    accountList.Items.Add(item);
                 }
             }
             else
             {
-                listView1.Items.Clear();
+                accountList.Items.Clear();
             }
         }
 
         private void deleteAccountToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(listView1.SelectedItems[0].Text))
+            if (String.IsNullOrEmpty(accountList.SelectedItems[0].Text))
             {
                 MessageBox.Show("Please right click an account.");
             }
             else
             {
-                if (MessageBox.Show("Are you sure you want to delete the account: " + listView1.SelectedItems[0].SubItems[1].Text + "?", "Delete?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to delete the account: " + accountList.SelectedItems[0].SubItems[1].Text + "?", "Delete?", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    InsertSQL("DELETE FROM account WHERE accountID=" + listView1.SelectedItems[0].SubItems[0].Text);
+                    InsertSQL("DELETE FROM account WHERE accountID=" + accountList.SelectedItems[0].SubItems[0].Text);
                     textBox1_TextChanged(null, null);
                 }
             }
@@ -1218,7 +1235,7 @@ namespace Evemu_DB_Editor
         {
             acctEdit acc = new acctEdit();
             acc.Show();
-            ListViewItem item = listView1.SelectedItems[0];
+            ListViewItem item = accountList.SelectedItems[0];
             acc.GetAccountInfo(item.SubItems[0].Text);
             acc.userID.Text = item.SubItems[0].Text;
         }

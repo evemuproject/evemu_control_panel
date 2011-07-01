@@ -99,7 +99,7 @@
             this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.accountList = new System.Windows.Forms.ListView();
             this.columnHeader27 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader28 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -811,7 +811,7 @@
             this.tabAccount.Controls.Add(this.characterName);
             this.tabAccount.Controls.Add(this.label15);
             this.tabAccount.Controls.Add(this.characterSkills);
-            this.tabAccount.Controls.Add(this.listView1);
+            this.tabAccount.Controls.Add(this.accountList);
             this.tabAccount.Controls.Add(this.label14);
             this.tabAccount.Controls.Add(this.label21);
             this.tabAccount.Controls.Add(this.newAcctLevel);
@@ -972,23 +972,23 @@
             this.editToolStripMenuItem1.Text = "Edit";
             this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
             // 
-            // listView1
+            // accountList
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.accountList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader27,
             this.columnHeader28});
-            this.listView1.ContextMenuStrip = this.contextMenuStrip2;
-            this.listView1.FullRowSelect = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            this.accountList.ContextMenuStrip = this.contextMenuStrip2;
+            this.accountList.FullRowSelect = true;
+            this.accountList.HideSelection = false;
+            this.accountList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.listView1.Location = new System.Drawing.Point(17, 100);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(203, 259);
-            this.listView1.TabIndex = 9;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.accountList.Location = new System.Drawing.Point(17, 100);
+            this.accountList.MultiSelect = false;
+            this.accountList.Name = "accountList";
+            this.accountList.Size = new System.Drawing.Size(203, 259);
+            this.accountList.TabIndex = 9;
+            this.accountList.UseCompatibleStateImageBehavior = false;
+            this.accountList.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader27
             // 
@@ -3332,7 +3332,7 @@
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem openApplicationDataFolderToolStripMenuItem;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView accountList;
         private System.Windows.Forms.ColumnHeader columnHeader27;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBox1;
