@@ -72,13 +72,13 @@
             this.connectionStatusLbl = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.database = new System.Windows.Forms.TextBox();
+            this.dbNameTxtBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.portBox = new System.Windows.Forms.TextBox();
-            this.password = new System.Windows.Forms.TextBox();
-            this.username = new System.Windows.Forms.TextBox();
+            this.portTxtBox = new System.Windows.Forms.TextBox();
+            this.passwordTxtBox = new System.Windows.Forms.TextBox();
+            this.usernameTxtBox = new System.Windows.Forms.TextBox();
             this.hostTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabAccount = new System.Windows.Forms.TabPage();
@@ -87,11 +87,11 @@
             this.label39 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.characterID = new System.Windows.Forms.TextBox();
+            this.characterIDTxtBox = new System.Windows.Forms.TextBox();
             this.addAccountBtn = new System.Windows.Forms.Button();
-            this.characterName = new System.Windows.Forms.ComboBox();
+            this.characterNameDropDown = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.characterSkills = new System.Windows.Forms.ListView();
+            this.characterSkillsList = new System.Windows.Forms.ListView();
             this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -116,10 +116,10 @@
             this.newUsername = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.tabItem = new System.Windows.Forms.TabPage();
+            this.tabItemEditor = new System.Windows.Forms.TabPage();
             this.label35 = new System.Windows.Forms.Label();
-            this.SearchCriterium = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.searchItemTxtBox = new System.Windows.Forms.TextBox();
+            this.searchItem = new System.Windows.Forms.Button();
             this.ItemList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -127,61 +127,59 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextItemEdit = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.todoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyItemRClkBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteItemRClkBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.editItemRClkBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.label11 = new System.Windows.Forms.Label();
             this.CategoryDropdown = new System.Windows.Forms.ComboBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.editItemBtn = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.itemID = new System.Windows.Forms.TextBox();
             this.tabInsure = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.goBtn = new System.Windows.Forms.Button();
+            this.percentTxtBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.insuranceProgressBar = new System.Windows.Forms.ProgressBar();
             this.raceTab = new System.Windows.Forms.TabPage();
             this.ancestryDetails = new System.Windows.Forms.GroupBox();
-            this.ancestryName = new System.Windows.Forms.TextBox();
+            this.ancestryNameTxtBox = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.ancestryDropdown = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
             this.careerDropdown = new System.Windows.Forms.ComboBox();
-            this.SaveChanges = new System.Windows.Forms.Button();
+            this.saveRaceChangesBtn = new System.Windows.Forms.Button();
             this.bloodlineStartingStats = new System.Windows.Forms.GroupBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.ancestryWillpower = new System.Windows.Forms.TextBox();
-            this.ancestryMemory = new System.Windows.Forms.TextBox();
-            this.ancestryIntelligence = new System.Windows.Forms.TextBox();
-            this.ancestryCharisma = new System.Windows.Forms.TextBox();
-            this.ancestryPerception = new System.Windows.Forms.TextBox();
+            this.ancestryWillpowerTxtBox = new System.Windows.Forms.TextBox();
+            this.ancestryMemoryTxtBox = new System.Windows.Forms.TextBox();
+            this.ancestryIntelligenceTxtBox = new System.Windows.Forms.TextBox();
+            this.ancestryCharismaTxtBox = new System.Windows.Forms.TextBox();
+            this.ancestryPerceptionTxtBox = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.startingcorporation = new System.Windows.Forms.TextBox();
+            this.startingCorporationTxtBox = new System.Windows.Forms.TextBox();
             this.Label4411 = new System.Windows.Forms.Label();
-            this.startingship = new System.Windows.Forms.TextBox();
+            this.startingShipTypeTxtBox = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.bloodlineWillpower = new System.Windows.Forms.TextBox();
+            this.bloodlineWillpowerTxtBox = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.bloodlineMemory = new System.Windows.Forms.TextBox();
+            this.bloodlineMemoryTxtBox = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.bloodlineIntelligence = new System.Windows.Forms.TextBox();
+            this.bloodlineIntelligenceTxtBox = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.bloodlineCharisma = new System.Windows.Forms.TextBox();
+            this.bloodlineCharismaTxtBox = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.bloodlinePerception = new System.Windows.Forms.TextBox();
+            this.bloodlinePerceptionTxtBox = new System.Windows.Forms.TextBox();
             this.bloodlineDetails = new System.Windows.Forms.GroupBox();
-            this.bloodlineName = new System.Windows.Forms.TextBox();
+            this.bloodlineNameTxtBox = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.raceDetails = new System.Windows.Forms.GroupBox();
-            this.raceName = new System.Windows.Forms.TextBox();
-            this.raceDescription = new System.Windows.Forms.TextBox();
-            this.raceDescriptionShort = new System.Windows.Forms.TextBox();
+            this.raceNameTxtBox = new System.Windows.Forms.TextBox();
+            this.raceDescriptionTxtBox = new System.Windows.Forms.TextBox();
+            this.raceDescriptionShortTxtBox = new System.Windows.Forms.TextBox();
             this.startingSkills = new System.Windows.Forms.ListView();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -200,7 +198,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.marketSecurityTxtBox = new System.Windows.Forms.TextBox();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.label47 = new System.Windows.Forms.Label();
@@ -208,24 +206,24 @@
             this.label45 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.applyQueryToDBChkBox = new System.Windows.Forms.CheckBox();
+            this.queryMarketSeedTxtBox = new System.Windows.Forms.TextBox();
             this.Quantity = new System.Windows.Forms.Label();
-            this.marketQuantity = new System.Windows.Forms.TextBox();
-            this.SeedMarket = new System.Windows.Forms.Button();
-            this.marketGroups = new System.Windows.Forms.ListView();
+            this.marketQuantityTxtBox = new System.Windows.Forms.TextBox();
+            this.seedMarketBtn = new System.Windows.Forms.Button();
+            this.marketGroupsTxtBox = new System.Windows.Forms.ListView();
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.marketCategories = new System.Windows.Forms.ListView();
+            this.marketCategoriesTxtBox = new System.Windows.Forms.ListView();
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.marketSystems = new System.Windows.Forms.ListView();
+            this.marketSystemsTxtBox = new System.Windows.Forms.ListView();
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader29 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.marketRegions = new System.Windows.Forms.ListView();
+            this.marketRegionsTxtBox = new System.Windows.Forms.ListView();
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.marketRaces = new System.Windows.Forms.ListView();
+            this.marketRacesTxtBox = new System.Windows.Forms.ListView();
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label23 = new System.Windows.Forms.Label();
@@ -338,7 +336,7 @@
             this.tabAccount.SuspendLayout();
             this.characterSkillMenuStrip.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
-            this.tabItem.SuspendLayout();
+            this.tabItemEditor.SuspendLayout();
             this.contextItemEdit.SuspendLayout();
             this.tabInsure.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -510,7 +508,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.accountTab.Controls.Add(this.tabSQL);
             this.accountTab.Controls.Add(this.tabAccount);
-            this.accountTab.Controls.Add(this.tabItem);
+            this.accountTab.Controls.Add(this.tabItemEditor);
             this.accountTab.Controls.Add(this.tabInsure);
             this.accountTab.Controls.Add(this.raceTab);
             this.accountTab.Controls.Add(this.marketTab);
@@ -699,13 +697,13 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.database);
+            this.groupBox1.Controls.Add(this.dbNameTxtBox);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.portBox);
-            this.groupBox1.Controls.Add(this.password);
-            this.groupBox1.Controls.Add(this.username);
+            this.groupBox1.Controls.Add(this.portTxtBox);
+            this.groupBox1.Controls.Add(this.passwordTxtBox);
+            this.groupBox1.Controls.Add(this.usernameTxtBox);
             this.groupBox1.Controls.Add(this.hostTextBox);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(6, 78);
@@ -724,13 +722,13 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Database: ";
             // 
-            // database
+            // dbNameTxtBox
             // 
-            this.database.Location = new System.Drawing.Point(73, 123);
-            this.database.Name = "database";
-            this.database.Size = new System.Drawing.Size(100, 20);
-            this.database.TabIndex = 6;
-            this.database.Text = "evemu";
+            this.dbNameTxtBox.Location = new System.Drawing.Point(73, 123);
+            this.dbNameTxtBox.Name = "dbNameTxtBox";
+            this.dbNameTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.dbNameTxtBox.TabIndex = 6;
+            this.dbNameTxtBox.Text = "evemu";
             // 
             // label4
             // 
@@ -759,30 +757,30 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Host: ";
             // 
-            // portBox
+            // portTxtBox
             // 
-            this.portBox.Location = new System.Drawing.Point(73, 97);
-            this.portBox.Name = "portBox";
-            this.portBox.Size = new System.Drawing.Size(100, 20);
-            this.portBox.TabIndex = 5;
-            this.portBox.Text = "3306";
+            this.portTxtBox.Location = new System.Drawing.Point(73, 97);
+            this.portTxtBox.Name = "portTxtBox";
+            this.portTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.portTxtBox.TabIndex = 5;
+            this.portTxtBox.Text = "3306";
             // 
-            // password
+            // passwordTxtBox
             // 
-            this.password.Location = new System.Drawing.Point(73, 71);
-            this.password.Name = "password";
-            this.password.PasswordChar = '*';
-            this.password.Size = new System.Drawing.Size(100, 20);
-            this.password.TabIndex = 4;
-            this.password.Text = "root";
+            this.passwordTxtBox.Location = new System.Drawing.Point(73, 71);
+            this.passwordTxtBox.Name = "passwordTxtBox";
+            this.passwordTxtBox.PasswordChar = '*';
+            this.passwordTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.passwordTxtBox.TabIndex = 4;
+            this.passwordTxtBox.Text = "root";
             // 
-            // username
+            // usernameTxtBox
             // 
-            this.username.Location = new System.Drawing.Point(73, 45);
-            this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(100, 20);
-            this.username.TabIndex = 3;
-            this.username.Text = "root";
+            this.usernameTxtBox.Location = new System.Drawing.Point(73, 45);
+            this.usernameTxtBox.Name = "usernameTxtBox";
+            this.usernameTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.usernameTxtBox.TabIndex = 3;
+            this.usernameTxtBox.Text = "root";
             // 
             // hostTextBox
             // 
@@ -808,11 +806,11 @@
             this.tabAccount.Controls.Add(this.label39);
             this.tabAccount.Controls.Add(this.label36);
             this.tabAccount.Controls.Add(this.label19);
-            this.tabAccount.Controls.Add(this.characterID);
+            this.tabAccount.Controls.Add(this.characterIDTxtBox);
             this.tabAccount.Controls.Add(this.addAccountBtn);
-            this.tabAccount.Controls.Add(this.characterName);
+            this.tabAccount.Controls.Add(this.characterNameDropDown);
             this.tabAccount.Controls.Add(this.label15);
-            this.tabAccount.Controls.Add(this.characterSkills);
+            this.tabAccount.Controls.Add(this.characterSkillsList);
             this.tabAccount.Controls.Add(this.accountList);
             this.tabAccount.Controls.Add(this.label14);
             this.tabAccount.Controls.Add(this.label21);
@@ -879,13 +877,13 @@
             this.label19.TabIndex = 16;
             this.label19.Text = "New Account";
             // 
-            // characterID
+            // characterIDTxtBox
             // 
-            this.characterID.Location = new System.Drawing.Point(703, 71);
-            this.characterID.Name = "characterID";
-            this.characterID.ReadOnly = true;
-            this.characterID.Size = new System.Drawing.Size(111, 20);
-            this.characterID.TabIndex = 7;
+            this.characterIDTxtBox.Location = new System.Drawing.Point(703, 71);
+            this.characterIDTxtBox.Name = "characterIDTxtBox";
+            this.characterIDTxtBox.ReadOnly = true;
+            this.characterIDTxtBox.Size = new System.Drawing.Size(111, 20);
+            this.characterIDTxtBox.TabIndex = 7;
             // 
             // addAccountBtn
             // 
@@ -897,14 +895,15 @@
             this.addAccountBtn.UseVisualStyleBackColor = true;
             this.addAccountBtn.Click += new System.EventHandler(this.addAccountBtn_Click);
             // 
-            // characterName
+            // characterNameDropDown
             // 
-            this.characterName.FormattingEnabled = true;
-            this.characterName.Location = new System.Drawing.Point(540, 71);
-            this.characterName.Name = "characterName";
-            this.characterName.Size = new System.Drawing.Size(119, 21);
-            this.characterName.TabIndex = 6;
-            this.characterName.SelectedIndexChanged += new System.EventHandler(this.characterName_SelectedIndexChanged);
+            this.characterNameDropDown.FormattingEnabled = true;
+            this.characterNameDropDown.Location = new System.Drawing.Point(540, 71);
+            this.characterNameDropDown.Name = "characterNameDropDown";
+            this.characterNameDropDown.Size = new System.Drawing.Size(119, 21);
+            this.characterNameDropDown.TabIndex = 6;
+            this.characterNameDropDown.DropDown += new System.EventHandler(this.characterNameDropDown_DropDown);
+            this.characterNameDropDown.SelectedIndexChanged += new System.EventHandler(this.characterNameDropDown_SelectedIndexChanged);
             // 
             // label15
             // 
@@ -915,23 +914,23 @@
             this.label15.TabIndex = 5;
             this.label15.Text = "Acct Level:";
             // 
-            // characterSkills
+            // characterSkillsList
             // 
-            this.characterSkills.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.characterSkillsList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader23,
             this.columnHeader24,
             this.columnHeader25,
             this.columnHeader26});
-            this.characterSkills.ContextMenuStrip = this.characterSkillMenuStrip;
-            this.characterSkills.FullRowSelect = true;
-            this.characterSkills.HideSelection = false;
-            this.characterSkills.Location = new System.Drawing.Point(481, 101);
-            this.characterSkills.MultiSelect = false;
-            this.characterSkills.Name = "characterSkills";
-            this.characterSkills.Size = new System.Drawing.Size(336, 259);
-            this.characterSkills.TabIndex = 10;
-            this.characterSkills.UseCompatibleStateImageBehavior = false;
-            this.characterSkills.View = System.Windows.Forms.View.Details;
+            this.characterSkillsList.ContextMenuStrip = this.characterSkillMenuStrip;
+            this.characterSkillsList.FullRowSelect = true;
+            this.characterSkillsList.HideSelection = false;
+            this.characterSkillsList.Location = new System.Drawing.Point(481, 101);
+            this.characterSkillsList.MultiSelect = false;
+            this.characterSkillsList.Name = "characterSkillsList";
+            this.characterSkillsList.Size = new System.Drawing.Size(336, 259);
+            this.characterSkillsList.TabIndex = 10;
+            this.characterSkillsList.UseCompatibleStateImageBehavior = false;
+            this.characterSkillsList.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader23
             // 
@@ -960,26 +959,26 @@
             this.removeToolStripMenuItem,
             this.editToolStripMenuItem1});
             this.characterSkillMenuStrip.Name = "characterSkillMenuStrip";
-            this.characterSkillMenuStrip.Size = new System.Drawing.Size(125, 70);
+            this.characterSkillMenuStrip.Size = new System.Drawing.Size(118, 70);
             // 
             // addToolStripMenuItem1
             // 
             this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
-            this.addToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.addToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
             this.addToolStripMenuItem1.Text = "Add";
             this.addToolStripMenuItem1.Click += new System.EventHandler(this.addToolStripMenuItem1_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
             this.editToolStripMenuItem1.Text = "Edit";
             this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
             // 
@@ -1018,24 +1017,24 @@
             this.toolStripSeparator5,
             this.deleteAccountToolStripMenuItem1});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(159, 54);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(156, 54);
             // 
             // editAccountToolStripMenuItem1
             // 
             this.editAccountToolStripMenuItem1.Name = "editAccountToolStripMenuItem1";
-            this.editAccountToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
+            this.editAccountToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
             this.editAccountToolStripMenuItem1.Text = "Edit Account";
             this.editAccountToolStripMenuItem1.Click += new System.EventHandler(this.editAccountToolStripMenuItem1_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(155, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(152, 6);
             // 
             // deleteAccountToolStripMenuItem1
             // 
             this.deleteAccountToolStripMenuItem1.Name = "deleteAccountToolStripMenuItem1";
-            this.deleteAccountToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
+            this.deleteAccountToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
             this.deleteAccountToolStripMenuItem1.Text = "Delete Account";
             this.deleteAccountToolStripMenuItem1.Click += new System.EventHandler(this.deleteAccountToolStripMenuItem1_Click);
             // 
@@ -1123,56 +1122,54 @@
             this.label10.TabIndex = 8;
             this.label10.Text = "Account/Character Editor";
             // 
-            // tabItem
+            // tabItemEditor
             // 
-            this.tabItem.Controls.Add(this.label35);
-            this.tabItem.Controls.Add(this.SearchCriterium);
-            this.tabItem.Controls.Add(this.button6);
-            this.tabItem.Controls.Add(this.ItemList);
-            this.tabItem.Controls.Add(this.label11);
-            this.tabItem.Controls.Add(this.CategoryDropdown);
-            this.tabItem.Controls.Add(this.button4);
-            this.tabItem.Controls.Add(this.label20);
-            this.tabItem.Controls.Add(this.label18);
-            this.tabItem.Controls.Add(this.itemID);
-            this.tabItem.Location = new System.Drawing.Point(4, 40);
-            this.tabItem.Name = "tabItem";
-            this.tabItem.Padding = new System.Windows.Forms.Padding(3);
-            this.tabItem.Size = new System.Drawing.Size(857, 521);
-            this.tabItem.TabIndex = 7;
-            this.tabItem.Text = "Item/Ship Editor";
-            this.tabItem.UseVisualStyleBackColor = true;
-            this.tabItem.Enter += new System.EventHandler(this.tabItem_Enter);
+            this.tabItemEditor.Controls.Add(this.label35);
+            this.tabItemEditor.Controls.Add(this.searchItemTxtBox);
+            this.tabItemEditor.Controls.Add(this.searchItem);
+            this.tabItemEditor.Controls.Add(this.ItemList);
+            this.tabItemEditor.Controls.Add(this.label11);
+            this.tabItemEditor.Controls.Add(this.CategoryDropdown);
+            this.tabItemEditor.Controls.Add(this.editItemBtn);
+            this.tabItemEditor.Controls.Add(this.label20);
+            this.tabItemEditor.Location = new System.Drawing.Point(4, 40);
+            this.tabItemEditor.Name = "tabItemEditor";
+            this.tabItemEditor.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItemEditor.Size = new System.Drawing.Size(857, 521);
+            this.tabItemEditor.TabIndex = 7;
+            this.tabItemEditor.Text = "Item/Ship Editor";
+            this.tabItemEditor.UseVisualStyleBackColor = true;
+            this.tabItemEditor.Enter += new System.EventHandler(this.tabItemEditor_Enter);
             // 
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(465, 43);
+            this.label35.Location = new System.Drawing.Point(198, 45);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(44, 13);
             this.label35.TabIndex = 18;
             this.label35.Text = "Search:";
             this.label35.Visible = false;
             // 
-            // SearchCriterium
+            // searchItemTxtBox
             // 
-            this.SearchCriterium.Location = new System.Drawing.Point(515, 40);
-            this.SearchCriterium.Name = "SearchCriterium";
-            this.SearchCriterium.Size = new System.Drawing.Size(101, 20);
-            this.SearchCriterium.TabIndex = 17;
-            this.SearchCriterium.Visible = false;
-            this.SearchCriterium.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchCriterium_KeyDown);
+            this.searchItemTxtBox.Location = new System.Drawing.Point(248, 41);
+            this.searchItemTxtBox.Name = "searchItemTxtBox";
+            this.searchItemTxtBox.Size = new System.Drawing.Size(101, 20);
+            this.searchItemTxtBox.TabIndex = 17;
+            this.searchItemTxtBox.Visible = false;
+            this.searchItemTxtBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchItemTxtBox_KeyDown);
             // 
-            // button6
+            // searchItem
             // 
-            this.button6.Location = new System.Drawing.Point(622, 38);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 16;
-            this.button6.Text = "Search";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Visible = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click_1);
+            this.searchItem.Location = new System.Drawing.Point(355, 41);
+            this.searchItem.Name = "searchItem";
+            this.searchItem.Size = new System.Drawing.Size(75, 23);
+            this.searchItem.TabIndex = 16;
+            this.searchItem.Text = "Search";
+            this.searchItem.UseVisualStyleBackColor = true;
+            this.searchItem.Visible = false;
+            this.searchItem.Click += new System.EventHandler(this.searchItem_Click);
             // 
             // ItemList
             // 
@@ -1222,32 +1219,32 @@
             // contextItemEdit
             // 
             this.contextItemEdit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.todoToolStripMenuItem,
-            this.deleteItemToolStripMenuItem,
-            this.editItemToolStripMenuItem});
+            this.copyItemRClkBtn,
+            this.deleteItemRClkBtn,
+            this.editItemRClkBtn});
             this.contextItemEdit.Name = "contextItemEdit";
-            this.contextItemEdit.Size = new System.Drawing.Size(140, 70);
+            this.contextItemEdit.Size = new System.Drawing.Size(135, 70);
             // 
-            // todoToolStripMenuItem
+            // copyItemRClkBtn
             // 
-            this.todoToolStripMenuItem.Name = "todoToolStripMenuItem";
-            this.todoToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.todoToolStripMenuItem.Text = "Copy item";
-            this.todoToolStripMenuItem.Click += new System.EventHandler(this.todoToolStripMenuItem_Click);
+            this.copyItemRClkBtn.Name = "copyItemRClkBtn";
+            this.copyItemRClkBtn.Size = new System.Drawing.Size(134, 22);
+            this.copyItemRClkBtn.Text = "Copy item";
+            this.copyItemRClkBtn.Click += new System.EventHandler(this.copyItemRClkBtn_Click);
             // 
-            // deleteItemToolStripMenuItem
+            // deleteItemRClkBtn
             // 
-            this.deleteItemToolStripMenuItem.Name = "deleteItemToolStripMenuItem";
-            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.deleteItemToolStripMenuItem.Text = "Delete item";
-            this.deleteItemToolStripMenuItem.Click += new System.EventHandler(this.deleteItemToolStripMenuItem_Click);
+            this.deleteItemRClkBtn.Name = "deleteItemRClkBtn";
+            this.deleteItemRClkBtn.Size = new System.Drawing.Size(134, 22);
+            this.deleteItemRClkBtn.Text = "Delete item";
+            this.deleteItemRClkBtn.Click += new System.EventHandler(this.deleteItemRClkBtn_Click);
             // 
-            // editItemToolStripMenuItem
+            // editItemRClkBtn
             // 
-            this.editItemToolStripMenuItem.Name = "editItemToolStripMenuItem";
-            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.editItemToolStripMenuItem.Text = "Edit item";
-            this.editItemToolStripMenuItem.Click += new System.EventHandler(this.editItemToolStripMenuItem_Click);
+            this.editItemRClkBtn.Name = "editItemRClkBtn";
+            this.editItemRClkBtn.Size = new System.Drawing.Size(134, 22);
+            this.editItemRClkBtn.Text = "Edit item";
+            this.editItemRClkBtn.Click += new System.EventHandler(this.editItemRClkBtn_Click);
             // 
             // label11
             // 
@@ -1267,15 +1264,15 @@
             this.CategoryDropdown.TabIndex = 13;
             this.CategoryDropdown.SelectedIndexChanged += new System.EventHandler(this.CategoryDropdown_SelectedIndexChanged);
             // 
-            // button4
+            // editItemBtn
             // 
-            this.button4.Location = new System.Drawing.Point(384, 38);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "Edit typeID";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.editItemBtn.Location = new System.Drawing.Point(6, 362);
+            this.editItemBtn.Name = "editItemBtn";
+            this.editItemBtn.Size = new System.Drawing.Size(121, 23);
+            this.editItemBtn.TabIndex = 12;
+            this.editItemBtn.Text = "Edit Item";
+            this.editItemBtn.UseVisualStyleBackColor = true;
+            this.editItemBtn.Click += new System.EventHandler(this.editItemBtn_Click);
             // 
             // label20
             // 
@@ -1286,23 +1283,6 @@
             this.label20.Size = new System.Drawing.Size(231, 28);
             this.label20.TabIndex = 9;
             this.label20.Text = "Item/Ship Editor";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(199, 43);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(113, 13);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "Item/Ship Name or ID:";
-            // 
-            // itemID
-            // 
-            this.itemID.Location = new System.Drawing.Point(318, 40);
-            this.itemID.Name = "itemID";
-            this.itemID.Size = new System.Drawing.Size(60, 20);
-            this.itemID.TabIndex = 0;
-            this.itemID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.itemID_KeyDown);
             // 
             // tabInsure
             // 
@@ -1329,8 +1309,8 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button1);
-            this.groupBox4.Controls.Add(this.textBox6);
+            this.groupBox4.Controls.Add(this.goBtn);
+            this.groupBox4.Controls.Add(this.percentTxtBox);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Location = new System.Drawing.Point(6, 34);
             this.groupBox4.Name = "groupBox4";
@@ -1339,21 +1319,22 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Settings";
             // 
-            // button1
+            // goBtn
             // 
-            this.button1.Location = new System.Drawing.Point(95, 45);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Go";
-            this.button1.UseVisualStyleBackColor = true;
+            this.goBtn.Location = new System.Drawing.Point(95, 45);
+            this.goBtn.Name = "goBtn";
+            this.goBtn.Size = new System.Drawing.Size(35, 23);
+            this.goBtn.TabIndex = 2;
+            this.goBtn.Text = "Go?";
+            this.goBtn.UseVisualStyleBackColor = true;
+            this.goBtn.Click += new System.EventHandler(this.goBtn_Click);
             // 
-            // textBox6
+            // percentTxtBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(113, 19);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 1;
+            this.percentTxtBox.Location = new System.Drawing.Point(113, 19);
+            this.percentTxtBox.Name = "percentTxtBox";
+            this.percentTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.percentTxtBox.TabIndex = 1;
             // 
             // label7
             // 
@@ -1367,7 +1348,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.progressBar1);
+            this.groupBox3.Controls.Add(this.insuranceProgressBar);
             this.groupBox3.Location = new System.Drawing.Point(237, 34);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(531, 75);
@@ -1385,12 +1366,12 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "Queries Excecuted: ";
             // 
-            // progressBar1
+            // insuranceProgressBar
             // 
-            this.progressBar1.Location = new System.Drawing.Point(10, 16);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(515, 23);
-            this.progressBar1.TabIndex = 0;
+            this.insuranceProgressBar.Location = new System.Drawing.Point(10, 16);
+            this.insuranceProgressBar.Name = "insuranceProgressBar";
+            this.insuranceProgressBar.Size = new System.Drawing.Size(515, 23);
+            this.insuranceProgressBar.TabIndex = 0;
             // 
             // raceTab
             // 
@@ -1399,7 +1380,7 @@
             this.raceTab.Controls.Add(this.ancestryDropdown);
             this.raceTab.Controls.Add(this.label32);
             this.raceTab.Controls.Add(this.careerDropdown);
-            this.raceTab.Controls.Add(this.SaveChanges);
+            this.raceTab.Controls.Add(this.saveRaceChangesBtn);
             this.raceTab.Controls.Add(this.bloodlineStartingStats);
             this.raceTab.Controls.Add(this.bloodlineDetails);
             this.raceTab.Controls.Add(this.label25);
@@ -1419,7 +1400,7 @@
             // 
             // ancestryDetails
             // 
-            this.ancestryDetails.Controls.Add(this.ancestryName);
+            this.ancestryDetails.Controls.Add(this.ancestryNameTxtBox);
             this.ancestryDetails.Location = new System.Drawing.Point(138, 290);
             this.ancestryDetails.Name = "ancestryDetails";
             this.ancestryDetails.Size = new System.Drawing.Size(364, 75);
@@ -1428,12 +1409,12 @@
             this.ancestryDetails.Text = "Ancestry details";
             this.ancestryDetails.Visible = false;
             // 
-            // ancestryName
+            // ancestryNameTxtBox
             // 
-            this.ancestryName.Location = new System.Drawing.Point(6, 19);
-            this.ancestryName.Name = "ancestryName";
-            this.ancestryName.Size = new System.Drawing.Size(285, 20);
-            this.ancestryName.TabIndex = 0;
+            this.ancestryNameTxtBox.Location = new System.Drawing.Point(6, 19);
+            this.ancestryNameTxtBox.Name = "ancestryNameTxtBox";
+            this.ancestryNameTxtBox.Size = new System.Drawing.Size(285, 20);
+            this.ancestryNameTxtBox.TabIndex = 0;
             // 
             // label33
             // 
@@ -1471,38 +1452,38 @@
             this.careerDropdown.TabIndex = 19;
             this.careerDropdown.SelectedIndexChanged += new System.EventHandler(this.careerDropdown_SelectedIndexChanged);
             // 
-            // SaveChanges
+            // saveRaceChangesBtn
             // 
-            this.SaveChanges.Location = new System.Drawing.Point(11, 342);
-            this.SaveChanges.Name = "SaveChanges";
-            this.SaveChanges.Size = new System.Drawing.Size(121, 23);
-            this.SaveChanges.TabIndex = 17;
-            this.SaveChanges.Text = "Save all changes";
-            this.SaveChanges.UseVisualStyleBackColor = true;
-            this.SaveChanges.Click += new System.EventHandler(this.SaveChanges_Click);
+            this.saveRaceChangesBtn.Location = new System.Drawing.Point(11, 342);
+            this.saveRaceChangesBtn.Name = "saveRaceChangesBtn";
+            this.saveRaceChangesBtn.Size = new System.Drawing.Size(121, 23);
+            this.saveRaceChangesBtn.TabIndex = 17;
+            this.saveRaceChangesBtn.Text = "Save all changes";
+            this.saveRaceChangesBtn.UseVisualStyleBackColor = true;
+            this.saveRaceChangesBtn.Click += new System.EventHandler(this.saveRaceChangesBtn_Click);
             // 
             // bloodlineStartingStats
             // 
             this.bloodlineStartingStats.Controls.Add(this.label34);
-            this.bloodlineStartingStats.Controls.Add(this.ancestryWillpower);
-            this.bloodlineStartingStats.Controls.Add(this.ancestryMemory);
-            this.bloodlineStartingStats.Controls.Add(this.ancestryIntelligence);
-            this.bloodlineStartingStats.Controls.Add(this.ancestryCharisma);
-            this.bloodlineStartingStats.Controls.Add(this.ancestryPerception);
+            this.bloodlineStartingStats.Controls.Add(this.ancestryWillpowerTxtBox);
+            this.bloodlineStartingStats.Controls.Add(this.ancestryMemoryTxtBox);
+            this.bloodlineStartingStats.Controls.Add(this.ancestryIntelligenceTxtBox);
+            this.bloodlineStartingStats.Controls.Add(this.ancestryCharismaTxtBox);
+            this.bloodlineStartingStats.Controls.Add(this.ancestryPerceptionTxtBox);
             this.bloodlineStartingStats.Controls.Add(this.label31);
-            this.bloodlineStartingStats.Controls.Add(this.startingcorporation);
+            this.bloodlineStartingStats.Controls.Add(this.startingCorporationTxtBox);
             this.bloodlineStartingStats.Controls.Add(this.Label4411);
-            this.bloodlineStartingStats.Controls.Add(this.startingship);
+            this.bloodlineStartingStats.Controls.Add(this.startingShipTypeTxtBox);
             this.bloodlineStartingStats.Controls.Add(this.label30);
-            this.bloodlineStartingStats.Controls.Add(this.bloodlineWillpower);
+            this.bloodlineStartingStats.Controls.Add(this.bloodlineWillpowerTxtBox);
             this.bloodlineStartingStats.Controls.Add(this.label29);
-            this.bloodlineStartingStats.Controls.Add(this.bloodlineMemory);
+            this.bloodlineStartingStats.Controls.Add(this.bloodlineMemoryTxtBox);
             this.bloodlineStartingStats.Controls.Add(this.label28);
-            this.bloodlineStartingStats.Controls.Add(this.bloodlineIntelligence);
+            this.bloodlineStartingStats.Controls.Add(this.bloodlineIntelligenceTxtBox);
             this.bloodlineStartingStats.Controls.Add(this.label27);
-            this.bloodlineStartingStats.Controls.Add(this.bloodlineCharisma);
+            this.bloodlineStartingStats.Controls.Add(this.bloodlineCharismaTxtBox);
             this.bloodlineStartingStats.Controls.Add(this.label26);
-            this.bloodlineStartingStats.Controls.Add(this.bloodlinePerception);
+            this.bloodlineStartingStats.Controls.Add(this.bloodlinePerceptionTxtBox);
             this.bloodlineStartingStats.Location = new System.Drawing.Point(508, 199);
             this.bloodlineStartingStats.Name = "bloodlineStartingStats";
             this.bloodlineStartingStats.Size = new System.Drawing.Size(262, 166);
@@ -1520,40 +1501,40 @@
             this.label34.TabIndex = 20;
             this.label34.Text = "Bloodline/Ancestry";
             // 
-            // ancestryWillpower
+            // ancestryWillpowerTxtBox
             // 
-            this.ancestryWillpower.Location = new System.Drawing.Point(107, 39);
-            this.ancestryWillpower.Name = "ancestryWillpower";
-            this.ancestryWillpower.Size = new System.Drawing.Size(27, 20);
-            this.ancestryWillpower.TabIndex = 19;
+            this.ancestryWillpowerTxtBox.Location = new System.Drawing.Point(107, 39);
+            this.ancestryWillpowerTxtBox.Name = "ancestryWillpowerTxtBox";
+            this.ancestryWillpowerTxtBox.Size = new System.Drawing.Size(27, 20);
+            this.ancestryWillpowerTxtBox.TabIndex = 19;
             // 
-            // ancestryMemory
+            // ancestryMemoryTxtBox
             // 
-            this.ancestryMemory.Location = new System.Drawing.Point(107, 65);
-            this.ancestryMemory.Name = "ancestryMemory";
-            this.ancestryMemory.Size = new System.Drawing.Size(27, 20);
-            this.ancestryMemory.TabIndex = 18;
+            this.ancestryMemoryTxtBox.Location = new System.Drawing.Point(107, 65);
+            this.ancestryMemoryTxtBox.Name = "ancestryMemoryTxtBox";
+            this.ancestryMemoryTxtBox.Size = new System.Drawing.Size(27, 20);
+            this.ancestryMemoryTxtBox.TabIndex = 18;
             // 
-            // ancestryIntelligence
+            // ancestryIntelligenceTxtBox
             // 
-            this.ancestryIntelligence.Location = new System.Drawing.Point(107, 91);
-            this.ancestryIntelligence.Name = "ancestryIntelligence";
-            this.ancestryIntelligence.Size = new System.Drawing.Size(27, 20);
-            this.ancestryIntelligence.TabIndex = 17;
+            this.ancestryIntelligenceTxtBox.Location = new System.Drawing.Point(107, 91);
+            this.ancestryIntelligenceTxtBox.Name = "ancestryIntelligenceTxtBox";
+            this.ancestryIntelligenceTxtBox.Size = new System.Drawing.Size(27, 20);
+            this.ancestryIntelligenceTxtBox.TabIndex = 17;
             // 
-            // ancestryCharisma
+            // ancestryCharismaTxtBox
             // 
-            this.ancestryCharisma.Location = new System.Drawing.Point(107, 116);
-            this.ancestryCharisma.Name = "ancestryCharisma";
-            this.ancestryCharisma.Size = new System.Drawing.Size(27, 20);
-            this.ancestryCharisma.TabIndex = 16;
+            this.ancestryCharismaTxtBox.Location = new System.Drawing.Point(107, 116);
+            this.ancestryCharismaTxtBox.Name = "ancestryCharismaTxtBox";
+            this.ancestryCharismaTxtBox.Size = new System.Drawing.Size(27, 20);
+            this.ancestryCharismaTxtBox.TabIndex = 16;
             // 
-            // ancestryPerception
+            // ancestryPerceptionTxtBox
             // 
-            this.ancestryPerception.Location = new System.Drawing.Point(107, 142);
-            this.ancestryPerception.Name = "ancestryPerception";
-            this.ancestryPerception.Size = new System.Drawing.Size(27, 20);
-            this.ancestryPerception.TabIndex = 15;
+            this.ancestryPerceptionTxtBox.Location = new System.Drawing.Point(107, 142);
+            this.ancestryPerceptionTxtBox.Name = "ancestryPerceptionTxtBox";
+            this.ancestryPerceptionTxtBox.Size = new System.Drawing.Size(27, 20);
+            this.ancestryPerceptionTxtBox.TabIndex = 15;
             // 
             // label31
             // 
@@ -1564,12 +1545,12 @@
             this.label31.TabIndex = 14;
             this.label31.Text = "Corporation";
             // 
-            // startingcorporation
+            // startingCorporationTxtBox
             // 
-            this.startingcorporation.Location = new System.Drawing.Point(202, 65);
-            this.startingcorporation.Name = "startingcorporation";
-            this.startingcorporation.Size = new System.Drawing.Size(54, 20);
-            this.startingcorporation.TabIndex = 13;
+            this.startingCorporationTxtBox.Location = new System.Drawing.Point(202, 65);
+            this.startingCorporationTxtBox.Name = "startingCorporationTxtBox";
+            this.startingCorporationTxtBox.Size = new System.Drawing.Size(54, 20);
+            this.startingCorporationTxtBox.TabIndex = 13;
             // 
             // Label4411
             // 
@@ -1580,12 +1561,12 @@
             this.Label4411.TabIndex = 12;
             this.Label4411.Text = "Shiptype";
             // 
-            // startingship
+            // startingShipTypeTxtBox
             // 
-            this.startingship.Location = new System.Drawing.Point(202, 39);
-            this.startingship.Name = "startingship";
-            this.startingship.Size = new System.Drawing.Size(54, 20);
-            this.startingship.TabIndex = 11;
+            this.startingShipTypeTxtBox.Location = new System.Drawing.Point(202, 39);
+            this.startingShipTypeTxtBox.Name = "startingShipTypeTxtBox";
+            this.startingShipTypeTxtBox.Size = new System.Drawing.Size(54, 20);
+            this.startingShipTypeTxtBox.TabIndex = 11;
             // 
             // label30
             // 
@@ -1596,12 +1577,12 @@
             this.label30.TabIndex = 10;
             this.label30.Text = "Willpower";
             // 
-            // bloodlineWillpower
+            // bloodlineWillpowerTxtBox
             // 
-            this.bloodlineWillpower.Location = new System.Drawing.Point(74, 39);
-            this.bloodlineWillpower.Name = "bloodlineWillpower";
-            this.bloodlineWillpower.Size = new System.Drawing.Size(27, 20);
-            this.bloodlineWillpower.TabIndex = 9;
+            this.bloodlineWillpowerTxtBox.Location = new System.Drawing.Point(74, 39);
+            this.bloodlineWillpowerTxtBox.Name = "bloodlineWillpowerTxtBox";
+            this.bloodlineWillpowerTxtBox.Size = new System.Drawing.Size(27, 20);
+            this.bloodlineWillpowerTxtBox.TabIndex = 9;
             // 
             // label29
             // 
@@ -1612,12 +1593,12 @@
             this.label29.TabIndex = 8;
             this.label29.Text = "Memory";
             // 
-            // bloodlineMemory
+            // bloodlineMemoryTxtBox
             // 
-            this.bloodlineMemory.Location = new System.Drawing.Point(74, 65);
-            this.bloodlineMemory.Name = "bloodlineMemory";
-            this.bloodlineMemory.Size = new System.Drawing.Size(27, 20);
-            this.bloodlineMemory.TabIndex = 7;
+            this.bloodlineMemoryTxtBox.Location = new System.Drawing.Point(74, 65);
+            this.bloodlineMemoryTxtBox.Name = "bloodlineMemoryTxtBox";
+            this.bloodlineMemoryTxtBox.Size = new System.Drawing.Size(27, 20);
+            this.bloodlineMemoryTxtBox.TabIndex = 7;
             // 
             // label28
             // 
@@ -1628,12 +1609,12 @@
             this.label28.TabIndex = 6;
             this.label28.Text = "Intelligence";
             // 
-            // bloodlineIntelligence
+            // bloodlineIntelligenceTxtBox
             // 
-            this.bloodlineIntelligence.Location = new System.Drawing.Point(74, 91);
-            this.bloodlineIntelligence.Name = "bloodlineIntelligence";
-            this.bloodlineIntelligence.Size = new System.Drawing.Size(27, 20);
-            this.bloodlineIntelligence.TabIndex = 5;
+            this.bloodlineIntelligenceTxtBox.Location = new System.Drawing.Point(74, 91);
+            this.bloodlineIntelligenceTxtBox.Name = "bloodlineIntelligenceTxtBox";
+            this.bloodlineIntelligenceTxtBox.Size = new System.Drawing.Size(27, 20);
+            this.bloodlineIntelligenceTxtBox.TabIndex = 5;
             // 
             // label27
             // 
@@ -1644,12 +1625,12 @@
             this.label27.TabIndex = 4;
             this.label27.Text = "Charisma";
             // 
-            // bloodlineCharisma
+            // bloodlineCharismaTxtBox
             // 
-            this.bloodlineCharisma.Location = new System.Drawing.Point(74, 116);
-            this.bloodlineCharisma.Name = "bloodlineCharisma";
-            this.bloodlineCharisma.Size = new System.Drawing.Size(27, 20);
-            this.bloodlineCharisma.TabIndex = 3;
+            this.bloodlineCharismaTxtBox.Location = new System.Drawing.Point(74, 116);
+            this.bloodlineCharismaTxtBox.Name = "bloodlineCharismaTxtBox";
+            this.bloodlineCharismaTxtBox.Size = new System.Drawing.Size(27, 20);
+            this.bloodlineCharismaTxtBox.TabIndex = 3;
             // 
             // label26
             // 
@@ -1660,16 +1641,16 @@
             this.label26.TabIndex = 2;
             this.label26.Text = "Perception";
             // 
-            // bloodlinePerception
+            // bloodlinePerceptionTxtBox
             // 
-            this.bloodlinePerception.Location = new System.Drawing.Point(74, 142);
-            this.bloodlinePerception.Name = "bloodlinePerception";
-            this.bloodlinePerception.Size = new System.Drawing.Size(27, 20);
-            this.bloodlinePerception.TabIndex = 1;
+            this.bloodlinePerceptionTxtBox.Location = new System.Drawing.Point(74, 142);
+            this.bloodlinePerceptionTxtBox.Name = "bloodlinePerceptionTxtBox";
+            this.bloodlinePerceptionTxtBox.Size = new System.Drawing.Size(27, 20);
+            this.bloodlinePerceptionTxtBox.TabIndex = 1;
             // 
             // bloodlineDetails
             // 
-            this.bloodlineDetails.Controls.Add(this.bloodlineName);
+            this.bloodlineDetails.Controls.Add(this.bloodlineNameTxtBox);
             this.bloodlineDetails.Location = new System.Drawing.Point(138, 199);
             this.bloodlineDetails.Name = "bloodlineDetails";
             this.bloodlineDetails.Size = new System.Drawing.Size(364, 85);
@@ -1678,12 +1659,12 @@
             this.bloodlineDetails.Text = "Bloodline details";
             this.bloodlineDetails.Visible = false;
             // 
-            // bloodlineName
+            // bloodlineNameTxtBox
             // 
-            this.bloodlineName.Location = new System.Drawing.Point(6, 19);
-            this.bloodlineName.Name = "bloodlineName";
-            this.bloodlineName.Size = new System.Drawing.Size(285, 20);
-            this.bloodlineName.TabIndex = 0;
+            this.bloodlineNameTxtBox.Location = new System.Drawing.Point(6, 19);
+            this.bloodlineNameTxtBox.Name = "bloodlineNameTxtBox";
+            this.bloodlineNameTxtBox.Size = new System.Drawing.Size(285, 20);
+            this.bloodlineNameTxtBox.TabIndex = 0;
             // 
             // label25
             // 
@@ -1705,9 +1686,9 @@
             // 
             // raceDetails
             // 
-            this.raceDetails.Controls.Add(this.raceName);
-            this.raceDetails.Controls.Add(this.raceDescription);
-            this.raceDetails.Controls.Add(this.raceDescriptionShort);
+            this.raceDetails.Controls.Add(this.raceNameTxtBox);
+            this.raceDetails.Controls.Add(this.raceDescriptionTxtBox);
+            this.raceDetails.Controls.Add(this.raceDescriptionShortTxtBox);
             this.raceDetails.Controls.Add(this.startingSkills);
             this.raceDetails.Location = new System.Drawing.Point(138, 34);
             this.raceDetails.Name = "raceDetails";
@@ -1717,28 +1698,28 @@
             this.raceDetails.Text = "Race details";
             this.raceDetails.Visible = false;
             // 
-            // raceName
+            // raceNameTxtBox
             // 
-            this.raceName.Location = new System.Drawing.Point(6, 13);
-            this.raceName.Name = "raceName";
-            this.raceName.Size = new System.Drawing.Size(285, 20);
-            this.raceName.TabIndex = 2;
+            this.raceNameTxtBox.Location = new System.Drawing.Point(6, 13);
+            this.raceNameTxtBox.Name = "raceNameTxtBox";
+            this.raceNameTxtBox.Size = new System.Drawing.Size(285, 20);
+            this.raceNameTxtBox.TabIndex = 2;
             // 
-            // raceDescription
+            // raceDescriptionTxtBox
             // 
-            this.raceDescription.Location = new System.Drawing.Point(6, 65);
-            this.raceDescription.Multiline = true;
-            this.raceDescription.Name = "raceDescription";
-            this.raceDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.raceDescription.Size = new System.Drawing.Size(285, 88);
-            this.raceDescription.TabIndex = 1;
+            this.raceDescriptionTxtBox.Location = new System.Drawing.Point(6, 65);
+            this.raceDescriptionTxtBox.Multiline = true;
+            this.raceDescriptionTxtBox.Name = "raceDescriptionTxtBox";
+            this.raceDescriptionTxtBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.raceDescriptionTxtBox.Size = new System.Drawing.Size(285, 88);
+            this.raceDescriptionTxtBox.TabIndex = 1;
             // 
-            // raceDescriptionShort
+            // raceDescriptionShortTxtBox
             // 
-            this.raceDescriptionShort.Location = new System.Drawing.Point(6, 39);
-            this.raceDescriptionShort.Name = "raceDescriptionShort";
-            this.raceDescriptionShort.Size = new System.Drawing.Size(285, 20);
-            this.raceDescriptionShort.TabIndex = 0;
+            this.raceDescriptionShortTxtBox.Location = new System.Drawing.Point(6, 39);
+            this.raceDescriptionShortTxtBox.Name = "raceDescriptionShortTxtBox";
+            this.raceDescriptionShortTxtBox.Size = new System.Drawing.Size(285, 20);
+            this.raceDescriptionShortTxtBox.TabIndex = 0;
             // 
             // startingSkills
             // 
@@ -1782,26 +1763,26 @@
             this.modifyToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.RaceSkillContext.Name = "RaceSkillContext";
-            this.RaceSkillContext.Size = new System.Drawing.Size(118, 70);
+            this.RaceSkillContext.Size = new System.Drawing.Size(113, 70);
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // modifyToolStripMenuItem
             // 
             this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
-            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.modifyToolStripMenuItem.Text = "Modify";
             this.modifyToolStripMenuItem.Click += new System.EventHandler(this.modifyToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -1838,7 +1819,7 @@
             this.marketTab.Controls.Add(this.button10);
             this.marketTab.Controls.Add(this.label44);
             this.marketTab.Controls.Add(this.groupBox5);
-            this.marketTab.Controls.Add(this.textBox3);
+            this.marketTab.Controls.Add(this.marketSecurityTxtBox);
             this.marketTab.Controls.Add(this.radioButton4);
             this.marketTab.Controls.Add(this.radioButton3);
             this.marketTab.Controls.Add(this.label47);
@@ -1846,16 +1827,16 @@
             this.marketTab.Controls.Add(this.label45);
             this.marketTab.Controls.Add(this.label43);
             this.marketTab.Controls.Add(this.trackBar1);
-            this.marketTab.Controls.Add(this.checkBox1);
-            this.marketTab.Controls.Add(this.textBox2);
+            this.marketTab.Controls.Add(this.applyQueryToDBChkBox);
+            this.marketTab.Controls.Add(this.queryMarketSeedTxtBox);
             this.marketTab.Controls.Add(this.Quantity);
-            this.marketTab.Controls.Add(this.marketQuantity);
-            this.marketTab.Controls.Add(this.SeedMarket);
-            this.marketTab.Controls.Add(this.marketGroups);
-            this.marketTab.Controls.Add(this.marketCategories);
-            this.marketTab.Controls.Add(this.marketSystems);
-            this.marketTab.Controls.Add(this.marketRegions);
-            this.marketTab.Controls.Add(this.marketRaces);
+            this.marketTab.Controls.Add(this.marketQuantityTxtBox);
+            this.marketTab.Controls.Add(this.seedMarketBtn);
+            this.marketTab.Controls.Add(this.marketGroupsTxtBox);
+            this.marketTab.Controls.Add(this.marketCategoriesTxtBox);
+            this.marketTab.Controls.Add(this.marketSystemsTxtBox);
+            this.marketTab.Controls.Add(this.marketRegionsTxtBox);
+            this.marketTab.Controls.Add(this.marketRacesTxtBox);
             this.marketTab.Controls.Add(this.label23);
             this.marketTab.Location = new System.Drawing.Point(4, 40);
             this.marketTab.Name = "marketTab";
@@ -1921,13 +1902,13 @@
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // textBox3
+            // marketSecurityTxtBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(656, 336);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(119, 20);
-            this.textBox3.TabIndex = 32;
-            this.textBox3.Text = "-1.0";
+            this.marketSecurityTxtBox.Location = new System.Drawing.Point(656, 336);
+            this.marketSecurityTxtBox.Name = "marketSecurityTxtBox";
+            this.marketSecurityTxtBox.Size = new System.Drawing.Size(119, 20);
+            this.marketSecurityTxtBox.TabIndex = 32;
+            this.marketSecurityTxtBox.Text = "-1.0";
             // 
             // radioButton4
             // 
@@ -2000,31 +1981,31 @@
             this.trackBar1.TabIndex = 23;
             this.trackBar1.Value = 100;
             // 
-            // checkBox1
+            // applyQueryToDBChkBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(301, 303);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(150, 17);
-            this.checkBox1.TabIndex = 21;
-            this.checkBox1.Text = "Apply Query to Database?";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.applyQueryToDBChkBox.AutoSize = true;
+            this.applyQueryToDBChkBox.Checked = true;
+            this.applyQueryToDBChkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.applyQueryToDBChkBox.Location = new System.Drawing.Point(301, 303);
+            this.applyQueryToDBChkBox.Name = "applyQueryToDBChkBox";
+            this.applyQueryToDBChkBox.Size = new System.Drawing.Size(150, 17);
+            this.applyQueryToDBChkBox.TabIndex = 21;
+            this.applyQueryToDBChkBox.Text = "Apply Query to Database?";
+            this.applyQueryToDBChkBox.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // queryMarketSeedTxtBox
             // 
-            this.textBox2.AcceptsReturn = true;
-            this.textBox2.AcceptsTab = true;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Green;
-            this.textBox2.Location = new System.Drawing.Point(11, 370);
-            this.textBox2.MaxLength = 65535;
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(768, 153);
-            this.textBox2.TabIndex = 19;
+            this.queryMarketSeedTxtBox.AcceptsReturn = true;
+            this.queryMarketSeedTxtBox.AcceptsTab = true;
+            this.queryMarketSeedTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.queryMarketSeedTxtBox.ForeColor = System.Drawing.Color.Green;
+            this.queryMarketSeedTxtBox.Location = new System.Drawing.Point(11, 370);
+            this.queryMarketSeedTxtBox.MaxLength = 65535;
+            this.queryMarketSeedTxtBox.Multiline = true;
+            this.queryMarketSeedTxtBox.Name = "queryMarketSeedTxtBox";
+            this.queryMarketSeedTxtBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.queryMarketSeedTxtBox.Size = new System.Drawing.Size(768, 145);
+            this.queryMarketSeedTxtBox.TabIndex = 19;
             // 
             // Quantity
             // 
@@ -2035,37 +2016,37 @@
             this.Quantity.TabIndex = 18;
             this.Quantity.Text = "Quantity";
             // 
-            // marketQuantity
+            // marketQuantityTxtBox
             // 
-            this.marketQuantity.Location = new System.Drawing.Point(613, 299);
-            this.marketQuantity.Name = "marketQuantity";
-            this.marketQuantity.Size = new System.Drawing.Size(85, 20);
-            this.marketQuantity.TabIndex = 17;
-            this.marketQuantity.Text = "10";
+            this.marketQuantityTxtBox.Location = new System.Drawing.Point(613, 299);
+            this.marketQuantityTxtBox.Name = "marketQuantityTxtBox";
+            this.marketQuantityTxtBox.Size = new System.Drawing.Size(85, 20);
+            this.marketQuantityTxtBox.TabIndex = 17;
+            this.marketQuantityTxtBox.Text = "10";
             // 
-            // SeedMarket
+            // seedMarketBtn
             // 
-            this.SeedMarket.Location = new System.Drawing.Point(704, 297);
-            this.SeedMarket.Name = "SeedMarket";
-            this.SeedMarket.Size = new System.Drawing.Size(75, 23);
-            this.SeedMarket.TabIndex = 16;
-            this.SeedMarket.Text = "Seed market";
-            this.SeedMarket.UseVisualStyleBackColor = true;
-            this.SeedMarket.Click += new System.EventHandler(this.SeedMarket_Click);
+            this.seedMarketBtn.Location = new System.Drawing.Point(704, 297);
+            this.seedMarketBtn.Name = "seedMarketBtn";
+            this.seedMarketBtn.Size = new System.Drawing.Size(75, 23);
+            this.seedMarketBtn.TabIndex = 16;
+            this.seedMarketBtn.Text = "Seed market";
+            this.seedMarketBtn.UseVisualStyleBackColor = true;
+            this.seedMarketBtn.Click += new System.EventHandler(this.seedMarketBtn_Click);
             // 
-            // marketGroups
+            // marketGroupsTxtBox
             // 
-            this.marketGroups.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.marketGroupsTxtBox.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader16,
             this.columnHeader18});
-            this.marketGroups.FullRowSelect = true;
-            this.marketGroups.HideSelection = false;
-            this.marketGroups.Location = new System.Drawing.Point(613, 62);
-            this.marketGroups.Name = "marketGroups";
-            this.marketGroups.Size = new System.Drawing.Size(166, 231);
-            this.marketGroups.TabIndex = 15;
-            this.marketGroups.UseCompatibleStateImageBehavior = false;
-            this.marketGroups.View = System.Windows.Forms.View.Details;
+            this.marketGroupsTxtBox.FullRowSelect = true;
+            this.marketGroupsTxtBox.HideSelection = false;
+            this.marketGroupsTxtBox.Location = new System.Drawing.Point(613, 62);
+            this.marketGroupsTxtBox.Name = "marketGroupsTxtBox";
+            this.marketGroupsTxtBox.Size = new System.Drawing.Size(166, 231);
+            this.marketGroupsTxtBox.TabIndex = 15;
+            this.marketGroupsTxtBox.UseCompatibleStateImageBehavior = false;
+            this.marketGroupsTxtBox.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader16
             // 
@@ -2076,39 +2057,39 @@
             // 
             this.columnHeader18.Text = "ID";
             // 
-            // marketCategories
+            // marketCategoriesTxtBox
             // 
-            this.marketCategories.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.marketCategoriesTxtBox.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader15});
-            this.marketCategories.FullRowSelect = true;
-            this.marketCategories.HideSelection = false;
-            this.marketCategories.Location = new System.Drawing.Point(470, 62);
-            this.marketCategories.Name = "marketCategories";
-            this.marketCategories.Size = new System.Drawing.Size(137, 231);
-            this.marketCategories.TabIndex = 14;
-            this.marketCategories.UseCompatibleStateImageBehavior = false;
-            this.marketCategories.View = System.Windows.Forms.View.Details;
-            this.marketCategories.SelectedIndexChanged += new System.EventHandler(this.marketCategories_SelectedIndexChanged);
+            this.marketCategoriesTxtBox.FullRowSelect = true;
+            this.marketCategoriesTxtBox.HideSelection = false;
+            this.marketCategoriesTxtBox.Location = new System.Drawing.Point(470, 62);
+            this.marketCategoriesTxtBox.Name = "marketCategoriesTxtBox";
+            this.marketCategoriesTxtBox.Size = new System.Drawing.Size(137, 231);
+            this.marketCategoriesTxtBox.TabIndex = 14;
+            this.marketCategoriesTxtBox.UseCompatibleStateImageBehavior = false;
+            this.marketCategoriesTxtBox.View = System.Windows.Forms.View.Details;
+            this.marketCategoriesTxtBox.SelectedIndexChanged += new System.EventHandler(this.marketCategories_SelectedIndexChanged);
             // 
             // columnHeader15
             // 
             this.columnHeader15.Text = "Category";
             this.columnHeader15.Width = 150;
             // 
-            // marketSystems
+            // marketSystemsTxtBox
             // 
-            this.marketSystems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.marketSystemsTxtBox.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader13,
             this.columnHeader14,
             this.columnHeader29});
-            this.marketSystems.FullRowSelect = true;
-            this.marketSystems.HideSelection = false;
-            this.marketSystems.Location = new System.Drawing.Point(129, 62);
-            this.marketSystems.Name = "marketSystems";
-            this.marketSystems.Size = new System.Drawing.Size(166, 231);
-            this.marketSystems.TabIndex = 13;
-            this.marketSystems.UseCompatibleStateImageBehavior = false;
-            this.marketSystems.View = System.Windows.Forms.View.Details;
+            this.marketSystemsTxtBox.FullRowSelect = true;
+            this.marketSystemsTxtBox.HideSelection = false;
+            this.marketSystemsTxtBox.Location = new System.Drawing.Point(129, 62);
+            this.marketSystemsTxtBox.Name = "marketSystemsTxtBox";
+            this.marketSystemsTxtBox.Size = new System.Drawing.Size(166, 231);
+            this.marketSystemsTxtBox.TabIndex = 13;
+            this.marketSystemsTxtBox.UseCompatibleStateImageBehavior = false;
+            this.marketSystemsTxtBox.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader13
             // 
@@ -2122,19 +2103,19 @@
             // 
             this.columnHeader29.Text = "Security";
             // 
-            // marketRegions
+            // marketRegionsTxtBox
             // 
-            this.marketRegions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.marketRegionsTxtBox.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader11,
             this.columnHeader12});
-            this.marketRegions.FullRowSelect = true;
-            this.marketRegions.HideSelection = false;
-            this.marketRegions.Location = new System.Drawing.Point(301, 62);
-            this.marketRegions.Name = "marketRegions";
-            this.marketRegions.Size = new System.Drawing.Size(166, 231);
-            this.marketRegions.TabIndex = 12;
-            this.marketRegions.UseCompatibleStateImageBehavior = false;
-            this.marketRegions.View = System.Windows.Forms.View.Details;
+            this.marketRegionsTxtBox.FullRowSelect = true;
+            this.marketRegionsTxtBox.HideSelection = false;
+            this.marketRegionsTxtBox.Location = new System.Drawing.Point(301, 62);
+            this.marketRegionsTxtBox.Name = "marketRegionsTxtBox";
+            this.marketRegionsTxtBox.Size = new System.Drawing.Size(166, 231);
+            this.marketRegionsTxtBox.TabIndex = 12;
+            this.marketRegionsTxtBox.UseCompatibleStateImageBehavior = false;
+            this.marketRegionsTxtBox.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader11
             // 
@@ -2145,19 +2126,19 @@
             // 
             this.columnHeader12.Text = "ID";
             // 
-            // marketRaces
+            // marketRacesTxtBox
             // 
-            this.marketRaces.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.marketRacesTxtBox.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader10,
             this.columnHeader17});
-            this.marketRaces.FullRowSelect = true;
-            this.marketRaces.HideSelection = false;
-            this.marketRaces.Location = new System.Drawing.Point(11, 62);
-            this.marketRaces.Name = "marketRaces";
-            this.marketRaces.Size = new System.Drawing.Size(112, 231);
-            this.marketRaces.TabIndex = 11;
-            this.marketRaces.UseCompatibleStateImageBehavior = false;
-            this.marketRaces.View = System.Windows.Forms.View.Details;
+            this.marketRacesTxtBox.FullRowSelect = true;
+            this.marketRacesTxtBox.HideSelection = false;
+            this.marketRacesTxtBox.Location = new System.Drawing.Point(11, 62);
+            this.marketRacesTxtBox.Name = "marketRacesTxtBox";
+            this.marketRacesTxtBox.Size = new System.Drawing.Size(112, 231);
+            this.marketRacesTxtBox.TabIndex = 11;
+            this.marketRacesTxtBox.UseCompatibleStateImageBehavior = false;
+            this.marketRacesTxtBox.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader10
             // 
@@ -2257,26 +2238,26 @@
             this.removeMineralToolStripMenuItem,
             this.changeQuantityToolStripMenuItem});
             this.oreMenuStrip.Name = "oreMenuStrip";
-            this.oreMenuStrip.Size = new System.Drawing.Size(166, 70);
+            this.oreMenuStrip.Size = new System.Drawing.Size(163, 70);
             // 
             // addMineralToolStripMenuItem
             // 
             this.addMineralToolStripMenuItem.Name = "addMineralToolStripMenuItem";
-            this.addMineralToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.addMineralToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.addMineralToolStripMenuItem.Text = "Add mineral";
             this.addMineralToolStripMenuItem.Click += new System.EventHandler(this.addMineralToolStripMenuItem_Click);
             // 
             // removeMineralToolStripMenuItem
             // 
             this.removeMineralToolStripMenuItem.Name = "removeMineralToolStripMenuItem";
-            this.removeMineralToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.removeMineralToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.removeMineralToolStripMenuItem.Text = "Remove mineral";
             this.removeMineralToolStripMenuItem.Click += new System.EventHandler(this.removeMineralToolStripMenuItem_Click);
             // 
             // changeQuantityToolStripMenuItem
             // 
             this.changeQuantityToolStripMenuItem.Name = "changeQuantityToolStripMenuItem";
-            this.changeQuantityToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.changeQuantityToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.changeQuantityToolStripMenuItem.Text = "Change quantity";
             this.changeQuantityToolStripMenuItem.Click += new System.EventHandler(this.changeQuantityToolStripMenuItem_Click);
             // 
@@ -2348,26 +2329,26 @@
             this.addMarketGroupToolStripMenuItem,
             this.deleteMarketGroupToolStripMenuItem});
             this.marketGroupsContext.Name = "contextMenuStrip3";
-            this.marketGroupsContext.Size = new System.Drawing.Size(125, 70);
+            this.marketGroupsContext.Size = new System.Drawing.Size(118, 70);
             // 
             // renameToolStripMenuItem
             // 
             this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.renameToolStripMenuItem.Text = "Rename";
             this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
             // 
             // addMarketGroupToolStripMenuItem
             // 
             this.addMarketGroupToolStripMenuItem.Name = "addMarketGroupToolStripMenuItem";
-            this.addMarketGroupToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.addMarketGroupToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.addMarketGroupToolStripMenuItem.Text = "Add";
             this.addMarketGroupToolStripMenuItem.Click += new System.EventHandler(this.addMarketGroupToolStripMenuItem_Click);
             // 
             // deleteMarketGroupToolStripMenuItem
             // 
             this.deleteMarketGroupToolStripMenuItem.Name = "deleteMarketGroupToolStripMenuItem";
-            this.deleteMarketGroupToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.deleteMarketGroupToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.deleteMarketGroupToolStripMenuItem.Text = "Delete";
             this.deleteMarketGroupToolStripMenuItem.Click += new System.EventHandler(this.deleteMarketGroupToolStripMenuItem_Click);
             // 
@@ -3024,23 +3005,23 @@
             this.toolStripSeparator3,
             this.disconnectToolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(138, 54);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(134, 54);
             // 
             // connectToolStripMenuItem1
             // 
             this.connectToolStripMenuItem1.Name = "connectToolStripMenuItem1";
-            this.connectToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.connectToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
             this.connectToolStripMenuItem1.Text = "Connect";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(134, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(130, 6);
             // 
             // disconnectToolStripMenuItem1
             // 
             this.disconnectToolStripMenuItem1.Name = "disconnectToolStripMenuItem1";
-            this.disconnectToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.disconnectToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
             this.disconnectToolStripMenuItem1.Text = "Disconnect";
             // 
             // addToEdit
@@ -3051,29 +3032,29 @@
             this.toolStripSeparator4,
             this.deleteAccountToolStripMenuItem});
             this.addToEdit.Name = "addToEdit";
-            this.addToEdit.Size = new System.Drawing.Size(159, 76);
+            this.addToEdit.Size = new System.Drawing.Size(156, 76);
             // 
             // addAccountToolStripMenuItem
             // 
             this.addAccountToolStripMenuItem.Name = "addAccountToolStripMenuItem";
-            this.addAccountToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.addAccountToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.addAccountToolStripMenuItem.Text = "Add Account";
             // 
             // editAccountToolStripMenuItem
             // 
             this.editAccountToolStripMenuItem.Name = "editAccountToolStripMenuItem";
-            this.editAccountToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.editAccountToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.editAccountToolStripMenuItem.Text = "Edit Account";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(155, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(152, 6);
             // 
             // deleteAccountToolStripMenuItem
             // 
             this.deleteAccountToolStripMenuItem.Name = "deleteAccountToolStripMenuItem";
-            this.deleteAccountToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.deleteAccountToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.deleteAccountToolStripMenuItem.Text = "Delete Account";
             // 
             // openFileDialog1
@@ -3111,8 +3092,8 @@
             this.tabAccount.PerformLayout();
             this.characterSkillMenuStrip.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
-            this.tabItem.ResumeLayout(false);
-            this.tabItem.PerformLayout();
+            this.tabItemEditor.ResumeLayout(false);
+            this.tabItemEditor.PerformLayout();
             this.contextItemEdit.ResumeLayout(false);
             this.tabInsure.ResumeLayout(false);
             this.tabInsure.PerformLayout();
@@ -3177,12 +3158,12 @@
         private System.Windows.Forms.TabPage tabInsure;
         private System.Windows.Forms.ToolStripMenuItem connectionStatusToolTip;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button goBtn;
+        private System.Windows.Forms.TextBox percentTxtBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar insuranceProgressBar;
         private System.Windows.Forms.TabPage tabSQL;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button disconnectBtn;
@@ -3212,17 +3193,15 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TabPage tabItem;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TabPage tabItemEditor;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button editItemBtn;
         private System.Windows.Forms.Button goToForumsBtn;
-        internal System.Windows.Forms.TextBox database;
-        internal System.Windows.Forms.TextBox portBox;
-        internal System.Windows.Forms.TextBox password;
-        internal System.Windows.Forms.TextBox username;
+        internal System.Windows.Forms.TextBox dbNameTxtBox;
+        internal System.Windows.Forms.TextBox portTxtBox;
+        internal System.Windows.Forms.TextBox passwordTxtBox;
+        internal System.Windows.Forms.TextBox usernameTxtBox;
         internal System.Windows.Forms.TextBox hostTextBox;
-        public System.Windows.Forms.TextBox itemID;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem connectToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
@@ -3237,7 +3216,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ContextMenuStrip contextItemEdit;
-        private System.Windows.Forms.ToolStripMenuItem todoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyItemRClkBtn;
         private System.Windows.Forms.TabPage raceTab;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TabPage marketTab;
@@ -3245,29 +3224,29 @@
         private System.Windows.Forms.ComboBox bloodlineDropdown;
         private System.Windows.Forms.ComboBox raceDropdown;
         private System.Windows.Forms.GroupBox raceDetails;
-        private System.Windows.Forms.TextBox raceDescription;
-        private System.Windows.Forms.TextBox raceDescriptionShort;
+        private System.Windows.Forms.TextBox raceDescriptionTxtBox;
+        private System.Windows.Forms.TextBox raceDescriptionShortTxtBox;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox raceName;
+        private System.Windows.Forms.TextBox raceNameTxtBox;
         private System.Windows.Forms.GroupBox bloodlineDetails;
-        private System.Windows.Forms.TextBox bloodlineName;
+        private System.Windows.Forms.TextBox bloodlineNameTxtBox;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox bloodlinePerception;
+        private System.Windows.Forms.TextBox bloodlinePerceptionTxtBox;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox bloodlineWillpower;
+        private System.Windows.Forms.TextBox bloodlineWillpowerTxtBox;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox bloodlineMemory;
+        private System.Windows.Forms.TextBox bloodlineMemoryTxtBox;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox bloodlineIntelligence;
+        private System.Windows.Forms.TextBox bloodlineIntelligenceTxtBox;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox bloodlineCharisma;
+        private System.Windows.Forms.TextBox bloodlineCharismaTxtBox;
         private System.Windows.Forms.GroupBox bloodlineStartingStats;
-        private System.Windows.Forms.Button SaveChanges;
+        private System.Windows.Forms.Button saveRaceChangesBtn;
         private System.Windows.Forms.Label Label4411;
-        private System.Windows.Forms.TextBox startingship;
+        private System.Windows.Forms.TextBox startingShipTypeTxtBox;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox startingcorporation;
+        private System.Windows.Forms.TextBox startingCorporationTxtBox;
         private System.Windows.Forms.ListView startingSkills;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
@@ -3277,38 +3256,38 @@
         private System.Windows.Forms.ComboBox careerDropdown;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.ComboBox ancestryDropdown;
-        private System.Windows.Forms.TextBox ancestryWillpower;
-        private System.Windows.Forms.TextBox ancestryMemory;
-        private System.Windows.Forms.TextBox ancestryIntelligence;
-        private System.Windows.Forms.TextBox ancestryCharisma;
-        private System.Windows.Forms.TextBox ancestryPerception;
+        private System.Windows.Forms.TextBox ancestryWillpowerTxtBox;
+        private System.Windows.Forms.TextBox ancestryMemoryTxtBox;
+        private System.Windows.Forms.TextBox ancestryIntelligenceTxtBox;
+        private System.Windows.Forms.TextBox ancestryCharismaTxtBox;
+        private System.Windows.Forms.TextBox ancestryPerceptionTxtBox;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.GroupBox ancestryDetails;
-        private System.Windows.Forms.TextBox ancestryName;
-        private System.Windows.Forms.ToolStripMenuItem deleteItemToolStripMenuItem;
-        private System.Windows.Forms.ListView marketRaces;
+        private System.Windows.Forms.TextBox ancestryNameTxtBox;
+        private System.Windows.Forms.ToolStripMenuItem deleteItemRClkBtn;
+        private System.Windows.Forms.ListView marketRacesTxtBox;
         private System.Windows.Forms.ColumnHeader columnHeader10;
-        private System.Windows.Forms.ListView marketRegions;
+        private System.Windows.Forms.ListView marketRegionsTxtBox;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader12;
-        private System.Windows.Forms.ListView marketSystems;
+        private System.Windows.Forms.ListView marketSystemsTxtBox;
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader14;
-        private System.Windows.Forms.ListView marketCategories;
+        private System.Windows.Forms.ListView marketCategoriesTxtBox;
         private System.Windows.Forms.ColumnHeader columnHeader15;
-        private System.Windows.Forms.ListView marketGroups;
+        private System.Windows.Forms.ListView marketGroupsTxtBox;
         private System.Windows.Forms.ColumnHeader columnHeader16;
-        private System.Windows.Forms.Button SeedMarket;
+        private System.Windows.Forms.Button seedMarketBtn;
         private System.Windows.Forms.Label Quantity;
-        private System.Windows.Forms.TextBox marketQuantity;
+        private System.Windows.Forms.TextBox marketQuantityTxtBox;
         private System.Windows.Forms.ColumnHeader columnHeader17;
         private System.Windows.Forms.ColumnHeader columnHeader18;
         private System.Windows.Forms.ContextMenuStrip RaceSkillContext;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem;
-        private System.Windows.Forms.TextBox SearchCriterium;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox searchItemTxtBox;
+        private System.Windows.Forms.Button searchItem;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.ToolStripMenuItem recordQueriesDisabledToolStripMenuItem;
         private System.Windows.Forms.TabPage oreTab;
@@ -3320,16 +3299,16 @@
         private System.Windows.Forms.ColumnHeader columnHeader20;
         private System.Windows.Forms.ColumnHeader columnHeader21;
         private System.Windows.Forms.ColumnHeader columnHeader22;
-        private System.Windows.Forms.ToolStripMenuItem editItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editItemRClkBtn;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox SelectedOretypeID;
         private System.Windows.Forms.ContextMenuStrip oreMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem addMineralToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeMineralToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeQuantityToolStripMenuItem;
-        private System.Windows.Forms.ComboBox characterName;
-        private System.Windows.Forms.ListView characterSkills;
-        private System.Windows.Forms.TextBox characterID;
+        private System.Windows.Forms.ComboBox characterNameDropDown;
+        private System.Windows.Forms.ListView characterSkillsList;
+        private System.Windows.Forms.TextBox characterIDTxtBox;
         private System.Windows.Forms.ColumnHeader columnHeader23;
         private System.Windows.Forms.ColumnHeader columnHeader24;
         private System.Windows.Forms.ColumnHeader columnHeader25;
@@ -3367,15 +3346,14 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem loadLogonInformationToolStripMenuItem;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox applyQueryToDBChkBox;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox marketSecurityTxtBox;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.Label label47;
@@ -3462,6 +3440,7 @@
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
         private System.Windows.Forms.Button searchAccountBtn;
+        private System.Windows.Forms.TextBox queryMarketSeedTxtBox;
     }
 }
 

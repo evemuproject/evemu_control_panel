@@ -112,18 +112,26 @@ namespace Evemu_DB_Editor.src
         // Simple Query: Handles INSERT, UPDATE, DELETE, ALTER and others i may have forgotten...
         public static bool SQuery(string query)
         {
-            if (isConnectionOpen)
+            try
             {
-                //create command and assign the query and connection from the constructor
-                MySqlCommand cmd = new MySqlCommand(query, connection);
+                if (isConnectionOpen)
+                {
+                    //create command and assign the query and connection from the constructor
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                //Execute command
-                cmd.ExecuteNonQuery();
-                return true;
+                    //Execute command
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Please connect to DB first");
+                    return false;
+                }
             }
-            else
+            catch (Exception e)
             {
-                MessageBox.Show("Please connect to DB first");
+                MessageBox.Show("Exception: " + e.Message);
                 return false;
             }
         }

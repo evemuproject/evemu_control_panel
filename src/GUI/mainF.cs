@@ -21,24 +21,20 @@ http://www.gnu.org/copyleft/lesser.txt.
 ------------------------------------------------------------------------------------
 */
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Diagnostics;
-using MySql.Data.MySqlClient;
-using System.Security.Cryptography;
-using System.Runtime.InteropServices;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
+using System.Text;
+using System.Windows.Forms;
 using System.Xml;
-using StuffArchiver;
-using System.Threading;
-using StuffArchiver.src;
 using Evemu_DB_Editor.src;
+using MySql.Data.MySqlClient;
+using StuffArchiver.src;
 
 namespace Evemu_DB_Editor
 {
@@ -63,16 +59,16 @@ namespace Evemu_DB_Editor
         public main()
         {
             InitializeComponent();
-            textBox2.Text = "* Some market items require NULL for their raceID, so in order to SEED these items, DO NOT select ANY race above." + Environment.NewLine + Environment.NewLine;
-            textBox2.Text += "* MySQL queries will appear in this window after query completes its operation on the Database." + Environment.NewLine + Environment.NewLine;
-            textBox2.Text += "* UN-check check box to show query without affecting the Database." + Environment.NewLine + Environment.NewLine;
-            textBox2.Text += "* Click the Clear Query button to clear this window at any time." + Environment.NewLine + Environment.NewLine;
-            textBox2.Text += "* Each click of the Seed Market button will replace this window's current contents with the new query.";
+            queryMarketSeedTxtBox.Text = "* Some market items require NULL for their raceID, so in order to SEED these items, DO NOT select ANY race above." + Environment.NewLine + Environment.NewLine;
+            queryMarketSeedTxtBox.Text += "* MySQL queries will appear in this window after query completes its operation on the Database." + Environment.NewLine + Environment.NewLine;
+            queryMarketSeedTxtBox.Text += "* UN-check check box to show query without affecting the Database." + Environment.NewLine + Environment.NewLine;
+            queryMarketSeedTxtBox.Text += "* Click the Clear Query button to clear this window at any time." + Environment.NewLine + Environment.NewLine;
+            queryMarketSeedTxtBox.Text += "* Each click of the Seed Market button will replace this window's current contents with the new query.";
         }
 
         private void main_Load(object sender, EventArgs e)
         {
-            connection = ("server=" + hostTextBox.Text + ";username=" + username.Text + ";password=" + password.Text + ";port=" + portBox.Text + ";database=" + database.Text);
+            connection = ("server=" + hostTextBox.Text + ";username=" + usernameTxtBox.Text + ";password=" + passwordTxtBox.Text + ";port=" + portTxtBox.Text + ";database=" + dbNameTxtBox.Text);
             if (System.IO.File.Exists(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\EvemuDBEditor.ini"))
             {
                 System.IO.StreamReader f = new System.IO.StreamReader(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\EvemuDBEditor.ini");
@@ -85,19 +81,19 @@ namespace Evemu_DB_Editor
                     }
                     if (Line.Contains("Username="))
                     {
-                        username.Text = Line.Replace("Username=", "");
+                        usernameTxtBox.Text = Line.Replace("Username=", "");
                     }
                     if (Line.Contains("Password="))
                     {
-                        password.Text = Line.Replace("Password=", "");
+                        passwordTxtBox.Text = Line.Replace("Password=", "");
                     }
                     if (Line.Contains("Port="))
                     {
-                        portBox.Text = Line.Replace("Port=", "");
+                        portTxtBox.Text = Line.Replace("Port=", "");
                     }
                     if (Line.Contains("Database="))
                     {
-                        database.Text = Line.Replace("Database=", "");
+                        dbNameTxtBox.Text = Line.Replace("Database=", "");
                     }
                 }
                 f.Close();
@@ -120,16 +116,55 @@ namespace Evemu_DB_Editor
         }
         #endregion
 
+        #region File Tab
+
+        #endregion
+
+        #region Options Tab
+        private void recordQueriesDisabledToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (recordqueries == false)
+            {
+                recordqueries = true;
+                recordQueriesDisabledToolStripMenuItem.Text = "Record queries (Enabled)";
+            }
+            else
+            {
+                recordqueries = false;
+                recordQueriesDisabledToolStripMenuItem.Text = "Record queries (Disabled)";
+            }
+        }
+        #endregion
+
+        #region Help Tab
+        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            information info = new information();
+            info.ShowDialog();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Made by: Matthew aka: Hurracane @ evemu.mmoforge.org\nAlpha Version.\n\nVersion: " + System.Reflection.Assembly.GetExecutingAssembly().
+         GetName().Version.ToString());
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        #endregion
+
         #region SQL Settings Tab
         private void connectBtn_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(hostTextBox.Text) || String.IsNullOrEmpty(username.Text) || String.IsNullOrEmpty(password.Text) || String.IsNullOrEmpty(database.Text))
+            if (String.IsNullOrEmpty(hostTextBox.Text) || String.IsNullOrEmpty(usernameTxtBox.Text) || String.IsNullOrEmpty(passwordTxtBox.Text) || String.IsNullOrEmpty(dbNameTxtBox.Text))
             {
                 MessageBox.Show("Please make sure all the input fields are filled in.");
             }
             else
             {
-                DBConnect.OpenConnection(hostTextBox.Text, username.Text, password.Text, database.Text);
+                DBConnect.OpenConnection(hostTextBox.Text, usernameTxtBox.Text, passwordTxtBox.Text, dbNameTxtBox.Text);
                 if (DBConnect.isConnectionOpen)
                 {
                     connectionStatusLbl.Text = "Connected";
@@ -193,9 +228,9 @@ namespace Evemu_DB_Editor
                 psi.RedirectStandardInput = true;
                 psi.RedirectStandardOutput = false;
                 psi.Arguments = string.Format(@"-u{0} -p{1} -h{2}",
-                    username, password, hostTextBox);
+                    usernameTxtBox, passwordTxtBox, hostTextBox);
                 psi.Arguments = string.Format("create", @"{0}",
-                    "database", database);
+                    "database", dbNameTxtBox);
                 psi.UseShellExecute = false;
 
 
@@ -292,7 +327,7 @@ namespace Evemu_DB_Editor
 
         private void editAccountToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(accountList.SelectedItems[0].Text)
+            if(String.IsNullOrEmpty(accountList.SelectedItems[0].Text))
             {
                 acctEdit acc = new acctEdit();
                 acc.Show();
@@ -300,6 +335,80 @@ namespace Evemu_DB_Editor
                 acc.GetAccountInfo(item.SubItems[0].Text);
                 acc.userID.Text = item.SubItems[0].Text;
             }
+        }
+
+        private void characterNameDropDown_DropDown(object sender, EventArgs e)
+        {
+            characterSkillsList.Items.Clear();
+            foreach (DataRow record in DBConnect.AQuery("SELECT typeID, itemName, itemID AS currentitemID, (SELECT valueInt FROM entity_attributes WHERE itemID = currentitemID AND attributeid = 280) AS level, (SELECT valueInt FROM entity_attributes WHERE itemID = currentitemID AND attributeid = 276) AS skillpoints FROM entity WHERE flag = 7 AND ownerid = " + characterIDTxtBox.Text).Rows)
+            {
+                string[] temp = new string[4];
+                temp[0] = record[0].ToString();
+                temp[1] = record[1].ToString();
+                temp[2] = record[3].ToString();
+                temp[3] = record[4].ToString();
+                ListViewItem temp2 = new ListViewItem(temp);
+                characterSkillsList.Items.Add(temp2);
+            }
+        }
+
+        private void characterNameDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (DataRow record in DBConnect.AQuery("SELECT itemID FROM entity WHERE itemName = '" + characterNameDropDown.Text + "'").Rows)
+            {
+                characterIDTxtBox.Text = record[0].ToString();
+            }
+
+            characterSkillsList.Items.Clear();
+            foreach (DataRow record in DBConnect.AQuery("SELECT typeID, itemName, itemID AS currentitemID, (SELECT valueInt FROM entity_attributes WHERE itemID = currentitemID AND attributeid = 280) AS level, (SELECT valueInt FROM entity_attributes WHERE itemID = currentitemID AND attributeid = 276) AS skillpoints FROM entity WHERE flag = 7 AND ownerid = " + characterIDTxtBox.Text).Rows)
+            {
+                string[] temp = new string[4];
+                temp[0] = record[0].ToString();
+                temp[1] = record[1].ToString();
+                temp[2] = record[3].ToString();
+                temp[3] = record[4].ToString();
+                ListViewItem temp2 = new ListViewItem(temp);
+                characterSkillsList.Items.Add(temp2);
+            }
+
+        }
+
+        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            editCharacterSkill editSkill = new editCharacterSkill();
+            editSkill.newskill = 1;
+            editSkill.characterID.Text = characterIDTxtBox.Text;
+            editSkill.ShowDialog();
+            characterNameDropDown_SelectedIndexChanged(null, null);
+        }
+
+        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Too lazy to implement right now, use remove/add for now");
+            //Code below is fine, too lazy to write the update queries
+
+            //foreach (ListViewItem SelectedItem in characterSkills.SelectedItems)
+            //{
+            //editCharacterSkill editSkill = new editCharacterSkill();            
+            //editSkill.skillID.Text = SelectedItem.SubItems[0].Text;
+            //editSkill.skillName.Text = SelectedItem.SubItems[1].Text;
+            //editSkill.skillLevel.Text = SelectedItem.SubItems[2].Text;
+            //editSkill.skillPoints.Text = SelectedItem.SubItems[3].Text;
+            //editSkill.characterID.Text = characterID.Text;
+            //editSkill.newskill = 0;
+            //editSkill.ShowDialog();
+            //characterName_SelectedIndexChanged(null, null);
+            //}  
+        }
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem SelectedItem in characterSkillsList.SelectedItems)
+            {
+                DBConnect.SQuery("DELETE FROM entity_attributes WHERE itemID in (SELECT itemID FROM entity WHERE ownerID = " + characterIDTxtBox.Text + " AND typeID = " + SelectedItem.SubItems[0].Text + ")");
+                DBConnect.SQuery("DELETE FROM entity WHERE ownerID = " + characterIDTxtBox.Text + " AND typeID = " + SelectedItem.SubItems[0].Text);
+            }
+            characterNameDropDown_SelectedIndexChanged(null, null);
         }
 
         private void populateAccountList()
@@ -316,158 +425,9 @@ namespace Evemu_DB_Editor
 
         #endregion
 
-        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            information info = new information();
-            info.ShowDialog();
-        }
+        #region Item Editor
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Made by: Matthew aka: Hurracane @ evemu.mmoforge.org\nAlpha Version.\n\nVersion: " + System.Reflection.Assembly.GetExecutingAssembly().
-         GetName().Version.ToString());
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            itemAddEdit add = new itemAddEdit();
-            add.Show();
-            add.extractItemInfo(int.Parse(itemID.Text));
-        }
-
-        internal void doubleInsert(string typeID, int attributeID, double value)
-        {
-            string query = "";
-            conn = new MySqlConnection();
-            conn.ConnectionString = Program.m.connection;
-            query = "INSERT INTO dgmTypeAttributes (typeID, attributeID, valueFloat) VALUES(" + typeID + ", " + attributeID + ", " + value + ")";
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-
-            try
-            {
-                conn.Open();
-                cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException ex)
-            {
-                log__("Exception: " + ex.Message);
-                MessageBox.Show(ex.Message);
-            }
-            catch (Exception ec)
-            {
-                log__("Exception: " + ec.Message);
-                MessageBox.Show(ec.Message);
-            }
-        }
-
-        internal void intInsert(string typeID, int attributeID, int value)
-        {
-            string query = "";
-            conn = new MySqlConnection();
-            conn.ConnectionString = Program.m.connection;
-            query = "INSERT INTO dgmTypeAttributes (typeID, attributeID, valueInt) VALUES(" + typeID + ", " + attributeID + ", " + value + ")";
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-
-            try
-            {
-                conn.Open();
-                cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException ex)
-            {
-                log__("Exception: " + ex.Message);
-                MessageBox.Show(ex.Message);
-            }
-            catch (Exception ec)
-            {
-                log__("Exception: " + ec.Message);
-                MessageBox.Show(ec.Message);
-            }
-        }
-
-        internal void doubleUpdate(string typeID, int attributeID, double value)
-        {
-            string query = "";
-            conn = new MySqlConnection();
-            conn.ConnectionString = Program.m.connection;
-            query = "UPDATE dgmTypeAttributes SET valueFloat=" + value + " WHERE typeID=" + typeID + " AND attributeID=" + attributeID;
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-
-            try
-            {
-                conn.Open();
-                cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException ex)
-            {
-                log__("Exception: " + ex.Message);
-                MessageBox.Show(ex.Message);
-            }
-            catch (Exception ec)
-            {
-                log__("Exception: " + ec.Message);
-                MessageBox.Show(ec.Message);
-            }
-        }
-
-        internal void intUpdate(string typeID, int attributeID, int value)
-        {
-            string query = "";
-            conn = new MySqlConnection();
-            conn.ConnectionString = Program.m.connection;
-            query = "UPDATE dgmTypeAttributes SET valueInt=" + value + " WHERE typeID=" + typeID + " AND attributeID=" + attributeID;
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-
-            try
-            {
-                conn.Open();
-                cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException ex)
-            {
-                log__("Exception: " + ex.Message);
-                MessageBox.Show(ex.Message);
-            }
-            catch (Exception ec)
-            {
-                log__("Exception: " + ec.Message);
-                MessageBox.Show(ec.Message);
-            }
-        }
-
-        private void saveLogonInformationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                System.IO.Directory.CreateDirectory(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\");
-            }
-            catch (Exception ex)
-            {
-                log__("Exception: " + ex.Message);
-            }
-            try
-            {
-                System.IO.StreamWriter f = new System.IO.StreamWriter(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\" + hostTextBox.Text + ".ini");
-                string LogonData;
-                LogonData = "Hostname=" + hostTextBox.Text + "\r\nUsername=" + username.Text + "\r\nPassword=" + password.Text + "\r\nPort=" + portBox.Text + "\r\nDatabase=" + database.Text;
-                f.Write(LogonData);
-                f.Close();
-                System.IO.File.Copy(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\" + hostTextBox.Text + ".ini", Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\EvemuDBEditor.ini", true);
-                MessageBox.Show("Logon data saved to: " + Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\" + hostTextBox.Text + ".ini and has been set as default.");
-            }
-            catch (Exception ex)
-            {
-                log__("Exception: " + ex.Message);
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
-        private void tabItem_Enter(object sender, EventArgs e)
+        private void tabItemEditor_Enter(object sender, EventArgs e)
         {
             foreach (DataRow record in DBConnect.AQuery("SELECT CategoryName from invCategories").Rows)
             {
@@ -476,12 +436,51 @@ namespace Evemu_DB_Editor
 
         }
 
+        private void searchItem_Click(object sender, EventArgs e)
+        {
+            ItemList.Items.Clear();
+            string SQLQuery = "SELECT invTypes.typeID, invTypes.typeName, invGroups.groupName, chrRaces.raceName, invTypes.description FROM (invCategories RIGHT JOIN (invTypes LEFT JOIN invGroups ON invTypes.groupID = invGroups.groupID) ON invCategories.categoryID = invGroups.categoryID) LEFT JOIN chrRaces ON invTypes.raceID = chrRaces.raceID WHERE (((invCategories.categoryName) = '" + CategoryDropdown.Text + "') and typeName like '%" + searchItemTxtBox.Text + "%')";
+
+            DataTable data = DBConnect.AQuery(SQLQuery);
+            String[] item = new string[data.Columns.Count];
+            ListViewItem[] items = new ListViewItem[data.Rows.Count];
+            int count = 0;
+
+            foreach (DataRow row in data.Rows)
+            {
+                for (int i = 0; i < data.Columns.Count; i++)
+                {
+                    item[i] = row[i].ToString();
+                }
+
+                ListViewItem item2 = new ListViewItem(item);
+                items[count] = item2;
+                count++;
+            }
+            ItemList.Items.AddRange(items);
+        }
+        
+        private void searchItemTxtBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                searchItem_Click(null, null);
+            }
+        }
+
+        private void editItemBtn_Click(object sender, EventArgs e)
+        {
+            itemAddEdit add = new itemAddEdit();
+            add.Show();
+            add.extractItemInfo(int.Parse(ItemList.SelectedItems[0].SubItems[0].Text));
+        }
+
         private void CategoryDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
             ItemList.Items.Clear();
             string SQLQuery = "SELECT invTypes.typeID, invTypes.typeName, invGroups.groupName, chrRaces.raceName, invTypes.description FROM (invCategories RIGHT JOIN (invTypes LEFT JOIN invGroups ON invTypes.groupID = invGroups.groupID) ON invCategories.categoryID = invGroups.categoryID) LEFT JOIN chrRaces ON invTypes.raceID = chrRaces.raceID WHERE (((invCategories.categoryName) = '" + CategoryDropdown.Text + "'))";
 
-            DataTable SQLData = SelectSQL(SQLQuery);
+            DataTable SQLData = DBConnect.AQuery(SQLQuery);
             String[] item = new string[SQLData.Columns.Count];
             ListViewItem[] items = new ListViewItem[SQLData.Rows.Count];
             int count = 0;
@@ -498,67 +497,9 @@ namespace Evemu_DB_Editor
                 count++;
             }
             ItemList.Items.AddRange(items);
-            button6.Visible = true;
+            searchItem.Visible = true;
             label35.Visible = true;
-            SearchCriterium.Visible = true;
-        }
-
-        public DataTable SelectSQL(string SQLQuery)
-        {
-            log__(SQLQuery);
-            conn = new MySqlConnection(connection);
-            try
-            {
-                conn.Open();
-            }
-            catch (MySqlException ex)
-            {
-                log__("Exception: " + ex.Message);
-                MessageBox.Show(ex.Message);
-            }
-            MySqlCommand query = new MySqlCommand(SQLQuery, conn);
-
-            MySqlDataReader dataread1 = query.ExecuteReader();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            var datatable = new DataTable();
-            dataread1.Close();
-            adapter.SelectCommand = query;
-            adapter.Fill(datatable);
-            conn.Close();
-            return datatable;
-        }
-
-        public void InsertSQL(string SQLQuery)
-        {
-            log__(SQLQuery);
-            conn = new MySqlConnection(connection);
-            try
-            {
-                conn.Open();
-            }
-            catch (MySqlException ex)
-            {
-                log__("Exception: " + ex.Message);
-                MessageBox.Show(ex.Message);
-            }
-            MySqlCommand query = new MySqlCommand(SQLQuery, conn);
-            try
-            {
-                query.ExecuteScalar();
-                if (recordqueries == true)
-                {
-                    System.IO.StreamWriter f = new System.IO.StreamWriter(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\EveDBeditorQueries.log", true);
-                    f.Write(SQLQuery + ";");
-                    f.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                log__("Exception: " + ex.Message);
-                MessageBox.Show(ex.Message);
-            }
-            conn.Close();
+            searchItemTxtBox.Visible = true;
         }
 
         private void ItemList_DblClick(object sender, EventArgs e)
@@ -567,11 +508,11 @@ namespace Evemu_DB_Editor
             {
                 itemAddEdit add = new itemAddEdit();
                 add.Show();
-                add.extractItemInfo(Convert.ToInt16(SelectedItem.SubItems[0].Text));
+                add.extractItemInfo(int.Parse(ItemList.SelectedItems[0].SubItems[0].Text));
             }
         }
 
-        private void todoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void copyItemRClkBtn_Click(object sender, EventArgs e)
         {
             DataTable FindNewID = DBConnect.AQuery("SELECT max(typeID) from invTypes");
             int newid = 0;
@@ -583,10 +524,10 @@ namespace Evemu_DB_Editor
             foreach (ListViewItem SelectedItem in ItemList.SelectedItems)
             {
                 int typeID = Convert.ToInt16(SelectedItem.SubItems[0].Text);
-                Program.m.InsertSQL("INSERT INTO invTypes(typeID, groupID, typeName, description, graphicID, radius, mass, volume, capacity, portionSize, raceID, basePrice, published, marketGroupID, chanceOfDuplicating) SELECT '" + newid + "', groupID, concat('Copy of ', typeName), description, graphicID, radius, mass, volume, capacity, portionSize, raceID, basePrice, published, marketGroupID, chanceOfDuplicating from invTypes WHERE typeID = '" + typeID + "'");
-                Program.m.InsertSQL("INSERT INTO dgmTypeAttributes SELECT '" + newid + "', attributeID, valueInt, valueFloat from dgmTypeAttributes WHERE typeID = '" + typeID + "'");
-                Program.m.InsertSQL("INSERT INTO invShipTypes SELECT '" + newid + "', weapontypeID, miningtypeID, skilltypeID from invShipTypes WHERE shiptypeID = '" + typeID + "'");
-                Program.m.InsertSQL("INSERT INTO dgmTypeEffects SELECT '" + newid + "', effectID, isDefault from dgmTypeEffects WHERE typeID = '" + typeID + "'");
+                DBConnect.SQuery("INSERT INTO invTypes(typeID, groupID, typeName, description, graphicID, radius, mass, volume, capacity, portionSize, raceID, basePrice, published, marketGroupID, chanceOfDuplicating) SELECT '" + newid + "', groupID, concat('Copy of ', typeName), description, graphicID, radius, mass, volume, capacity, portionSize, raceID, basePrice, published, marketGroupID, chanceOfDuplicating from invTypes WHERE typeID = '" + typeID + "'");
+                DBConnect.SQuery("INSERT INTO dgmTypeAttributes SELECT '" + newid + "', attributeID, valueInt, valueFloat from dgmTypeAttributes WHERE typeID = '" + typeID + "'");
+                DBConnect.SQuery("INSERT INTO invShipTypes SELECT '" + newid + "', weapontypeID, miningtypeID, skilltypeID from invShipTypes WHERE shiptypeID = '" + typeID + "'");
+                DBConnect.SQuery("INSERT INTO dgmTypeEffects SELECT '" + newid + "', effectID, isDefault from dgmTypeEffects WHERE typeID = '" + typeID + "'");
             }
             CategoryDropdown_SelectedIndexChanged(null, null);
 
@@ -595,11 +536,37 @@ namespace Evemu_DB_Editor
             add.extractItemInfo(newid);
         }
 
+        private void editItemRClkBtn_Click(object sender, EventArgs e)
+        {
+            ItemList_DblClick(null, null);
+        }
+
+        private void deleteItemRClkBtn_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem SelectedItem in ItemList.SelectedItems)
+            {
+                DBConnect.SQuery("DELETE FROM invTypes WHERE typeID = '" + SelectedItem.SubItems[0].Text + "'");
+                DBConnect.SQuery("DELETE FROM dgmTypeAttributes WHERE typeID = '" + SelectedItem.SubItems[0].Text + "'");
+                DBConnect.SQuery("DELETE FROM shiptypes WHERE shiptypeID = '" + SelectedItem.SubItems[0].Text + "'");
+            }
+            CategoryDropdown_SelectedIndexChanged(null, null);
+        }
+
+        #endregion
+
+        #region Insurance Tab
+        private void goBtn_Click(object sender, EventArgs e)
+        {
+            //not implemented
+        }
+
+        #endregion
+
         #region Race
         private void raceTab_Enter(object sender, EventArgs e)
         {
             raceDropdown.Items.Clear();
-            foreach (DataRow record in SelectSQL("SELECT raceName from chrRaces").Rows)
+            foreach (DataRow record in DBConnect.AQuery("SELECT raceName from chrRaces").Rows)
             {
                 raceDropdown.Items.Add(record[0]);
             }
@@ -612,24 +579,24 @@ namespace Evemu_DB_Editor
             raceDetails.Visible = true;
             startingSkills.Items.Clear();
 
-            foreach (DataRow record in SelectSQL("SELECT bloodlineName from chrBloodlines WHERE raceID IN (SELECT raceID from chrRaces WHERE raceName = '" + raceDropdown.Text + "')").Rows)
+            foreach (DataRow record in DBConnect.AQuery("SELECT bloodlineName from chrBloodlines WHERE raceID IN (SELECT raceID from chrRaces WHERE raceName = '" + raceDropdown.Text + "')").Rows)
             {
                 bloodlineDropdown.Items.Add(record[0]);
             }
 
-            foreach (DataRow record in SelectSQL("SELECT careerName from chrCareers WHERE raceID in (SELECT raceID from chrRaces WHERE raceName = '" + raceDropdown.Text + "')").Rows)
+            foreach (DataRow record in DBConnect.AQuery("SELECT careerName from chrCareers WHERE raceID in (SELECT raceID from chrRaces WHERE raceName = '" + raceDropdown.Text + "')").Rows)
             {
                 careerDropdown.Items.Add(record[0]);
             }
 
-            foreach (DataRow record in SelectSQL("SELECT raceName, description, shortDescription from chrRaces WHERE raceName = '" + raceDropdown.Text + "'").Rows)
+            foreach (DataRow record in DBConnect.AQuery("SELECT raceName, description, shortDescription from chrRaces WHERE raceName = '" + raceDropdown.Text + "'").Rows)
             {
-                raceName.Text = record[0].ToString();
-                raceDescription.Text = record[1].ToString();
-                raceDescriptionShort.Text = record[2].ToString();
+                raceNameTxtBox.Text = record[0].ToString();
+                raceDescriptionTxtBox.Text = record[1].ToString();
+                raceDescriptionShortTxtBox.Text = record[2].ToString();
             }
 
-            foreach (DataRow record in SelectSQL("SELECT chrRaceskills.*, invTypes.typeName from chrRaceskills, invTypes WHERE chrRaceskills.skilltypeID = invTypes.typeID and chrRaceskills.raceID in (SELECT raceID from chrRaces WHERE raceName = '" + raceDropdown.Text + "')").Rows)
+            foreach (DataRow record in DBConnect.AQuery("SELECT chrRaceskills.*, invTypes.typeName from chrRaceskills, invTypes WHERE chrRaceskills.skilltypeID = invTypes.typeID and chrRaceskills.raceID in (SELECT raceID from chrRaces WHERE raceName = '" + raceDropdown.Text + "')").Rows)
             {
                 string[] Skill = new string[4];
                 Skill[0] = record[1].ToString();
@@ -648,41 +615,19 @@ namespace Evemu_DB_Editor
 
             foreach (DataRow record in DBConnect.AQuery("SELECT * from chrBloodlines WHERE bloodlineName = '" + bloodlineDropdown.Text + "'").Rows)
             {
-                bloodlineName.Text = record[1].ToString();
-                startingship.Text = record[6].ToString();
-                startingcorporation.Text = record[7].ToString();
-                bloodlineWillpower.Text = record[8].ToString();
-                bloodlineMemory.Text = record[9].ToString();
-                bloodlineIntelligence.Text = record[10].ToString();
-                bloodlineCharisma.Text = record[11].ToString();
-                bloodlinePerception.Text = record[12].ToString();
+                bloodlineNameTxtBox.Text = record[1].ToString();
+                startingShipTypeTxtBox.Text = record[6].ToString();
+                startingCorporationTxtBox.Text = record[7].ToString();
+                bloodlineWillpowerTxtBox.Text = record[8].ToString();
+                bloodlineMemoryTxtBox.Text = record[9].ToString();
+                bloodlineIntelligenceTxtBox.Text = record[10].ToString();
+                bloodlineCharismaTxtBox.Text = record[11].ToString();
+                bloodlinePerceptionTxtBox.Text = record[12].ToString();
             }
             ancestryDropdown.Items.Clear();
-            foreach (DataRow record in SelectSQL("SELECT ancestryName from chrAncestries WHERE bloodlineID in (SELECT bloodlineID from chrBloodlines WHERE bloodlineName = '" + bloodlineDropdown.Text + "')").Rows)
+            foreach (DataRow record in DBConnect.AQuery("SELECT ancestryName from chrAncestries WHERE bloodlineID in (SELECT bloodlineID from chrBloodlines WHERE bloodlineName = '" + bloodlineDropdown.Text + "')").Rows)
             {
                 ancestryDropdown.Items.Add(record[0]);
-            }
-        }
-
-        private void SaveChanges_Click(object sender, EventArgs e)
-        {
-            if (bloodlineDropdown.Text == "" | ancestryDropdown.Text == "")
-            {
-                MessageBox.Show("Please SELECT a bloodline and ancestry.");
-            }
-            else
-            {
-                //Save race changes
-                InsertSQL("update chrRaces set raceName = '" + raceName.Text + "', description = '" + raceDescription.Text + "', shortDescription = '" + raceDescriptionShort.Text + "' WHERE raceName = '" + raceDropdown.Text + "'");
-                raceTab_Enter(null, null);
-
-                //save bloodline changes
-                InsertSQL("update chrBloodlines set bloodlineName = '" + bloodlineName.Text + "', perception = '" + bloodlinePerception.Text + "', willpower = '" + bloodlineWillpower.Text + "', memory = '" + bloodlineMemory.Text + "', intelligence = '" + bloodlineIntelligence.Text + "', charisma = '" + bloodlineCharisma.Text + "', shiptypeID = '" + startingship.Text + "', corporationid = '" + startingcorporation.Text + "' WHERE bloodlineName = '" + bloodlineDropdown.Text + "'");
-
-                //save ancestry changes
-                InsertSQL("update chrAncestries set ancestryName = '" + ancestryName.Text + "', perception = '" + ancestryPerception.Text + "', willpower = '" + ancestryWillpower.Text + "', memory = '" + ancestryMemory.Text + "', intelligence = '" + ancestryIntelligence.Text + "', charisma = '" + ancestryCharisma.Text + "' WHERE ancestryName = '" + ancestryDropdown.Text + "'");
-
-                //Save career changes, yet to be written if it even exists nowadays
             }
         }
 
@@ -691,12 +636,12 @@ namespace Evemu_DB_Editor
             ancestryDetails.Visible = true;
             foreach (DataRow record in DBConnect.AQuery("SELECT * from chrAncestries WHERE ancestryName = '" + ancestryDropdown.Text + "'").Rows)
             {
-                ancestryName.Text = record[1].ToString();
-                ancestryWillpower.Text = record[5].ToString();
-                ancestryMemory.Text = record[7].ToString();
-                ancestryIntelligence.Text = record[8].ToString();
-                ancestryCharisma.Text = record[6].ToString();
-                ancestryPerception.Text = record[4].ToString();
+                ancestryNameTxtBox.Text = record[1].ToString();
+                ancestryWillpowerTxtBox.Text = record[5].ToString();
+                ancestryMemoryTxtBox.Text = record[7].ToString();
+                ancestryIntelligenceTxtBox.Text = record[8].ToString();
+                ancestryCharismaTxtBox.Text = record[6].ToString();
+                ancestryPerceptionTxtBox.Text = record[4].ToString();
             }
         }
 
@@ -715,46 +660,121 @@ namespace Evemu_DB_Editor
             //    startingSkills.Items.Add(Skill2);
             //}
         }
-        #endregion
 
-        private void deleteItemToolStripMenuItem_Click(object sender, EventArgs e)
+        private void saveRaceChangesBtn_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem SelectedItem in ItemList.SelectedItems)
+            if (bloodlineDropdown.Text == "" | ancestryDropdown.Text == "")
             {
-                DBConnect.SQuery("DELETE FROM invTypes WHERE typeID = '" + SelectedItem.SubItems[0].Text + "'");
-                DBConnect.SQuery("DELETE FROM dgmTypeAttributes WHERE typeID = '" + SelectedItem.SubItems[0].Text + "'");
-                DBConnect.SQuery("DELETE FROM invShipTypes WHERE shiptypeID = '" + SelectedItem.SubItems[0].Text + "'");
+                MessageBox.Show("Please SELECT a bloodline and ancestry.");
             }
-            CategoryDropdown_SelectedIndexChanged(null, null);
+            else
+            {
+                //Save race changes
+                DBConnect.SQuery("update chrRaces set raceName = '" + raceNameTxtBox.Text + "', description = '" + raceDescriptionTxtBox.Text + "', shortDescription = '" + raceDescriptionShortTxtBox.Text + "' WHERE raceName = '" + raceDropdown.Text + "'");
+                raceTab_Enter(null, null);
+
+                //save bloodline changes
+                DBConnect.SQuery("update chrBloodlines set bloodlineName = '" + bloodlineNameTxtBox.Text + "', perception = '" + bloodlinePerceptionTxtBox.Text + "', willpower = '" + bloodlineWillpowerTxtBox.Text + "', memory = '" + bloodlineMemoryTxtBox.Text + "', intelligence = '" + bloodlineIntelligenceTxtBox.Text + "', charisma = '" + bloodlineCharismaTxtBox.Text + "', shiptypeID = '" + startingShipTypeTxtBox.Text + "', corporationid = '" + startingCorporationTxtBox.Text + "' WHERE bloodlineName = '" + bloodlineDropdown.Text + "'");
+
+                //save ancestry changes
+                DBConnect.SQuery("update chrAncestries set ancestryName = '" + ancestryNameTxtBox.Text + "', perception = '" + ancestryPerceptionTxtBox.Text + "', willpower = '" + ancestryWillpowerTxtBox.Text + "', memory = '" + ancestryMemoryTxtBox.Text + "', intelligence = '" + ancestryIntelligenceTxtBox.Text + "', charisma = '" + ancestryCharismaTxtBox.Text + "' WHERE ancestryName = '" + ancestryDropdown.Text + "'");
+
+                //Save career changes, yet to be written if it even exists nowadays
+            }
         }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddModifyStartingSkill PopupWindow = new AddModifyStartingSkill();
+            PopupWindow.Show();
+
+            PopupWindow.NewStartingSkill.Checked = true;
+
+            foreach (ListViewItem Selectedskill in startingSkills.SelectedItems)
+            {
+                switch (Selectedskill.SubItems[3].Text)
+                {
+                    //have to add career/race id
+                    case "Race":
+                        PopupWindow.raceOrCareerID.Text = "1"; //always caldari
+                        break;
+                    case "Career":
+                        PopupWindow.raceOrCareerID.Text = "";
+                        break;
+                }
+            }
+        }
+
+        private void modifyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddModifyStartingSkill PopupWindow = new AddModifyStartingSkill();
+            PopupWindow.Show();
+            foreach (ListViewItem Selectedskill in startingSkills.SelectedItems)
+            {
+                PopupWindow.skillID.Text = Selectedskill.SubItems[0].Text;
+                PopupWindow.level.Text = Selectedskill.SubItems[1].Text;
+                PopupWindow.skillName.Text = Selectedskill.SubItems[2].Text;
+                PopupWindow.RaceOrCareer.Text = Selectedskill.SubItems[3].Text;
+                PopupWindow.NewStartingSkill.Checked = false;
+
+                switch (Selectedskill.SubItems[3].Text)
+                {
+                    //have to add career/race id
+                    case "Race":
+                        PopupWindow.raceOrCareerID.Text = "";
+                        break;
+                    case "Career":
+                        PopupWindow.raceOrCareerID.Text = "";
+                        break;
+                }
+            }
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem Selectedskill in startingSkills.SelectedItems)
+            {
+                switch (Selectedskill.SubItems[3].Text)
+                {
+                    case "Career":
+                        //InsertSQL("DELETE FROM chrCareerskills WHERE skilltypeID = " + Selectedskill.SubItems[1].Text + " and careerID");
+                        break;
+                    case "Race":
+                        DBConnect.SQuery("DELETE FROM chrRaceskills WHERE skilltypeID = " + Selectedskill.SubItems[0].Text + " AND raceID IN (SELECT raceID FROM chrRaces WHERE raceName = '" + raceDropdown.Text + "')");
+                        raceDropdown_SelectedIndexChanged(null, null);
+                        break;
+                }
+            }
+        }
+        #endregion
 
         #region Market
         private void marketTab_Enter(object sender, EventArgs e)
         {
             //marketRaces.Items.Add("*");
-            marketRaces.Items.Clear();
+            marketRacesTxtBox.Items.Clear();
             foreach (DataRow record in DBConnect.AQuery("SELECT raceName, raceID FROM chrRaces ORDER BY raceName").Rows)
             {
                 string[] temp = new string[2];
                 temp[0] = record[0].ToString();
                 temp[1] = record[1].ToString();
                 ListViewItem temp2 = new ListViewItem(temp);
-                marketRaces.Items.Add(temp2);
+                marketRacesTxtBox.Items.Add(temp2);
             }
 
             //marketRegions.Items.Add("*");
-            marketRegions.Items.Clear();
+            marketRegionsTxtBox.Items.Clear();
             foreach (DataRow record in DBConnect.AQuery("SELECT regionName, regionID FROM mapRegions ORDER BY regionName").Rows)
             {
                 string[] temp = new string[2];
                 temp[0] = record[0].ToString();
                 temp[1] = record[1].ToString();
                 ListViewItem temp2 = new ListViewItem(temp);
-                marketRegions.Items.Add(temp2);
+                marketRegionsTxtBox.Items.Add(temp2);
             }
 
             //marketSystems.Items.Add("*");
-            marketSystems.Items.Clear();
+            marketSystemsTxtBox.Items.Clear();
             foreach (DataRow record in DBConnect.AQuery("SELECT solarSystemName, solarSystemID, security FROM mapSolarSystems ORDER BY solarSystemName").Rows)
             {
                 string[] temp = new string[3];
@@ -762,21 +782,21 @@ namespace Evemu_DB_Editor
                 temp[1] = record[1].ToString();
                 temp[2] = record[2].ToString();
                 ListViewItem temp2 = new ListViewItem(temp);
-                marketSystems.Items.Add(temp2);
+                marketSystemsTxtBox.Items.Add(temp2);
             }
 
             //marketCategories.Items.Add("*");
-            marketCategories.Items.Clear();
+            marketCategoriesTxtBox.Items.Clear();
             foreach (DataRow record in DBConnect.AQuery("SELECT categoryName FROM invCategories ORDER BY categoryName").Rows)
             {
-                marketCategories.Items.Add(record[0].ToString());
+                marketCategoriesTxtBox.Items.Add(record[0].ToString());
             }
         }
 
         private void marketCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
             string Selectedcategories = "";
-            foreach (ListViewItem Selectedcategory in marketCategories.SelectedItems)
+            foreach (ListViewItem Selectedcategory in marketCategoriesTxtBox.SelectedItems)
             {
                 Selectedcategories = Selectedcategories + ", '" + Selectedcategory.SubItems[0].Text + "'";
             }
@@ -789,7 +809,7 @@ namespace Evemu_DB_Editor
                 Selectedcategories = "''";
             }
 
-            marketGroups.Items.Clear();
+            marketGroupsTxtBox.Items.Clear();
             //marketGroups.Items.Add("*");
             foreach (DataRow record in DBConnect.AQuery("SELECT groupName, groupID FROM invGroups WHERE groupID IN (SELECT groupID FROM invGroups WHERE categoryID IN (SELECT categoryID FROM invCategories WHERE categoryName IN (" + Selectedcategories + "))) ORDER BY groupName").Rows)
             {
@@ -797,15 +817,15 @@ namespace Evemu_DB_Editor
                 temp[0] = record[0].ToString();
                 temp[1] = record[1].ToString();
                 ListViewItem temp2 = new ListViewItem(temp);
-                marketGroups.Items.Add(temp2);
+                marketGroupsTxtBox.Items.Add(temp2);
             }
         }
 
-        private void SeedMarket_Click(object sender, EventArgs e)
+        private void seedMarketBtn_Click(object sender, EventArgs e)
         {
             // Create Selected Races for SQL query:
             string Selectedraces = "";
-            foreach (ListViewItem Selected in marketRaces.SelectedItems)
+            foreach (ListViewItem Selected in marketRacesTxtBox.SelectedItems)
             {
                 Selectedraces = Selectedraces + ", '" + Selected.SubItems[1].Text + "'";
             }
@@ -820,7 +840,7 @@ namespace Evemu_DB_Editor
 
             // Create Selected Groups for SQL query:
             string Selectedgroups = "";
-            foreach (ListViewItem Selected in marketGroups.SelectedItems)
+            foreach (ListViewItem Selected in marketGroupsTxtBox.SelectedItems)
             {
                 Selectedgroups = Selectedgroups + ", '" + Selected.SubItems[1].Text + "'";
             }
@@ -840,13 +860,13 @@ namespace Evemu_DB_Editor
             float index = 0;
             float divisor = ((float)100.0) / ((float)(trackBar1.Value));
             index += divisor;
-            foreach (ListViewItem Selected in marketSystems.SelectedItems)
+            foreach (ListViewItem Selected in marketSystemsTxtBox.SelectedItems)
             {
                 ++fullIndex;
                 if (((long)index) == fullIndex)
                 {
-                    if (((System.Convert.ToSingle(Selected.SubItems[2].Text, culture) >= System.Convert.ToSingle(textBox3.Text, culture)) && (radioButton3.Checked))
-                        || ((System.Convert.ToSingle(Selected.SubItems[2].Text, culture) <= System.Convert.ToSingle(textBox3.Text, culture)) && (radioButton4.Checked)))
+                    if (((System.Convert.ToSingle(Selected.SubItems[2].Text, culture) >= System.Convert.ToSingle(marketSecurityTxtBox.Text, culture)) && (radioButton3.Checked))
+                        || ((System.Convert.ToSingle(Selected.SubItems[2].Text, culture) <= System.Convert.ToSingle(marketSecurityTxtBox.Text, culture)) && (radioButton4.Checked)))
                     {
                         Selectedsystems = Selectedsystems + ", '" + Selected.SubItems[1].Text + "'";
                     }
@@ -864,7 +884,7 @@ namespace Evemu_DB_Editor
 
             // Create Selected Systems for SQL query from Selected Regions:  --- THIS OVERRIDES WHATEVER SELECTED SYSTEMS DETERMINED ABOVE ---
             string Selectedregions = "";
-            foreach (ListViewItem Selected in marketRegions.SelectedItems)
+            foreach (ListViewItem Selected in marketRegionsTxtBox.SelectedItems)
             {
                 Selectedregions = Selectedregions + ", '" + Selected.SubItems[1].Text + "'";
             }
@@ -881,8 +901,8 @@ namespace Evemu_DB_Editor
                     ++fullIndex;
                     if (((long)index) == fullIndex)
                     {
-                        if (((System.Convert.ToSingle(record[1].ToString(), culture) >= System.Convert.ToSingle(textBox3.Text, culture)) && (radioButton3.Checked))
-                            || ((System.Convert.ToSingle(record[1].ToString(), culture) <= System.Convert.ToSingle(textBox3.Text, culture)) && (radioButton4.Checked)))
+                        if (((System.Convert.ToSingle(record[1].ToString(), culture) >= System.Convert.ToSingle(marketSecurityTxtBox.Text, culture)) && (radioButton3.Checked))
+                            || ((System.Convert.ToSingle(record[1].ToString(), culture) <= System.Convert.ToSingle(marketSecurityTxtBox.Text, culture)) && (radioButton4.Checked)))
                         {
                             Selectedsystems = Selectedsystems + ", '" + record[0].ToString() + "'";
                         }
@@ -923,138 +943,20 @@ namespace Evemu_DB_Editor
 
             if (Selectedraces != "NULL")
             {
-                str_MySQL_Query = "INSERT INTO market_orders (typeID, charID, regionID, stationID, bid, price, volEntered, volRemaining, issued, orderState, minVolume, contraband, accountID, duration, isCorp, solarSystemID, escrow, jumps) SELECT typeID, 1 as charID, regionID, stationID, " + bid.ToString() + " as bid, basePrice as price, " + marketQuantity.Text + " as volEntered, " + marketQuantity.Text + " as volRemaining, " + integerTime.ToString() + " as issued, 1 as orderState, 1 as minVolume,0 as contraband, 0 as accountID, 18250 as duration,0 as isCorp, solarSystemID, 0 as escrow, 1 as jumps FROM staStations, invTypes WHERE solarSystemID in (" + Selectedsystems + ") AND published = 1 and raceID in (" + Selectedraces + ") and groupID in (" + Selectedgroups + ")";
-                textBox2.Text = str_MySQL_Query;
-                if (checkBox1.Checked)
+                str_MySQL_Query = "INSERT INTO market_orders (typeID, charID, regionID, stationID, bid, price, volEntered, volRemaining, issued, orderState, minVolume, contraband, accountID, duration, isCorp, solarSystemID, escrow, jumps) SELECT typeID, 1 as charID, regionID, stationID, " + bid.ToString() + " as bid, basePrice as price, " + marketQuantityTxtBox.Text + " as volEntered, " + marketQuantityTxtBox.Text + " as volRemaining, " + integerTime.ToString() + " as issued, 1 as orderState, 1 as minVolume,0 as contraband, 0 as accountID, 18250 as duration,0 as isCorp, solarSystemID, 0 as escrow, 1 as jumps FROM staStations, invTypes WHERE solarSystemID in (" + Selectedsystems + ") AND published = 1 and raceID in (" + Selectedraces + ") and groupID in (" + Selectedgroups + ")";
+                queryMarketSeedTxtBox.Text = str_MySQL_Query;
+                if (applyQueryToDBChkBox.Checked)
                     DBConnect.SQuery(str_MySQL_Query);
             }
             else
             {
-                str_MySQL_Query = "INSERT INTO market_orders (typeID, charID, regionID, stationID, bid, price, volEntered, volRemaining, issued, orderState, minVolume, contraband, accountID, duration, isCorp, solarSystemID, escrow, jumps) SELECT typeID, 1 as charID, regionID, stationID, " + bid.ToString() + " as bid, basePrice as price, " + marketQuantity.Text + " as volEntered, " + marketQuantity.Text + " as volRemaining, " + integerTime.ToString() + " as issued, 1 as orderState, 1 as minVolume,0 as contraband, 0 as accountID, 18250 as duration,0 as isCorp, solarSystemID, 0 as escrow, 1 as jumps FROM staStations, invTypes WHERE solarSystemID in (" + Selectedsystems + ") AND published = 1 and raceID is NULL and groupID in (" + Selectedgroups + ")";
-                textBox2.Text = str_MySQL_Query;
-                if (checkBox1.Checked)
+                str_MySQL_Query = "INSERT INTO market_orders (typeID, charID, regionID, stationID, bid, price, volEntered, volRemaining, issued, orderState, minVolume, contraband, accountID, duration, isCorp, solarSystemID, escrow, jumps) SELECT typeID, 1 as charID, regionID, stationID, " + bid.ToString() + " as bid, basePrice as price, " + marketQuantityTxtBox.Text + " as volEntered, " + marketQuantityTxtBox.Text + " as volRemaining, " + integerTime.ToString() + " as issued, 1 as orderState, 1 as minVolume,0 as contraband, 0 as accountID, 18250 as duration,0 as isCorp, solarSystemID, 0 as escrow, 1 as jumps FROM staStations, invTypes WHERE solarSystemID in (" + Selectedsystems + ") AND published = 1 and raceID is NULL and groupID in (" + Selectedgroups + ")";
+                queryMarketSeedTxtBox.Text = str_MySQL_Query;
+                if (applyQueryToDBChkBox.Checked)
                     DBConnect.SQuery(str_MySQL_Query);
             }
         }
         #endregion
-
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (ListViewItem Selectedskill in startingSkills.SelectedItems)
-            {
-                switch (Selectedskill.SubItems[3].Text)
-                {
-                    case "Career":
-                        //InsertSQL("DELETE FROM chrCareerskills WHERE skilltypeID = " + Selectedskill.SubItems[1].Text + " and careerID");
-                        break;
-                    case "Race":
-                        DBConnect.SQuery("DELETE FROM chrRaceskills WHERE skilltypeID = " + Selectedskill.SubItems[0].Text + " AND raceID IN (SELECT raceID FROM chrRaces WHERE raceName = '" + raceDropdown.Text + "')");
-                        raceDropdown_SelectedIndexChanged(null, null);
-                        break;
-                }
-            }
-        }
-
-        private void modifyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AddModifyStartingSkill PopupWindow = new AddModifyStartingSkill();
-            PopupWindow.Show();
-            foreach (ListViewItem Selectedskill in startingSkills.SelectedItems)
-            {
-                PopupWindow.skillID.Text = Selectedskill.SubItems[0].Text;
-                PopupWindow.level.Text = Selectedskill.SubItems[1].Text;
-                PopupWindow.skillName.Text = Selectedskill.SubItems[2].Text;
-                PopupWindow.RaceOrCareer.Text = Selectedskill.SubItems[3].Text;
-                PopupWindow.NewStartingSkill.Checked = false;
-
-                switch (Selectedskill.SubItems[3].Text)
-                {
-                    //have to add career/race id
-                    case "Race":
-                        PopupWindow.raceOrCareerID.Text = "";
-                        break;
-                    case "Career":
-                        PopupWindow.raceOrCareerID.Text = "";
-                        break;
-                }
-            }
-        }
-
-        private void addToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AddModifyStartingSkill PopupWindow = new AddModifyStartingSkill();
-            PopupWindow.Show();
-
-            PopupWindow.NewStartingSkill.Checked = true;
-
-            foreach (ListViewItem Selectedskill in startingSkills.SelectedItems)
-            {
-                switch (Selectedskill.SubItems[3].Text)
-                {
-                    //have to add career/race id
-                    case "Race":
-                        PopupWindow.raceOrCareerID.Text = "1"; //always caldari
-                        break;
-                    case "Career":
-                        PopupWindow.raceOrCareerID.Text = "";
-                        break;
-                }
-            }
-        }
-
-        private void button6_Click_1(object sender, EventArgs e)
-        {
-            ItemList.Items.Clear();
-            string SQLQuery = "SELECT invTypes.typeID, invTypes.typeName, invGroups.groupName, chrRaces.raceName, invTypes.description FROM (invCategories RIGHT JOIN (invTypes LEFT JOIN invGroups ON invTypes.groupID = invGroups.groupID) ON invCategories.categoryID = invGroups.categoryID) LEFT JOIN chrRaces ON invTypes.raceID = chrRaces.raceID WHERE (((invCategories.categoryName) = '" + CategoryDropdown.Text + "') and typeName like '%" + SearchCriterium.Text + "%')";
-
-            DataTable data = DBConnect.AQuery(SQLQuery);
-            String[] item = new string[data.Columns.Count];
-            ListViewItem[] items = new ListViewItem[data.Rows.Count];
-            int count = 0;
-
-            foreach (DataRow row in data.Rows)
-            {
-                for (int i = 0; i < data.Columns.Count; i++)
-                {
-                    item[i] = row[i].ToString();
-                }
-
-                ListViewItem item2 = new ListViewItem(item);
-                items[count] = item2;
-                count++;
-            }
-            ItemList.Items.AddRange(items);
-        }
-
-        private void SearchCriterium_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                button6_Click_1(null, null);
-            }
-        }
-
-        private void itemID_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                button4_Click(null, null);
-            }
-        }
-
-        private void recordQueriesDisabledToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (recordqueries == false)
-            {
-                recordqueries = true;
-                recordQueriesDisabledToolStripMenuItem.Text = "Record queries (Enabled)";
-            }
-            else
-            {
-                recordqueries = false;
-                recordQueriesDisabledToolStripMenuItem.Text = "Record queries (Disabled)";
-            }
-        }
 
         #region ORE
         private void oreTab_Enter(object sender, EventArgs e)
@@ -1086,10 +988,7 @@ namespace Evemu_DB_Editor
             }
         }
        
-        private void editItemToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ItemList_DblClick(null, null);
-        }
+        
 
         private void button7_Click(object sender, EventArgs e)
         {
@@ -1137,79 +1036,7 @@ namespace Evemu_DB_Editor
         }
         #endregion
 
-        private void characterName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow record in DBConnect.AQuery("SELECT itemID FROM entity WHERE itemName = '" + characterName.Text + "'").Rows)
-            {
-                characterID.Text = record[0].ToString();
-            }
-            /*
-            accountList.Items.Clear();
-            string query = "SELECT * FROM account WHERE(accountName like \'" + textBox1.Text + "%\')";
-             */
-            characterSkills.Items.Clear();
-            foreach (DataRow record in DBConnect.AQuery("SELECT typeID, itemName, itemID AS currentitemID, (SELECT valueInt FROM entity_attributes WHERE itemID = currentitemID AND attributeid = 280) AS level, (SELECT valueInt FROM entity_attributes WHERE itemID = currentitemID AND attributeid = 276) AS skillpoints FROM entity WHERE flag = 7 AND ownerid = " + characterID.Text).Rows)
-            {
-                string[] temp = new string[4];
-                temp[0] = record[0].ToString();
-                temp[1] = record[1].ToString();
-                temp[2] = record[3].ToString();
-                temp[3] = record[4].ToString();
-                ListViewItem temp2 = new ListViewItem(temp);
-                characterSkills.Items.Add(temp2);
-            }
-            
-        }
-        /*
-        private void tabAccount_Enter(object sender, EventArgs e)
-        {
-            characterName.Items.Clear();
-            foreach (DataRow record in DBConnect.AQuery("SELECT itemName FROM entity WHERE flag = 57 ORDER BY itemName").Rows)
-            {
-                characterName.Items.Add(record[0].ToString());
-            }
-
-            populateAccountList();
-        }
-        */
-        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            editCharacterSkill editSkill = new editCharacterSkill();
-            editSkill.newskill = 1;
-            editSkill.characterID.Text = characterID.Text;
-            editSkill.ShowDialog();
-            characterName_SelectedIndexChanged(null, null);
-        }
-
-        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Too lazy to implement right now, use remove/add for now");
-            //Code below is fine, too lazy to write the update queries
-
-            //foreach (ListViewItem SelectedItem in characterSkills.SelectedItems)
-            //{
-            //editCharacterSkill editSkill = new editCharacterSkill();            
-            //editSkill.skillID.Text = SelectedItem.SubItems[0].Text;
-            //editSkill.skillName.Text = SelectedItem.SubItems[1].Text;
-            //editSkill.skillLevel.Text = SelectedItem.SubItems[2].Text;
-            //editSkill.skillPoints.Text = SelectedItem.SubItems[3].Text;
-            //editSkill.characterID.Text = characterID.Text;
-            //editSkill.newskill = 0;
-            //editSkill.ShowDialog();
-            //characterName_SelectedIndexChanged(null, null);
-            //}  
-        }
-
-        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (ListViewItem SelectedItem in characterSkills.SelectedItems)
-            {
-                DBConnect.SQuery("DELETE FROM entity_attributes WHERE itemID in (SELECT itemID FROM entity WHERE ownerID = " + characterID.Text + " AND typeID = " + SelectedItem.SubItems[0].Text + ")");
-                DBConnect.SQuery("DELETE FROM entity WHERE ownerID = " + characterID.Text + " AND typeID = " + SelectedItem.SubItems[0].Text);
-            }
-            characterName_SelectedIndexChanged(null, null);
-        }
-
+        #region Unsorted
         private void openApplicationDataFolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process explorer = new Process();
@@ -1217,10 +1044,6 @@ namespace Evemu_DB_Editor
             explorer.StartInfo.Arguments = Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
             explorer.Start();
         }
-
-        
-
-        
 
         private void tabPage1_Enter(object sender, EventArgs e)
         {
@@ -1366,12 +1189,6 @@ namespace Evemu_DB_Editor
             return dialogResult;
         }
 
-        private void log__(string logText)
-        {
-            logSystem log = new logSystem();
-            log.logAdd(logText);
-        }
-
         private void loadLogonInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             XMLReader.xmlLoad();
@@ -1480,7 +1297,7 @@ namespace Evemu_DB_Editor
         private void button10_Click(object sender, EventArgs e)
         {
             // Clear MySql query in Seed Market query text box
-            textBox2.Text = "";
+            queryMarketSeedTxtBox.Text = "";
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -1517,8 +1334,8 @@ namespace Evemu_DB_Editor
                 }
             }
 
-            progressBar1.Maximum = fileCount;
-            progressBar1.Value = 0;
+            insuranceProgressBar.Maximum = fileCount;
+            insuranceProgressBar.Value = 0;
             StuffFile s = new StuffFile();
             foreach (ListViewItem StuffArchive in stuffFiles.SelectedItems)
             {
@@ -1527,7 +1344,7 @@ namespace Evemu_DB_Editor
                     progress.Text = "Current file: " + StuffArchive.SubItems[0].Text + ".stuff";
                     Application.DoEvents();
                     s.Extract(StuffArchive.SubItems[0].Text, @workDir.Text + @"\extract\" + Path.GetFileNameWithoutExtension(StuffArchive.SubItems[0].Text));
-                    progressBar1.Value++;
+                    insuranceProgressBar.Value++;
                 }
             }
             progress.Text = "Idle";
@@ -1535,8 +1352,8 @@ namespace Evemu_DB_Editor
 
         private void button1_Click(object sender, EventArgs e) //Where is button 1? This seem to be the same as button15. Remove it if it's a mistake.
         {
-            progressBar1.Maximum = Directory.GetDirectories(@workDir.Text + @"\extract").Count();
-            progressBar1.Value = 0;
+            insuranceProgressBar.Maximum = Directory.GetDirectories(@workDir.Text + @"\extract").Count();
+            insuranceProgressBar.Value = 0;
 
             StuffFile s = new StuffFile();
             foreach (string StuffDir in Directory.GetDirectories(@workDir.Text + @"\extract"))
@@ -1544,15 +1361,15 @@ namespace Evemu_DB_Editor
                 progress.Text = "Current file: " + StuffDir + ".stuff";
                 Application.DoEvents();
                 s.Archive(@StuffDir, @eveDir.Text + @"\" + Path.GetFileName(StuffDir) + ".stuff");
-                progressBar1.Value++;
+                insuranceProgressBar.Value++;
             }
             progress.Text = "Idle";
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
-            progressBar1.Maximum = Directory.GetDirectories(@workDir.Text + @"\extract").Count();
-            progressBar1.Value = 0;
+            insuranceProgressBar.Maximum = Directory.GetDirectories(@workDir.Text + @"\extract").Count();
+            insuranceProgressBar.Value = 0;
             StuffFile s = new StuffFile();
 
             foreach (string StuffDir in Directory.GetDirectories(@workDir.Text + @"\extract"))
@@ -1566,7 +1383,7 @@ namespace Evemu_DB_Editor
                         s.Archive(@StuffDir, @destDir.Text + @"\" + Path.GetFileName(StuffDir) + ".stuff");
                     }
                 }
-                progressBar1.Value++;
+                insuranceProgressBar.Value++;
             }
             progress.Text = "Idle";
         }
@@ -1718,7 +1535,6 @@ namespace Evemu_DB_Editor
             process.Start();
         }
 
-
         private void button20_Click_1(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
@@ -1727,44 +1543,30 @@ namespace Evemu_DB_Editor
             }
         }
 
-        public class logSystem
+        private void saveLogonInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            public void logAdd(string logText)
+            try
             {
-                DateTime time = DateTime.Now;
-                string sec = time.Second.ToString();
-                string min = time.Minute.ToString();
-                string hour = time.Hour.ToString();
-                string day = time.Day.ToString();
-                string month = time.Month.ToString();
-                string year = time.Year.ToString();
-
-                if (int.Parse(sec) < 10)
-                {
-                    sec = "0" + sec;
-                }
-
-                if (int.Parse(min) < 10)
-                {
-                    min = "0" + min;
-                }
-
-                if (int.Parse(hour) < 10)
-                {
-                    hour = "0" + hour;
-                }
-                if (!System.IO.Directory.Exists(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\"))
-                {
-                    System.IO.Directory.CreateDirectory(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\");
-                }
-                // Just a test, even though i think CreateDirectory checks if the directory is there anyways...
-                //System.IO.Directory.CreateDirectory(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\");
-
-                System.IO.FileInfo fi = new System.IO.FileInfo(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\log.log");
-                System.IO.StreamWriter logAppend = fi.AppendText();
-                string logInfo = "[Log][" + day + "/" + month + "/" + year + " :: " + hour + ":" + min + ":" + sec + "]: \"" + logText + "\"\n";
-                logAppend.WriteLine(logInfo);
-                logAppend.Close();
+                System.IO.Directory.CreateDirectory(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\");
+            }
+            catch (Exception ex)
+            {
+                LogSystem.addLog("Exception: " + ex.Message);
+            }
+            try
+            {
+                System.IO.StreamWriter f = new System.IO.StreamWriter(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\" + hostTextBox.Text + ".ini");
+                string LogonData;
+                LogonData = "Hostname=" + hostTextBox.Text + "\r\nUsername=" + usernameTxtBox.Text + "\r\nPassword=" + passwordTxtBox.Text + "\r\nPort=" + portTxtBox.Text + "\r\nDatabase=" + dbNameTxtBox.Text;
+                f.Write(LogonData);
+                f.Close();
+                System.IO.File.Copy(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\" + hostTextBox.Text + ".ini", Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\EvemuDBEditor.ini", true);
+                MessageBox.Show("Logon data saved to: " + Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\" + hostTextBox.Text + ".ini and has been set as default.");
+            }
+            catch (Exception ex)
+            {
+                LogSystem.addLog("Exception: " + ex.Message);
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -1782,7 +1584,106 @@ namespace Evemu_DB_Editor
             return sb.ToString();
         }
 
-        
+        internal void doubleInsert(string typeID, int attributeID, double value)
+        {
+            string query = "";
+            conn = new MySqlConnection();
+            conn.ConnectionString = Program.m.connection;
+            query = "INSERT INTO dgmTypeAttributes (typeID, attributeID, valueFloat) VALUES(" + typeID + ", " + attributeID + ", " + value + ")";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                LogSystem.addLog("Exception: " + ex.Message);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ec)
+            {
+                LogSystem.addLog("Exception: " + ec.Message);
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        internal void intInsert(string typeID, int attributeID, int value)
+        {
+            string query = "";
+            conn = new MySqlConnection();
+            conn.ConnectionString = Program.m.connection;
+            query = "INSERT INTO dgmTypeAttributes (typeID, attributeID, valueInt) VALUES(" + typeID + ", " + attributeID + ", " + value + ")";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                LogSystem.addLog("Exception: " + ex.Message);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ec)
+            {
+                LogSystem.addLog("Exception: " + ec.Message);
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        internal void doubleUpdate(string typeID, int attributeID, double value)
+        {
+            string query = "";
+            conn = new MySqlConnection();
+            conn.ConnectionString = Program.m.connection;
+            query = "UPDATE dgmTypeAttributes SET valueFloat=" + value + " WHERE typeID=" + typeID + " AND attributeID=" + attributeID;
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                LogSystem.addLog("Exception: " + ex.Message);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ec)
+            {
+                LogSystem.addLog("Exception: " + ec.Message);
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        internal void intUpdate(string typeID, int attributeID, int value)
+        {
+            string query = "";
+            conn = new MySqlConnection();
+            conn.ConnectionString = Program.m.connection;
+            query = "UPDATE dgmTypeAttributes SET valueInt=" + value + " WHERE typeID=" + typeID + " AND attributeID=" + attributeID;
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                LogSystem.addLog("Exception: " + ex.Message);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ec)
+            {
+                LogSystem.addLog("Exception: " + ec.Message);
+                MessageBox.Show(ec.Message);
+            }
+        }
+        #endregion
     }
 }
 

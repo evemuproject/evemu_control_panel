@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Evemu_DB_Editor.src;
 
 namespace Evemu_DB_Editor
 {
@@ -18,7 +19,7 @@ namespace Evemu_DB_Editor
 
         private void AddModifyStartingSkill_Load(object sender, EventArgs e)
         {
-            foreach (DataRow record in Program.m.SelectSQL("SELECT typeName from invTypes WHERE groupid in (SELECT groupid from invGroups WHERE categoryid = 16)").Rows)
+            foreach (DataRow record in DBConnect.AQuery("SELECT typeName from invTypes WHERE groupid in (SELECT groupid from invGroups WHERE categoryid = 16)").Rows)
             {
                 skillName.Items.Add(record[0].ToString());
             }
@@ -26,7 +27,7 @@ namespace Evemu_DB_Editor
 
         private void skillName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (DataRow record in Program.m.SelectSQL("SELECT typeID from invTypes WHERE groupid IN (SELECT groupid from invGroups WHERE categoryid = 16) AND typeName = '" + skillName.Text + "'").Rows)
+            foreach (DataRow record in DBConnect.AQuery("SELECT typeID from invTypes WHERE groupid IN (SELECT groupid from invGroups WHERE categoryid = 16) AND typeName = '" + skillName.Text + "'").Rows)
             {
                 skillID.Text = record[0].ToString();
             }
@@ -39,7 +40,7 @@ namespace Evemu_DB_Editor
                 switch (RaceOrCareer.Text)
                 {
                     case "Race":
-                        Program.m.InsertSQL("UPDATE chrRaceskills SET levels =" + level.Text + " WHERE SkilltypeID = " + skillID.Text + " AND raceID = " + raceOrCareerID.Text);
+                        DBConnect.SQuery("UPDATE chrRaceskills SET levels =" + level.Text + " WHERE SkilltypeID = " + skillID.Text + " AND raceID = " + raceOrCareerID.Text);
                         break;
                     case "Career":
                         //Todo
@@ -51,7 +52,7 @@ namespace Evemu_DB_Editor
                 switch (RaceOrCareer.Text)
                 {
                     case "Race":
-                        Program.m.InsertSQL("INSERT INTO chrRaceskills (raceID, SkilltypeID, levels) VALUES (" + raceOrCareerID.Text + "," + skillID.Text + "," + level.Text + ")");
+                        DBConnect.SQuery("INSERT INTO chrRaceskills (raceID, SkilltypeID, levels) VALUES (" + raceOrCareerID.Text + "," + skillID.Text + "," + level.Text + ")");
                         break;
                     case "Career":
                         //Todo

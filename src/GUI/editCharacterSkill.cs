@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Evemu_DB_Editor.src;
 
 namespace Evemu_DB_Editor
 {    
@@ -19,7 +20,7 @@ namespace Evemu_DB_Editor
 
         private void editCharacterSkill_Load(object sender, EventArgs e)
         {
-            foreach (DataRow record in Program.m.SelectSQL("SELECT typeName from invTypes WHERE groupid in (SELECT groupid from invGroups WHERE categoryid = 16) order by typeName").Rows)
+            foreach (DataRow record in DBConnect.AQuery("SELECT typeName from invTypes WHERE groupid in (SELECT groupid from invGroups WHERE categoryid = 16) order by typeName").Rows)
             {
                 skillName.Items.Add(record[0].ToString());
             }
@@ -27,7 +28,7 @@ namespace Evemu_DB_Editor
 
         private void skillName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (DataRow record in Program.m.SelectSQL("SELECT typeID from invTypes WHERE typeName = '" + skillName.Text + "'").Rows)
+            foreach (DataRow record in DBConnect.AQuery("SELECT typeID from invTypes WHERE typeName = '" + skillName.Text + "'").Rows)
             {
                 skillID.Text = record[0].ToString();
             }
@@ -58,9 +59,9 @@ namespace Evemu_DB_Editor
         {
             if (newskill == 1)
             {
-                Program.m.InsertSQL("INSERT INTO entity (itemName, typeID, ownerID, locationID, flag, contraband, singleton, quantity, x, y ,z) VALUES ('" + skillName.Text + "'," + skillID.Text + "," + characterID.Text + "," + characterID.Text + ", 7,0,1,1,0,0,0)");
-                Program.m.InsertSQL("INSERT INTO entity_attributes (itemID, attributeID, valueInt) VALUES ((SELECT itemID from entity WHERE ownerID = " + characterID.Text + " and itemName = '" + skillName.Text + "'), 276, " + skillLevel.Text + ")");
-                Program.m.InsertSQL("INSERT INTO entity_attributes (itemID, attributeID, valueInt) VALUES ((SELECT itemID from entity WHERE ownerID = " + characterID.Text + " and itemName = '" + skillName.Text + "'), 280, " + skillPoints.Text + ")");
+                DBConnect.SQuery("INSERT INTO entity (itemName, typeID, ownerID, locationID, flag, contraband, singleton, quantity, x, y ,z) VALUES ('" + skillName.Text + "'," + skillID.Text + "," + characterID.Text + "," + characterID.Text + ", 7,0,1,1,0,0,0)");
+                DBConnect.SQuery("INSERT INTO entity_attributes (itemID, attributeID, valueInt) VALUES ((SELECT itemID from entity WHERE ownerID = " + characterID.Text + " and itemName = '" + skillName.Text + "'), 276, " + skillLevel.Text + ")");
+                DBConnect.SQuery("INSERT INTO entity_attributes (itemID, attributeID, valueInt) VALUES ((SELECT itemID from entity WHERE ownerID = " + characterID.Text + " and itemName = '" + skillName.Text + "'), 280, " + skillPoints.Text + ")");
             }
             else
             {
