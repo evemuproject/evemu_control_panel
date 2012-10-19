@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace StuffArchiver
+namespace StuffArchiver.src
 {
     public delegate void FileProcessedHandler(string message, int processed, int total);
 

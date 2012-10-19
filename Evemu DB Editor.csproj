@@ -79,62 +79,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\acctEdit.cs">
+    <Compile Include="src\GUI\acctEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\acctEdit.Designer.cs">
+    <Compile Include="src\GUI\acctEdit.Designer.cs">
       <DependentUpon>acctEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\AddModifyStartingSkill.cs">
+    <Compile Include="src\GUI\AddModifyStartingSkill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\AddModifyStartingSkill.Designer.cs">
+    <Compile Include="src\GUI\AddModifyStartingSkill.Designer.cs">
       <DependentUpon>AddModifyStartingSkill.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\editCharacterSkill.cs">
+    <Compile Include="src\DBConnect.cs" />
+    <Compile Include="src\GUI\editCharacterSkill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\editCharacterSkill.Designer.cs">
+    <Compile Include="src\GUI\editCharacterSkill.Designer.cs">
       <DependentUpon>editCharacterSkill.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\EditOre.cs">
+    <Compile Include="src\GUI\EditOre.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\EditOre.Designer.cs">
+    <Compile Include="src\GUI\EditOre.Designer.cs">
       <DependentUpon>EditOre.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\information.cs">
+    <Compile Include="src\GUI\information.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\information.Designer.cs">
+    <Compile Include="src\GUI\information.Designer.cs">
       <DependentUpon>information.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\itemAddEdit.cs">
+    <Compile Include="src\GUI\itemAddEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\itemAddEdit.Designer.cs">
+    <Compile Include="src\GUI\itemAddEdit.Designer.cs">
       <DependentUpon>itemAddEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\mainF.cs">
+    <Compile Include="src\GUI\mainF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\mainF.Designer.cs">
+    <Compile Include="src\GUI\mainF.Designer.cs">
       <DependentUpon>mainF.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\StuffFile.cs" />
-    <EmbeddedResource Include="src\acctEdit.resx">
+    <Compile Include="src\XMLReader.cs" />
+    <EmbeddedResource Include="src\GUI\acctEdit.resx">
       <DependentUpon>acctEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\information.resx">
+    <EmbeddedResource Include="src\GUI\information.resx">
       <DependentUpon>information.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\itemAddEdit.resx">
+    <EmbeddedResource Include="src\GUI\itemAddEdit.resx">
       <DependentUpon>itemAddEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\mainF.resx">
+    <EmbeddedResource Include="src\GUI\mainF.resx">
       <DependentUpon>mainF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -194,13 +196,13 @@
     <None Include="Properties\app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="src\AddModifyStartingSkill.resx">
+    <EmbeddedResource Include="src\GUI\AddModifyStartingSkill.resx">
       <DependentUpon>AddModifyStartingSkill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\editCharacterSkill.resx">
+    <EmbeddedResource Include="src\GUI\editCharacterSkill.resx">
       <DependentUpon>editCharacterSkill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\EditOre.resx">
+    <EmbeddedResource Include="src\GUI\EditOre.resx">
       <DependentUpon>EditOre.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
