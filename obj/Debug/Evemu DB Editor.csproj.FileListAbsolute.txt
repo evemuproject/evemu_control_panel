@@ -55,3 +55,20 @@ F:\evemu\evemu_control_panel\obj\Debug\GenerateResource.write.1.tlog
 D:\evemu_control_panelMD\bin\Debug\Evemu DB Editor.exe.config
 D:\evemu_control_panelMD\obj\Debug\Evemu DB Editor.exe
 D:\evemu_control_panelMD\obj\Debug\Evemu DB Editor.pdb
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\bin\Debug\Evemu DB Editor.exe.config
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\obj\Debug\Evemu DB Editor.exe
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\obj\Debug\Evemu DB Editor.pdb
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\obj\Debug\Evemu_DB_Editor.acctEdit.resources
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\obj\Debug\Evemu_DB_Editor.information.resources
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\obj\Debug\Evemu_DB_Editor.itemAddEdit.resources
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\obj\Debug\Evemu_DB_Editor.main.resources
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\obj\Debug\Evemu_DB_Editor.Properties.Resources.resources
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\obj\Debug\Evemu_DB_Editor.AddModifyStartingSkill.resources
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\obj\Debug\Evemu_DB_Editor.editCharacterSkill.resources
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\obj\Debug\Evemu_DB_Editor.EditOre.resources
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\bin\Debug\MySql.Data.dll
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\bin\Debug\Evemu DB Editor.exe
+C:\Users\Colosus\Documents\GitHub\evemu_control_panel\bin\Debug\Evemu DB Editor.pdb
