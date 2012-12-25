@@ -327,7 +327,7 @@ namespace Evemu_DB_Editor
 
         private void editAccountToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(accountList.SelectedItems[0].Text))
+            if(! String.IsNullOrEmpty(accountList.SelectedItems[0].Text))
             {
                 acctEdit acc = new acctEdit();
                 acc.Show();
@@ -420,6 +420,20 @@ namespace Evemu_DB_Editor
                 string[] list = { record[0].ToString(), record[1].ToString() };
                 ListViewItem item = new ListViewItem(list);
                 accountList.Items.Add(item);
+            }
+        }
+                
+        private void accountList_Click(object sender, EventArgs e) {
+            populateCharacterList();
+        }
+
+        private void populateCharacterList()
+        {
+            characterNameDropDown.Items.Clear();
+            string query = "SELECT itemName, itemID FROM entity,character_ WHERE entity.itemID=character_.characterID AND character_.accountID = " + accountList.SelectedItems[0].SubItems[0].Text;
+            foreach (DataRow record in DBConnect.AQuery(query).Rows)
+            {
+                characterNameDropDown.Items.Add(record[0].ToString() );
             }
         }
 
@@ -1065,10 +1079,13 @@ namespace Evemu_DB_Editor
                 level0 = marketGroupsTree.SelectedNode.Parent.Index;
                 if (marketGroupsTree.SelectedNode.Parent.Parent != null)
                 {
-                    level1 = marketGroupsTree.SelectedNode.Parent.Parent.Index;
+                    level1 = level0;
+                    level0 = marketGroupsTree.SelectedNode.Parent.Parent.Index;
                     if (marketGroupsTree.SelectedNode.Parent.Parent.Parent != null)
                     {
-                        level2 = marketGroupsTree.SelectedNode.Parent.Parent.Parent.Index;
+                        level2 = level1;
+                        level1 = level0;
+                        level0 = marketGroupsTree.SelectedNode.Parent.Parent.Parent.Index;
                     }
                 }
             }
@@ -1684,6 +1701,7 @@ namespace Evemu_DB_Editor
             }
         }
         #endregion
+
     }
 }
 
