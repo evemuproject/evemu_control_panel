@@ -1065,10 +1065,13 @@ namespace Evemu_DB_Editor
                 level0 = marketGroupsTree.SelectedNode.Parent.Index;
                 if (marketGroupsTree.SelectedNode.Parent.Parent != null)
                 {
-                    level1 = marketGroupsTree.SelectedNode.Parent.Parent.Index;
+                    level1 = level0;
+                    level0 = marketGroupsTree.SelectedNode.Parent.Parent.Index;
                     if (marketGroupsTree.SelectedNode.Parent.Parent.Parent != null)
                     {
-                        level2 = marketGroupsTree.SelectedNode.Parent.Parent.Parent.Index;
+                        level2 = level1;
+                        level1 = level0;
+                        level0 = marketGroupsTree.SelectedNode.Parent.Parent.Parent.Index;
                     }
                 }
             }
