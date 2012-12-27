@@ -339,17 +339,17 @@ namespace Evemu_DB_Editor
 
         private void characterNameDropDown_DropDown(object sender, EventArgs e)
         {
-            characterSkillsList.Items.Clear();
-            foreach (DataRow record in DBConnect.AQuery("SELECT typeID, itemName, itemID AS currentitemID, (SELECT valueInt FROM entity_attributes WHERE itemID = currentitemID AND attributeid = 280) AS level, (SELECT valueInt FROM entity_attributes WHERE itemID = currentitemID AND attributeid = 276) AS skillpoints FROM entity WHERE flag = 7 AND ownerid = " + characterIDTxtBox.Text).Rows)
-            {
-                string[] temp = new string[4];
-                temp[0] = record[0].ToString();
-                temp[1] = record[1].ToString();
-                temp[2] = record[3].ToString();
-                temp[3] = record[4].ToString();
-                ListViewItem temp2 = new ListViewItem(temp);
-                characterSkillsList.Items.Add(temp2);
-            }
+            //characterSkillsList.Items.Clear();
+            //foreach (DataRow record in DBConnect.AQuery("SELECT typeID, itemName, itemID AS currentitemID, (SELECT valueInt FROM entity_attributes WHERE itemID = currentitemID AND attributeid = 280) AS level, (SELECT valueInt FROM entity_attributes WHERE itemID = currentitemID AND attributeid = 276) AS skillpoints FROM entity WHERE flag = 7 AND ownerid = " + characterIDTxtBox.Text).Rows)
+            //{
+            //    string[] temp = new string[4];
+            //    temp[0] = record[0].ToString();
+            //    temp[1] = record[1].ToString();
+            //    temp[2] = record[3].ToString();
+            //    temp[3] = record[4].ToString();
+            //    ListViewItem temp2 = new ListViewItem(temp);
+            //    characterSkillsList.Items.Add(temp2);
+            //}
         }
 
         private void characterNameDropDown_SelectedIndexChanged(object sender, EventArgs e)
@@ -430,6 +430,7 @@ namespace Evemu_DB_Editor
         private void populateCharacterList()
         {
             characterNameDropDown.Items.Clear();
+            if(accountList.SelectedItems.Count==0) return;
             string query = "SELECT itemName, itemID FROM entity,character_ WHERE entity.itemID=character_.characterID AND character_.accountID = " + accountList.SelectedItems[0].SubItems[0].Text;
             foreach (DataRow record in DBConnect.AQuery(query).Rows)
             {
@@ -849,7 +850,7 @@ namespace Evemu_DB_Editor
             }
             else
             {
-                Selectedraces = "NULL";
+                Selectedraces = "0";
             }
 
             // Create Selected Groups for SQL query:
@@ -954,7 +955,6 @@ namespace Evemu_DB_Editor
             GetSystemTimeAsFileTime(ref ft1);
             UInt64 integerTime = (((UInt64)(ft1.dwHighDateTime)) << 32) | ((UInt64)(ft1.dwLowDateTime));
             string str_MySQL_Query;
-
             if (Selectedraces != "NULL")
             {
                 str_MySQL_Query = "INSERT INTO market_orders (typeID, charID, regionID, stationID, bid, price, volEntered, volRemaining, issued, orderState, minVolume, contraband, accountID, duration, isCorp, solarSystemID, escrow, jumps) SELECT typeID, 1 as charID, regionID, stationID, " + bid.ToString() + " as bid, basePrice as price, " + marketQuantityTxtBox.Text + " as volEntered, " + marketQuantityTxtBox.Text + " as volRemaining, " + integerTime.ToString() + " as issued, 1 as orderState, 1 as minVolume,0 as contraband, 0 as accountID, 18250 as duration,0 as isCorp, solarSystemID, 0 as escrow, 1 as jumps FROM staStations, invTypes WHERE solarSystemID in (" + Selectedsystems + ") AND published = 1 and raceID in (" + Selectedraces + ") and groupID in (" + Selectedgroups + ")";

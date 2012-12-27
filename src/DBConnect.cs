@@ -149,7 +149,7 @@ namespace Evemu_DB_Editor.src
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Exception: " + e.Message);
+                    MessageBox.Show("Exception: " + e.Message);
                 }
             }
             else
