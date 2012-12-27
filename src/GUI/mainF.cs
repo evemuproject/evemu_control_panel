@@ -68,6 +68,7 @@ namespace Evemu_DB_Editor
 
         private void main_Load(object sender, EventArgs e)
         {
+            disconnectBtn_Click(null, null);
             connection = ("server=" + hostTextBox.Text + ";username=" + usernameTxtBox.Text + ";password=" + passwordTxtBox.Text + ";port=" + portTxtBox.Text + ";database=" + dbNameTxtBox.Text);
             if (System.IO.File.Exists(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\EvemuDBEditor.ini"))
             {
@@ -114,6 +115,12 @@ namespace Evemu_DB_Editor
                 this.Refresh();
             }
         }
+
+        private void showNotConnected() {
+            MessageBox.Show("Please connect to the database!", "Not conneced!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            accountTab.SelectedIndex = 0;
+        }
+
         #endregion
 
         #region File Tab
@@ -165,7 +172,7 @@ namespace Evemu_DB_Editor
             else
             {
                 DBConnect.OpenConnection(hostTextBox.Text, usernameTxtBox.Text, passwordTxtBox.Text, dbNameTxtBox.Text);
-                if (DBConnect.isConnectionOpen)
+                if (DBConnect.isConnected() )
                 {
                     connectionStatusLbl.Text = "Connected";
                     connectionStatusLbl.ForeColor = Color.Green;
@@ -173,6 +180,15 @@ namespace Evemu_DB_Editor
                     connectionStatusToolTip.ForeColor = Color.Green;
                     connectBtn.Enabled = false;
                     disconnectBtn.Enabled = true;
+
+                    ((Control)tabAccount).Enabled = true;
+                    ((Control)tabInsure).Enabled = true;
+                    ((Control)tabItemEditor).Enabled = true;
+                    ((Control)raceTab).Enabled = true;
+                    ((Control)marketTab).Enabled = true;
+                    ((Control)oreTab).Enabled = true;
+                    ((Control)tabPage1).Enabled = true;
+
                 }
                 else
                 {
@@ -184,13 +200,23 @@ namespace Evemu_DB_Editor
 
         private void disconnectBtn_Click(object sender, EventArgs e)
         {
-            DBConnect.CloseConnection();
-            connectionStatusLbl.Text = "Disconnected";
-            connectionStatusLbl.ForeColor = Color.Black;
-            connectionStatusToolTip.Text = "Disconnected from DB";
-            connectionStatusToolTip.ForeColor = Color.Black;
-            connectBtn.Enabled = true;
-            disconnectBtn.Enabled = false;
+            if(DBConnect.isConnected() ) {
+                DBConnect.CloseConnection();
+                connectionStatusLbl.Text = "Disconnected";
+                connectionStatusLbl.ForeColor = Color.Black;
+                connectionStatusToolTip.Text = "Disconnected from DB";
+                connectionStatusToolTip.ForeColor = Color.Black;
+                connectBtn.Enabled = true;
+                disconnectBtn.Enabled = false;
+            }
+
+            ((Control)tabAccount).Enabled = false;
+            ((Control)tabInsure).Enabled = false;
+            ((Control)tabItemEditor).Enabled = false;
+            ((Control)raceTab).Enabled = false;
+            ((Control)marketTab).Enabled = false;
+            ((Control)oreTab).Enabled = false;
+            ((Control)tabPage1).Enabled = false;
         }
 
         private void runSQLFileBtn_Click(object sender, EventArgs e)
@@ -294,7 +320,7 @@ namespace Evemu_DB_Editor
 
                 query = "INSERT INTO account (accountName, password, role) VALUES ('" + newUsername.Text + "', '" + newPassword.Text + "', '" + acctrole + "')";
 
-                if (DBConnect.SQuery(query) == true)
+                if (DBConnect.SQuery(query) == 1)
                 {
                     newUsername.Clear();
                     newPassword.Clear();
@@ -444,6 +470,10 @@ namespace Evemu_DB_Editor
 
         private void tabItemEditor_Enter(object sender, EventArgs e)
         {
+            if(!DBConnect.isConnected() ) {
+                showNotConnected();
+                return;
+            }
             foreach (DataRow record in DBConnect.AQuery("SELECT CategoryName from invCategories").Rows)
             {
                 CategoryDropdown.Items.Add(record[0]);
@@ -580,6 +610,10 @@ namespace Evemu_DB_Editor
         #region Race
         private void raceTab_Enter(object sender, EventArgs e)
         {
+            if(!DBConnect.isConnected() ) {
+                showNotConnected();
+                return;
+            }
             raceDropdown.Items.Clear();
             foreach (DataRow record in DBConnect.AQuery("SELECT raceName from chrRaces").Rows)
             {
@@ -767,6 +801,11 @@ namespace Evemu_DB_Editor
         private void marketTab_Enter(object sender, EventArgs e)
         {
             //marketRaces.Items.Add("*");
+            if(!DBConnect.isConnected() ) {
+                showNotConnected();
+                return;
+            }
+
             marketRacesTxtBox.Items.Clear();
             foreach (DataRow record in DBConnect.AQuery("SELECT raceName, raceID FROM chrRaces ORDER BY raceName").Rows)
             {
@@ -975,6 +1014,10 @@ namespace Evemu_DB_Editor
         #region ORE
         private void oreTab_Enter(object sender, EventArgs e)
         {
+            if(!DBConnect.isConnected() ) {
+                showNotConnected();
+                return;
+            }
             SELECTOre.Items.Clear();
             foreach (DataRow record in DBConnect.AQuery("SELECT typeName FROM invTypes WHERE groupID IN (SELECT groupid FROM invGroups WHERE categoryid = 25)").Rows)
             {
@@ -1061,6 +1104,10 @@ namespace Evemu_DB_Editor
 
         private void tabPage1_Enter(object sender, EventArgs e)
         {
+            if(!DBConnect.isConnected() ) {
+                showNotConnected();
+                return;
+            }
             marketGroupsTree.Nodes.Clear();
             foreach (DataRow record in DBConnect.AQuery("SELECT marketGroupID, marketGroupName FROM invMarketGroups WHERE parentGroupID IS NULL").Rows)
             {

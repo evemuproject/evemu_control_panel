@@ -16,7 +16,9 @@ namespace Evemu_DB_Editor.src
     static class DBConnect
     {
         private static MySqlConnection connection;
-        public static bool isConnectionOpen = false;
+        private static bool isConnectionOpen = false;
+
+        public static bool isConnected() { return isConnectionOpen; }
 
         //open connection to database
         public static void OpenConnection()
@@ -110,7 +112,7 @@ namespace Evemu_DB_Editor.src
         }
 
         // Simple Query: Handles INSERT, UPDATE, DELETE, ALTER and others i may have forgotten...
-        public static bool SQuery(string query)
+        public static int SQuery(string query)
         {
             try
             {
@@ -120,19 +122,18 @@ namespace Evemu_DB_Editor.src
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     //Execute command
-                    cmd.ExecuteNonQuery();
-                    return true;
+                    return cmd.ExecuteNonQuery();
                 }
                 else
                 {
                     MessageBox.Show("Please connect to DB first");
-                    return false;
+                    return -1;
                 }
             }
             catch (Exception e)
             {
                 MessageBox.Show("Exception: " + e.Message);
-                return false;
+                return -1;
             }
         }
 
