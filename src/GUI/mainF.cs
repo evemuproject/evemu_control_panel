@@ -1749,6 +1749,37 @@ namespace Evemu_DB_Editor
         }
         #endregion
 
+        #region Belts
+        private void tabBelts_Enter(object sender, EventArgs e) {
+            if(!DBConnect.isConnected() ) {
+                showNotConnected();
+                return;
+            }
+            foreach (DataRow record in DBConnect.AQuery("SELECT solarSystemName, solarSystemID, security FROM mapSolarSystems ORDER BY solarSystemName").Rows)
+            {
+                ListViewItem temp2 = new ListViewItem(new string[]{ 
+                    record[0].ToString(),
+                    record[1].ToString(),
+                    record[2].ToString()});
+                lvBeltSystems.Items.Add(temp2);
+            }
+        }
+
+        private void lvBeltSystems_SelectedIndexChanged(object sender, EventArgs e) {
+            string sid = lvBeltSystems.SelectedItems[0].SubItems[1].Text;
+            string qq = "SELECT invNames.itemName, invItems.itemID FROM invItems, invNames WHERE typeID=15 and locationID="+sid+" and invNames.itemID=invItems.itemID";
+            foreach (DataRow record in DBConnect.AQuery(qq).Rows)
+            {
+                ListViewItem temp2 = new ListViewItem(new string[]{ 
+                    record[0].ToString(),
+                    record[1].ToString() });
+                lvBeltBelts.Items.Add(temp2);
+            }
+        }
+
+        #endregion
+
+
     }
 }
 

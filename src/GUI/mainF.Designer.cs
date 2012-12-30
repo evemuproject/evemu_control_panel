@@ -328,6 +328,15 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.tabBelts = new System.Windows.Forms.TabPage();
+            this.lvBeltSystems = new System.Windows.Forms.ListView();
+            this.columnHeader34 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader35 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader36 = new System.Windows.Forms.ColumnHeader();
+            this.lvBeltBelts = new System.Windows.Forms.ListView();
+            this.columnHeader37 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader38 = new System.Windows.Forms.ColumnHeader();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.accountTab.SuspendLayout();
             this.tabSQL.SuspendLayout();
@@ -367,6 +376,7 @@
             this.groupBox6.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.addToEdit.SuspendLayout();
+            this.tabBelts.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -517,6 +527,7 @@
             this.accountTab.Controls.Add(this.tabPage2);
             this.accountTab.Controls.Add(this.tabPage3);
             this.accountTab.Controls.Add(this.tabPage6);
+            this.accountTab.Controls.Add(this.tabBelts);
             this.accountTab.Location = new System.Drawing.Point(12, 27);
             this.accountTab.Multiline = true;
             this.accountTab.Name = "accountTab";
@@ -999,6 +1010,7 @@
             this.accountList.TabIndex = 9;
             this.accountList.UseCompatibleStateImageBehavior = false;
             this.accountList.View = System.Windows.Forms.View.Details;
+            this.accountList.Click += new System.EventHandler(this.accountList_Click);
             // 
             // columnHeader27
             // 
@@ -3065,6 +3077,82 @@
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
+            // tabBelts
+            // 
+            this.tabBelts.Controls.Add(this.lvBeltSystems);
+            this.tabBelts.Controls.Add(this.lvBeltBelts);
+            this.tabBelts.Controls.Add(this.label6);
+            this.tabBelts.Location = new System.Drawing.Point(4, 40);
+            this.tabBelts.Name = "tabBelts";
+            this.tabBelts.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBelts.Size = new System.Drawing.Size(857, 521);
+            this.tabBelts.TabIndex = 15;
+            this.tabBelts.Text = "Seed belts";
+            this.tabBelts.UseVisualStyleBackColor = true;
+            this.tabBelts.Enter += new System.EventHandler(this.tabBelts_Enter);
+            // 
+            // lvBeltSystems
+            // 
+            this.lvBeltSystems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader34,
+            this.columnHeader35,
+            this.columnHeader36});
+            this.lvBeltSystems.FullRowSelect = true;
+            this.lvBeltSystems.HideSelection = false;
+            this.lvBeltSystems.Location = new System.Drawing.Point(11, 62);
+            this.lvBeltSystems.Name = "lvBeltSystems";
+            this.lvBeltSystems.Size = new System.Drawing.Size(244, 335);
+            this.lvBeltSystems.TabIndex = 16;
+            this.lvBeltSystems.UseCompatibleStateImageBehavior = false;
+            this.lvBeltSystems.View = System.Windows.Forms.View.Details;
+            this.lvBeltSystems.SelectedIndexChanged += new System.EventHandler(this.lvBeltSystems_SelectedIndexChanged);
+            // 
+            // columnHeader34
+            // 
+            this.columnHeader34.Text = "System";
+            this.columnHeader34.Width = 96;
+            // 
+            // columnHeader35
+            // 
+            this.columnHeader35.Text = "ID";
+            // 
+            // columnHeader36
+            // 
+            this.columnHeader36.Text = "Security";
+            // 
+            // lvBeltBelts
+            // 
+            this.lvBeltBelts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader37,
+            this.columnHeader38});
+            this.lvBeltBelts.FullRowSelect = true;
+            this.lvBeltBelts.HideSelection = false;
+            this.lvBeltBelts.Location = new System.Drawing.Point(261, 62);
+            this.lvBeltBelts.Name = "lvBeltBelts";
+            this.lvBeltBelts.Size = new System.Drawing.Size(233, 335);
+            this.lvBeltBelts.TabIndex = 15;
+            this.lvBeltBelts.UseCompatibleStateImageBehavior = false;
+            this.lvBeltBelts.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader37
+            // 
+            this.columnHeader37.Text = "Belt";
+            this.columnHeader37.Width = 75;
+            // 
+            // columnHeader38
+            // 
+            this.columnHeader38.Text = "Belt ID";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Verdana", 17.25F, ((System.Drawing.FontStyle) ((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label6.Location = new System.Drawing.Point(6, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(245, 28);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Asteroid belt seed";
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3142,6 +3230,8 @@
             this.groupBox6.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.addToEdit.ResumeLayout(false);
+            this.tabBelts.ResumeLayout(false);
+            this.tabBelts.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3441,6 +3531,15 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
         private System.Windows.Forms.Button searchAccountBtn;
         private System.Windows.Forms.TextBox queryMarketSeedTxtBox;
+        private System.Windows.Forms.TabPage tabBelts;
+        private System.Windows.Forms.ListView lvBeltSystems;
+        private System.Windows.Forms.ColumnHeader columnHeader34;
+        private System.Windows.Forms.ColumnHeader columnHeader35;
+        private System.Windows.Forms.ColumnHeader columnHeader36;
+        private System.Windows.Forms.ListView lvBeltBelts;
+        private System.Windows.Forms.ColumnHeader columnHeader37;
+        private System.Windows.Forms.ColumnHeader columnHeader38;
+        private System.Windows.Forms.Label label6;
     }
 }
 
