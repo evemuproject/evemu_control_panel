@@ -161,6 +161,20 @@ namespace Evemu_DB_Editor.src
             return datatable;
         }
 
+        public static Int64 LastRowID() {
+            if (!isConnectionOpen) {
+                return 0;
+            }
+            string strSQLSelect = "SELECT @@IDENTITY AS 'LastID'";
+            MySqlCommand dbcSelect = new MySqlCommand(strSQLSelect, connection);
+            MySqlDataReader dbrSelect = dbcSelect.ExecuteReader(); 
+
+            dbrSelect.Read(); 
+            Int64 val = Int64.Parse(dbrSelect.GetValue(0).ToString());
+            dbrSelect.Dispose();
+            return val;
+        }
+
         //Backup
         public static void Backup()
         {

@@ -1766,7 +1766,13 @@ namespace Evemu_DB_Editor
         }
 
         private void lvBeltSystems_SelectedIndexChanged(object sender, EventArgs e) {
+            //lbBeltLog.Items.Add(""+lvBeltSystems.SelectedItems.Count+" items seleteced");
+            if(lvBeltSystems.SelectedItems.Count == 0) {
+                lvBeltBelts.Items.Clear();
+                return;
+            }
             string sid = lvBeltSystems.SelectedItems[0].SubItems[1].Text;
+            // typeID=15 is magic number for asteroid belt type (look in invTypes)
             string qq = "SELECT invNames.itemName, invItems.itemID FROM invItems, invNames WHERE typeID=15 and locationID="+sid+" and invNames.itemID=invItems.itemID";
             foreach (DataRow record in DBConnect.AQuery(qq).Rows)
             {
@@ -1778,6 +1784,40 @@ namespace Evemu_DB_Editor
         }
 
         #endregion
+
+        private void btBeltSeed_Click(object sender, EventArgs e) {
+            if(lvBeltSystems.SelectedItems.Count == 0) {
+                MessageBox.Show("No system selected");
+                return;
+            }
+            if(lvBeltBelts.SelectedItems.Count == 0) {
+                MessageBox.Show("No belt selected");
+                return;
+            }
+            string sid = lvBeltSystems.SelectedItems[0].SubItems[1].Text;
+            string aid = lvBeltBelts.SelectedItems[0].SubItems[1].Text;
+
+            //DBConnect.SQuery("SELECT @rad=1000
+            // typeID=18 is Plagioclase
+            int r1 = DBConnect.SQuery("SELECT @ang:=RAND()*PI()*2,@rad:=1000; INSERT INTO entity(typeID, locationID, quantity, x,y,z) SELECT "
+                +"18 as typeID, "
+                +aid+" as locationID, "
+                +"1 as quantity,"
+                +"invPositions.x + COS(@ang)*@rad as x, "
+                +"invPositions.y + SIN(@ang)*@rad as y, "
+                +"invPositions.z as z "
+                +" FROM invPositions WHERE invPositions.itemID="+aid);
+            Int64 row = DBConnect.LastRowID();
+            if(r1==-1) {MessageBox.Show("Query did not succeed"); return; }
+            lbBeltLog.Items.Add("row is "+row);
+            // 162 is raduis, 161 is volume
+            int r2 = DBConnect.SQuery("INSERT INTO entity_attributes(itemID, attributeID, valueFloat) VALUES"
+                +"("+row+", 162, 100),"
+                +"("+row+", 161, 300)");
+            
+            if(r2==-1) MessageBox.Show("Attribute creation did not succeed"); else
+                MessageBox.Show("Query OK, "+(r1+r2)+" rows affected");
+        }
 
 
     }
