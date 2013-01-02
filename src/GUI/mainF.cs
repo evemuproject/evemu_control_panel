@@ -35,6 +35,7 @@ using System.Xml;
 using Evemu_DB_Editor.src;
 using MySql.Data.MySqlClient;
 using StuffArchiver.src;
+using System.Collections.Generic;
 
 namespace Evemu_DB_Editor
 {
@@ -1794,31 +1795,69 @@ namespace Evemu_DB_Editor
                 MessageBox.Show("No belt selected");
                 return;
             }
-            string sid = lvBeltSystems.SelectedItems[0].SubItems[1].Text;
-            string aid = lvBeltBelts.SelectedItems[0].SubItems[1].Text;
-
-            //DBConnect.SQuery("SELECT @rad=1000
-            // typeID=18 is Plagioclase
-            int r1 = DBConnect.SQuery("SELECT @ang:=RAND()*PI()*2,@rad:=1000; INSERT INTO entity(typeID, locationID, quantity, x,y,z) SELECT "
-                +"18 as typeID, "
-                +aid+" as locationID, "
-                +"1 as quantity,"
-                +"invPositions.x + COS(@ang)*@rad as x, "
-                +"invPositions.y + SIN(@ang)*@rad as y, "
-                +"invPositions.z as z "
-                +" FROM invPositions WHERE invPositions.itemID="+aid);
-            Int64 row = DBConnect.LastRowID();
-            if(r1==-1) {MessageBox.Show("Query did not succeed"); return; }
-            lbBeltLog.Items.Add("row is "+row);
-            // 162 is raduis, 161 is volume
-            int r2 = DBConnect.SQuery("INSERT INTO entity_attributes(itemID, attributeID, valueFloat) VALUES"
-                +"("+row+", 162, 100),"
-                +"("+row+", 161, 300)");
+            int systemId = int.Parse(lvBeltSystems.SelectedItems[0].SubItems[1].Text);
+            int beltId = int.Parse(lvBeltBelts.SelectedItems[0].SubItems[1].Text);
+            DataRow dr = 
+                DBConnect.AQuery("SELECT securityClass FROM mapSolarSystems WHERE solarSystemID="+systemId).Rows[0];
+            string systemSec = dr[0].ToString();
             
-            if(r2==-1) MessageBox.Show("Attribute creation did not succeed"); else
-                MessageBox.Show("Query OK, "+(r1+r2)+" rows affected");
+            int count=100;
+            Dictionary<int,int> roidCounts = new Dictionary<int,int>();
+            foreach(DataRow row in DBConnect.AQuery("SELECT * FROM roidDistribution WHERE systemSec='"+systemSec+"'").Rows ) {
+                //lbBeltLog.Items.Add("roid "+row[1].ToString()+"/"+row[2].ToString() );
+                //lbBeltLog.Items.Add("roid "+row[0].ToString() );
+                roidCounts.Add(int.Parse(row[1].ToString()), (int)(count*double.Parse(row[2].ToString() ))  );
+            }
+
+            bool err=false;
+            foreach(KeyValuePair<int,int> entry in roidCounts) {
+                for(int i=0; i<entry.Value; i++) {
+                    if (!spawnRoid(entry.Key, beltId, systemId)) {err=true;break;}
+                }
+                if(err) break;
+            }
+            lbBeltLog.Items.Add("completed");
         }
 
+        private bool spawnRoid(int typeId, int beltId, int systemId) {
+            //DBConnect.SQuery("SELECT @rad=1000
+            // typeID=18 is Plagioclase
+            int r1 = DBConnect.SQuery("SELECT @ang:=RAND()*PI(),@rad:=17000+RAND()*6000;"+
+                "INSERT INTO entity(typeID, itemName, locationID, quantity, singleton, ownerId, x,y,z) SELECT "
+                +typeId+" as typeID, "
+                +"invTypes.typeName as itemName, "
+                +systemId+" as locationID, "
+                +"1 as quantity,"
+                +"1 as singleton,"
+                +"1 as ownerId,"
+                +"invPositions.x + COS(@ang)*@rad as x, "
+                +"invPositions.y as y, "
+                +"invPositions.z + SIN(@ang)*@rad as z "
+                +" FROM invTypes, invPositions WHERE invPositions.itemID="+beltId+" AND invTypes.typeID="+typeId);
+            Int64 rowid = DBConnect.LastRowID();
+            if(r1==-1) {
+                MessageBox.Show("Query did not succeed"); 
+                return false; 
+            }
+            //lbBeltLog.Items.Add("row is "+rowid);
+            // attributeID:
+            // 162 = raduis
+            // 161 = volume (not shown in "Show info", need survey scanners to check)
+            // 805 = quantity contained (need survey scanner to check)
+            // 182 (primary kill required) and 790 (reprocessing skill) seem to be unncececary as they are in dgmTypeAttributes
+            // 4 = mass (not shown in eve??)
+            int r2 = DBConnect.SQuery("INSERT INTO entity_attributes(itemID, attributeID, valueFloat) VALUES"
+                +"("+rowid+", 162, 300+RAND()*1000),"
+                +"("+rowid+", 161, 300),"
+                +"("+rowid+", 805, 1000+RAND()*40000)");
+            
+            if(r2==-1) {
+                MessageBox.Show("Attribute creation did not succeed");
+                return false;
+            }
+            return true;
+                
+        }
 
     }
 }
