@@ -1756,12 +1756,15 @@ namespace Evemu_DB_Editor
                 showNotConnected();
                 return;
             }
-            foreach (DataRow record in DBConnect.AQuery("SELECT solarSystemName, solarSystemID, security FROM mapSolarSystems ORDER BY solarSystemName").Rows)
+            foreach (DataRow record in 
+                DBConnect.AQuery("SELECT solarSystemName, solarSystemID, security, securityClass "+
+                        "FROM mapSolarSystems ORDER BY solarSystemName").Rows)
             {
                 ListViewItem temp2 = new ListViewItem(new string[]{ 
                     record[0].ToString(),
                     record[1].ToString(),
-                    record[2].ToString()});
+                    record[2].ToString(), 
+                    record[3].ToString()});
                 lvBeltSystems.Items.Add(temp2);
             }
         }
@@ -1784,8 +1787,6 @@ namespace Evemu_DB_Editor
             }
         }
 
-        #endregion
-
         private void btBeltSeed_Click(object sender, EventArgs e) {
             if(lvBeltSystems.SelectedItems.Count == 0) {
                 MessageBox.Show("No system selected");
@@ -1795,34 +1796,42 @@ namespace Evemu_DB_Editor
                 MessageBox.Show("No belt selected");
                 return;
             }
-            int systemId = int.Parse(lvBeltSystems.SelectedItems[0].SubItems[1].Text);
-            int beltId = int.Parse(lvBeltBelts.SelectedItems[0].SubItems[1].Text);
-            DataRow dr = 
-                DBConnect.AQuery("SELECT securityClass FROM mapSolarSystems WHERE solarSystemID="+systemId).Rows[0];
-            string systemSec = dr[0].ToString();
+            string systemId = lvBeltSystems.SelectedItems[0].SubItems[1].Text;
+            string beltId = lvBeltBelts.SelectedItems[0].SubItems[1].Text;
+            string systemSec = lvBeltSystems.SelectedItems[0].SubItems[3].Text;
             
             int count=100;
-            Dictionary<int,int> roidCounts = new Dictionary<int,int>();
-            foreach(DataRow row in DBConnect.AQuery("SELECT * FROM roidDistribution WHERE systemSec='"+systemSec+"'").Rows ) {
-                //lbBeltLog.Items.Add("roid "+row[1].ToString()+"/"+row[2].ToString() );
-                //lbBeltLog.Items.Add("roid "+row[0].ToString() );
-                roidCounts.Add(int.Parse(row[1].ToString()), (int)(count*double.Parse(row[2].ToString() ))  );
+            List< KeyValuePair<Int64,int> > roidCounts = new List< KeyValuePair<Int64,int> >();
+            foreach(DataRow row in DBConnect.AQuery("SELECT roidID, percent FROM roidDistribution WHERE systemSec='"+systemSec+"'").Rows ) {
+                roidCounts.Add( new KeyValuePair<Int64,int>(
+                    Int64.Parse(row[0].ToString()), 
+                    (int)(count*double.Parse(row[1].ToString() ))  ) );
             }
-
-            bool err=false;
-            foreach(KeyValuePair<int,int> entry in roidCounts) {
-                for(int i=0; i<entry.Value; i++) {
-                    if (!spawnRoid(entry.Key, beltId, systemId)) {err=true;break;}
+            int time0 = Environment.TickCount;
+            StringBuilder sb = new StringBuilder();
+            try {
+                foreach(KeyValuePair<Int64,int> entry in roidCounts) {
+                    for(int i=0; i<entry.Value; i++) {
+                        //spawnRoid(entry.Key, beltId, systemId);
+                        sb.Append(getRoidSpawnSql(entry.Key, beltId, systemId));
+                    }
                 }
-                if(err) break;
+                DBConnect.SQuery(sb.ToString());
+            } catch (Exception ex) {
+                MessageBox.Show("Exception: "+ex);
             }
-            lbBeltLog.Items.Add("completed");
+            lbBeltLog.Items.Add("completed, took "+(Environment.TickCount-time0)+" ms to spawn "+count+" asteroids");
         }
 
-        private bool spawnRoid(int typeId, int beltId, int systemId) {
-            //DBConnect.SQuery("SELECT @rad=1000
-            // typeID=18 is Plagioclase
-            int r1 = DBConnect.SQuery("SELECT @ang:=RAND()*PI(),@rad:=17000+RAND()*6000;"+
+        private string getRoidSpawnSql(Int64 typeId, string beltId, string systemId) {
+            //lbBeltLog.Items.Add("rows "+r1);
+            // attributeID:
+            // 162 = raduis
+            // 161 = volume (not shown in "Show info", need survey scanners to check)
+            // 805 = quantity contained (need survey scanner to check)
+            // 182 (primary kill required) and 790 (reprocessing skill) seem to be unncececary as they are in dgmTypeAttributes
+            // 4 = mass (not shown in eve??)
+            return "SELECT @ang:=RAND()*PI(),@rad:=17000+RAND()*6000;"+
                 "INSERT INTO entity(typeID, itemName, locationID, quantity, singleton, ownerId, x,y,z) SELECT "
                 +typeId+" as typeID, "
                 +"invTypes.typeName as itemName, "
@@ -1833,32 +1842,22 @@ namespace Evemu_DB_Editor
                 +"invPositions.x + COS(@ang)*@rad as x, "
                 +"invPositions.y as y, "
                 +"invPositions.z + SIN(@ang)*@rad as z "
-                +" FROM invTypes, invPositions WHERE invPositions.itemID="+beltId+" AND invTypes.typeID="+typeId);
-            Int64 rowid = DBConnect.LastRowID();
-            if(r1==-1) {
-                MessageBox.Show("Query did not succeed"); 
-                return false; 
-            }
-            //lbBeltLog.Items.Add("row is "+rowid);
-            // attributeID:
-            // 162 = raduis
-            // 161 = volume (not shown in "Show info", need survey scanners to check)
-            // 805 = quantity contained (need survey scanner to check)
-            // 182 (primary kill required) and 790 (reprocessing skill) seem to be unncececary as they are in dgmTypeAttributes
-            // 4 = mass (not shown in eve??)
-            int r2 = DBConnect.SQuery("INSERT INTO entity_attributes(itemID, attributeID, valueFloat) VALUES"
-                +"("+rowid+", 162, 300+RAND()*1000),"
-                +"("+rowid+", 161, 300),"
-                +"("+rowid+", 805, 1000+RAND()*40000)");
-            
-            if(r2==-1) {
-                MessageBox.Show("Attribute creation did not succeed");
-                return false;
-            }
-            return true;
-                
+                +" FROM invTypes, invPositions WHERE invPositions.itemID="+beltId+" AND invTypes.typeID="+typeId+";"
+                +"SELECT @last_id:=LAST_INSERT_ID();"
+                +"INSERT INTO entity_attributes(itemID, attributeID, valueFloat) VALUES"
+                +"(@last_id, 162, 300+RAND()*1000),"
+                +"(@last_id, 161, 300),"
+                +"(@last_id, 805, 1000+RAND()*40000);";
         }
 
+        private void spawnRoid(Int64 typeId, string beltId, string systemId) {
+            DBConnect.SQuery(getRoidSpawnSql(typeId, beltId, systemId) );
+        }
+
+
+        #endregion
+
+ 
     }
 }
 
