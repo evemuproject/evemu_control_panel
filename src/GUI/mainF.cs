@@ -153,7 +153,7 @@ namespace Evemu_DB_Editor
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Founded by: Hurracane @ forum.evemu.com\nAlpha Version.\n\nVersion: " + System.Reflection.Assembly.GetExecutingAssembly().
+            MessageBox.Show("Founded by: Hurracane @ forum.evemu.org\nAlpha Version.\n\nVersion: " + System.Reflection.Assembly.GetExecutingAssembly().
          GetName().Version.ToString());
         }
 
