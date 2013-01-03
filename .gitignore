@@ -1,3 +1,5 @@
 Thumbs.db
 obj/
 *.pdb
+*.suo
+*.user
