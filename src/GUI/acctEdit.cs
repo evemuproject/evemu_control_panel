@@ -89,47 +89,54 @@ namespace Evemu_DB_Editor
         private void button1_Click(object sender, EventArgs e)
         {
             string acctrole = accountLevel.Text;
-                if (acctrole == "SUPER ADMIN")
-                {
-                    acctrole = "4294967231";
-                }
-                else if (acctrole == "ADMIN")
-                {
-                    acctrole = "32";
-                }
-                else if (acctrole == "GAME MASTER HIGH")
-                {
-                    acctrole = "16";
-                }
-                else if (acctrole == "GAME MASTER LOW")
-                {
-                    acctrole = "8";
-                }
-                else
-                {
-                    acctrole = "2";
-                }
-
-                if (checkBox1.Checked == true || checkBox2.Checked == true)
-                {
-                    if (checkBox1.Checked && !checkBox2.Checked)
-                    {
-                        DBConnect.SQuery("UPDATE account SET accountName='" + usertextbox.Text + "', password='" + CalculateMD5Hash(textBox2.Text) + "' WHERE accountID=" + userID.Text);
-                    }
-                    else if (checkBox2.Checked && !checkBox1.Checked)
-                    {
-                        DBConnect.SQuery("UPDATE account SET accountName='" + usertextbox.Text + "', role=" + acctrole + " WHERE accountID=" + userID.Text);
-                    }
-                    else if (checkBox1.Checked && checkBox2.Checked)
-                    {
-                        DBConnect.SQuery("UPDATE account SET accountName='" + usertextbox.Text + "', password='" + CalculateMD5Hash(textBox2.Text) + "', role=" + acctrole + " WHERE accountID=" + userID.Text);
-                    }
-
-                }
-                else
-                {
-                    DBConnect.SQuery("UPDATE account SET accountName='" + usertextbox.Text + "' WHERE accountID=" + userID.Text);
-                }
-        }
+            if (acctrole == "SUPER ADMIN")
+            {
+                acctrole = "4294967231";
             }
+            else if (acctrole == "ADMIN")
+            {
+                acctrole = "32";
+            }
+            else if (acctrole == "GAME MASTER HIGH")
+            {
+                acctrole = "16";
+            }
+            else if (acctrole == "GAME MASTER LOW")
+            {
+                acctrole = "8";
+            }
+            else
+            {
+                acctrole = "2";
+            }
+
+            int res = -1;
+            if (checkBox1.Checked == true || checkBox2.Checked == true)
+            {
+                if (checkBox1.Checked && !checkBox2.Checked)
+                {
+                    res = DBConnect.SQuery("UPDATE account SET accountName='" + usertextbox.Text + "', password='" + textBox2.Text + "' WHERE accountID=" + userID.Text);
+                }
+                else if (checkBox2.Checked && !checkBox1.Checked)
+                {
+                    res = DBConnect.SQuery("UPDATE account SET accountName='" + usertextbox.Text + "', role=" + acctrole + " WHERE accountID=" + userID.Text);
+                }
+                else if (checkBox1.Checked && checkBox2.Checked)
+                {
+                    res = DBConnect.SQuery("UPDATE account SET accountName='" + usertextbox.Text + "', password='" + textBox2.Text + "', role=" + acctrole + " WHERE accountID=" + userID.Text);
+                }
+
+            }
+            else
+            {
+                res = DBConnect.SQuery("UPDATE account SET accountName='" + usertextbox.Text + "' WHERE accountID=" + userID.Text);
+            }
+            if(res==1) {
+                MessageBox.Show("Account modified!");
+            } else {
+                MessageBox.Show("Modification failed");
+            }
+                
+        }
+    }
 }
