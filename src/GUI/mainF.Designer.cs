@@ -1073,6 +1073,7 @@
             // newAcctLevel
             // 
             this.newAcctLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.newAcctLevel.Enabled = false;
             this.newAcctLevel.FormattingEnabled = true;
             this.newAcctLevel.Items.AddRange(new object[] {
             "SUPER ADMIN",
