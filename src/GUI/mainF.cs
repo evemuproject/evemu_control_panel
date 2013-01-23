@@ -289,37 +289,41 @@ namespace Evemu_DB_Editor
         {
             string query = "";
 
-            if (newUsername.Text != "" && newPassword.Text != "" && newAcctLevel.Text != "")
+            if (newUsername.Text != "" && newPassword.Text != "")// && newAcctLevel.Text != "")
             {
-                conn = new MySqlConnection(connection);
-                string acctrole = newAcctLevel.Text;
-                if (acctrole == "SUPER ADMIN")
-                {
-                    acctrole = "4294967231";
-                }
-                else if (acctrole == "ADMIN")
-                {
-                    acctrole = "32";
-                }
-                else if (acctrole == "GAME MASTER HIGH")
-                {
-                    acctrole = "16";
-                }
-                else if (acctrole == "GAME MASTER LOW")
-                {
-                    acctrole = "8";
-                }
-                else if (acctrole == "PLAYER")
-                {
-                    acctrole = "2";
-                }
-                else
-                {
-                    MessageBox.Show("You have not selected a role, the account will be \"2 (PLAYER)\" by default.");
-                    acctrole = "2";
-                }
+                //conn = new MySqlConnection(connection);
+                //string acctrole = newAcctLevel.Text;
+                //if (acctrole == "SUPER ADMIN")
+                //{
+                //    acctrole = "4294967231";
+                //}
+                //else if (acctrole == "ADMIN")
+                //{
+                //    acctrole = "32";
+                //}
+                //else if (acctrole == "GAME MASTER HIGH")
+                //{
+                //    acctrole = "16";
+                //}
+                //else if (acctrole == "GAME MASTER LOW")
+                //{
+                //    acctrole = "8";
+                //}
+                //else if (acctrole == "PLAYER")
+                //{
+                //    acctrole = "2";
+                //}
+                //else
+                //{
+                //    MessageBox.Show("You have not selected a role, the account will be \"2 (PLAYER)\" by default.");
+                //    acctrole = "2";
+                //}
+                string acctrole = "5003499186008621056";
 
-                query = "INSERT INTO account (accountName, password, role) VALUES ('" + newUsername.Text + "', '" + newPassword.Text + "', '" + acctrole + "')";
+                query = "INSERT INTO account (accountName, password, role) VALUES ('"
+                    + newUsername.Text + "', '"
+                    + newPassword.Text + "', '"
+                    + acctrole + "')";
 
                 if (DBConnect.SQuery(query) == 1)
                 {
