@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -99,6 +100,7 @@ namespace Evemu_DB_Editor.src
         //Close connection
         public static bool CloseConnection()
         {
+            isConnectionOpen = false;
             try
             {
                 connection.Close();
@@ -114,65 +116,62 @@ namespace Evemu_DB_Editor.src
         // Simple Query: Handles INSERT, UPDATE, DELETE, ALTER and others i may have forgotten...
         public static int SQuery(string query)
         {
-            try
+            if (!isConnectionOpen) throw new NotConnectedException();
+            try 
             {
-                if (isConnectionOpen)
-                {
-                    //create command and assign the query and connection from the constructor
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-
-                    //Execute command
-                    return cmd.ExecuteNonQuery();
-                }
-                else
-                {
-                    MessageBox.Show("Please connect to DB first");
-                    return -1;
-                }
-            }
-            catch (Exception e)
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Execute command
+                return cmd.ExecuteNonQuery();
+            } 
+            catch(Exception e) 
             {
                 MessageBox.Show("Exception: " + e.Message);
-                return -1;
             }
+            return -1;
         }
 
         // Advanced Query: Handles Multi-SELECT and return the values as a DataTable
         public static DataTable AQuery(string query)
-        {
+        {            
+            if (!isConnectionOpen) throw new NotConnectedException();
             DataTable datatable = new DataTable();
-            if (isConnectionOpen)
+            try
             {
-                try
-                {
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
-                    adapter.Fill(datatable);
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("Exception: " + e.Message);
-                }
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                adapter.Fill(datatable);
             }
-            else
+            catch (Exception e)
             {
-                MessageBox.Show("Please connect to DB first");
+                MessageBox.Show("Exception: " + e.Message);
             }
-
             return datatable;
         }
 
-        public static Int64 LastRowID() {
-            if (!isConnectionOpen) {
-                return 0;
+        // Advanced Query: Handles SELECT and returns one first value from it
+        public static object AQueryScalar(string query)
+        {
+            if (!isConnectionOpen) throw new NotConnectedException();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                object res = cmd.ExecuteScalar();
+                if( res is DBNull) return null;
+                return res;
             }
-            string strSQLSelect = "SELECT @@IDENTITY AS 'LastID'";
-            MySqlCommand dbcSelect = new MySqlCommand(strSQLSelect, connection);
-            MySqlDataReader dbrSelect = dbcSelect.ExecuteReader(); 
+            catch (Exception e)
+            {
+                MessageBox.Show("Exception: " + e.Message);
+            }
+            return null;
+            
+        }
 
-            dbrSelect.Read(); 
-            Int64 val = Int64.Parse(dbrSelect.GetValue(0).ToString());
-            dbrSelect.Dispose();
-            return val;
+        public static Int64 LastRowID() 
+        {
+            object o = AQueryScalar("SELECT LAST_INSERT_ID()");
+            if(o==null) throw new Exception("Cannot get last row id!");
+            return (Int64)o;
         }
 
         //Backup
@@ -186,6 +185,16 @@ namespace Evemu_DB_Editor.src
         {
 
         }
+
+    }
+
+    class NotConnectedException : DbException {
+        public NotConnectedException() :base("Not connected to database") {}
+         
+        public NotConnectedException(string message) : base(message) {}
+
+        public NotConnectedException(string message, Exception innerException) : base(message, innerException) { }
+        public NotConnectedException(string message, int errorCode) :base(message, errorCode) {}
 
     }
 }

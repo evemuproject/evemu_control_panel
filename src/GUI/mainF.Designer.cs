@@ -339,6 +339,7 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.columnHeader39 = new System.Windows.Forms.ColumnHeader();
             this.menuStrip1.SuspendLayout();
             this.accountTab.SuspendLayout();
             this.tabSQL.SuspendLayout();
@@ -360,7 +361,8 @@
             this.RaceSkillContext.SuspendLayout();
             this.marketTab.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.trackBar1)).BeginInit();
+            this.tabBelts.SuspendLayout();
             this.oreTab.SuspendLayout();
             this.oreMenuStrip.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -378,7 +380,6 @@
             this.groupBox6.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.addToEdit.SuspendLayout();
-            this.tabBelts.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -2199,7 +2200,7 @@
             // 
             // btBeltSeed
             // 
-            this.btBeltSeed.Location = new System.Drawing.Point(500, 374);
+            this.btBeltSeed.Location = new System.Drawing.Point(562, 374);
             this.btBeltSeed.Name = "btBeltSeed";
             this.btBeltSeed.Size = new System.Drawing.Size(135, 23);
             this.btBeltSeed.TabIndex = 17;
@@ -2212,13 +2213,14 @@
             this.lvBeltSystems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader34,
             this.columnHeader35,
-            this.columnHeader36});
+            this.columnHeader36,
+            this.columnHeader39});
             this.lvBeltSystems.FullRowSelect = true;
             this.lvBeltSystems.HideSelection = false;
             this.lvBeltSystems.Location = new System.Drawing.Point(11, 62);
             this.lvBeltSystems.MultiSelect = false;
             this.lvBeltSystems.Name = "lvBeltSystems";
-            this.lvBeltSystems.Size = new System.Drawing.Size(244, 335);
+            this.lvBeltSystems.Size = new System.Drawing.Size(263, 335);
             this.lvBeltSystems.TabIndex = 16;
             this.lvBeltSystems.UseCompatibleStateImageBehavior = false;
             this.lvBeltSystems.View = System.Windows.Forms.View.Details;
@@ -2232,10 +2234,12 @@
             // columnHeader35
             // 
             this.columnHeader35.Text = "ID";
+            this.columnHeader35.Width = 67;
             // 
             // columnHeader36
             // 
             this.columnHeader36.Text = "Security";
+            this.columnHeader36.Width = 54;
             // 
             // lvBeltBelts
             // 
@@ -2244,10 +2248,10 @@
             this.columnHeader38});
             this.lvBeltBelts.FullRowSelect = true;
             this.lvBeltBelts.HideSelection = false;
-            this.lvBeltBelts.Location = new System.Drawing.Point(261, 62);
+            this.lvBeltBelts.Location = new System.Drawing.Point(280, 62);
             this.lvBeltBelts.MultiSelect = false;
             this.lvBeltBelts.Name = "lvBeltBelts";
-            this.lvBeltBelts.Size = new System.Drawing.Size(233, 335);
+            this.lvBeltBelts.Size = new System.Drawing.Size(276, 335);
             this.lvBeltBelts.TabIndex = 15;
             this.lvBeltBelts.UseCompatibleStateImageBehavior = false;
             this.lvBeltBelts.View = System.Windows.Forms.View.Details;
@@ -2255,11 +2259,12 @@
             // columnHeader37
             // 
             this.columnHeader37.Text = "Belt";
-            this.columnHeader37.Width = 75;
+            this.columnHeader37.Width = 193;
             // 
             // columnHeader38
             // 
             this.columnHeader38.Text = "Belt ID";
+            this.columnHeader38.Width = 77;
             // 
             // label6
             // 
@@ -3177,6 +3182,11 @@
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
+            // columnHeader39
+            // 
+            this.columnHeader39.Text = "Class";
+            this.columnHeader39.Width = 41;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3566,6 +3576,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btBeltSeed;
         private System.Windows.Forms.ListBox lbBeltLog;
+        private System.Windows.Forms.ColumnHeader columnHeader39;
     }
 }
 
