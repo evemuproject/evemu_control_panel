@@ -36,6 +36,7 @@ using Evemu_DB_Editor.src;
 using MySql.Data.MySqlClient;
 using StuffArchiver.src;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace Evemu_DB_Editor
 {
@@ -44,6 +45,8 @@ namespace Evemu_DB_Editor
         internal MySqlConnection conn;
         internal string connection;
         internal bool recordqueries = false;
+        public static IniFile ini;
+        public static string DatabaseName;
 
         [StructLayout(LayoutKind.Sequential)]
 
@@ -69,38 +72,60 @@ namespace Evemu_DB_Editor
 
         private void main_Load(object sender, EventArgs e)
         {
-            disconnectBtn_Click(null, null);
-            connection = ("server=" + hostTextBox.Text + ";username=" + usernameTxtBox.Text + ";password=" + passwordTxtBox.Text + ";port=" + portTxtBox.Text + ";database=" + dbNameTxtBox.Text);
-            if (System.IO.File.Exists(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\EvemuDBEditor.ini"))
+            ini = new IniFile(Environment.CurrentDirectory + "\\evemu_editor.ini");
+            if (!System.IO.File.Exists(Environment.CurrentDirectory + "\\evemu_editor.ini"))
             {
-                System.IO.StreamReader f = new System.IO.StreamReader(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\EvemuDBEditor.ini");
-                while (f.Peek() >= 0)
-                {
-                    String Line = f.ReadLine();
-                    if (Line.Contains("Hostname="))
-                    {
-                        hostTextBox.Text = Line.Replace("Hostname=", "");
-                    }
-                    if (Line.Contains("Username="))
-                    {
-                        usernameTxtBox.Text = Line.Replace("Username=", "");
-                    }
-                    if (Line.Contains("Password="))
-                    {
-                        passwordTxtBox.Text = Line.Replace("Password=", "");
-                    }
-                    if (Line.Contains("Port="))
-                    {
-                        portTxtBox.Text = Line.Replace("Port=", "");
-                    }
-                    if (Line.Contains("Database="))
-                    {
-                        dbNameTxtBox.Text = Line.Replace("Database=", "");
-                    }
-                }
-                f.Close();
+                ini.IniWriteValue("Path", "CurrentDir", Environment.CurrentDirectory);
+            }
+
+            string hst = main.ini.IniReadValue("AutoConnect", "hostname");
+            string usr = main.ini.IniReadValue("AutoConnect", "username");
+            string pwd = main.ini.IniReadValue("AutoConnect", "password");
+            string prt = main.ini.IniReadValue("AutoConnect", "port");
+            string db = main.ini.IniReadValue("AutoConnect", "database");
+            if (hst != "" || usr != "" || pwd != "" || prt != "" || db != "")
+            {
+                hostTextBox.Text = hst;
+                usernameTxtBox.Text = usr;
+                passwordTxtBox.Text = pwd;
+                portTxtBox.Text = prt;
+                dbNameTxtBox.Text = db;
                 connectBtn_Click(null, null);
             }
+            
+            //disconnectBtn_Click(null, null);
+            //connection = ("server=" + hostTextBox.Text + ";username=" + usernameTxtBox.Text + ";password=" + passwordTxtBox.Text + ";port=" + portTxtBox.Text + ";database=" + dbNameTxtBox.Text);
+            //string ji = Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData).ToString();
+            //if (System.IO.File.Exists(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\EvemuDBEditor.ini"))
+            //{
+            //    System.IO.StreamReader f = new System.IO.StreamReader(Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\EvEMU DB\\EvemuDBEditor.ini");
+            //    while (f.Peek() >= 0)
+            //    {
+            //        String Line = f.ReadLine();
+            //        if (Line.Contains("Hostname="))
+            //        {
+            //            hostTextBox.Text = Line.Replace("Hostname=", "");
+            //        }
+            //        if (Line.Contains("Username="))
+            //        {
+            //            usernameTxtBox.Text = Line.Replace("Username=", "");
+            //        }
+            //        if (Line.Contains("Password="))
+            //        {
+            //            passwordTxtBox.Text = Line.Replace("Password=", "");
+            //        }
+            //        if (Line.Contains("Port="))
+            //        {
+            //            portTxtBox.Text = Line.Replace("Port=", "");
+            //        }
+            //        if (Line.Contains("Database="))
+            //        {
+            //            dbNameTxtBox.Text = Line.Replace("Database=", "");
+            //        }
+            //    }
+            //    f.Close();
+            //    connectBtn_Click(null, null);
+            //}
         }
 
         private void main_ResizeEnd(object sender, EventArgs e)
@@ -120,6 +145,21 @@ namespace Evemu_DB_Editor
         private void showNotConnected() {
             MessageBox.Show("Please connect to the database!", "Not conneced!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             accountTab.SelectedIndex = 0;
+        }
+
+        private void connectionStatusLbl_TextChanged(object sender, EventArgs e)
+        {
+            if (connectionStatusLbl.Text == "Connected")
+            {
+                grpDumpDb.Enabled = true;
+                PopulateLstChkBoxTables();
+                groupBox7.Enabled = true;
+            }
+            else
+            {
+                grpDumpDb.Enabled = false;
+                groupBox7.Enabled = false;
+            }
         }
 
         #endregion
@@ -189,6 +229,7 @@ namespace Evemu_DB_Editor
                     ((Control)marketTab).Enabled = true;
                     ((Control)oreTab).Enabled = true;
                     ((Control)tabPage1).Enabled = true;
+                    DatabaseName = dbNameTxtBox.Text;
 
                 }
                 else
@@ -1784,8 +1825,6 @@ namespace Evemu_DB_Editor
             }
         }
 
-        #endregion
-
         private void btBeltSeed_Click(object sender, EventArgs e) {
             if(lvBeltSystems.SelectedItems.Count == 0) {
                 MessageBox.Show("No system selected");
@@ -1858,6 +1897,173 @@ namespace Evemu_DB_Editor
             return true;
                 
         }
+        #endregion
+
+        #region Preference
+        private void preferenceToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Preference msp = new Preference();
+            msp.ShowDialog();
+        }
+        #endregion
+
+
+        #region DB Dump
+        /// <summary>
+        /// Populate List Check Box of DB tables
+        /// </summary>
+        private void PopulateLstChkBoxTables()
+        {
+            chklbTables.Items.Clear();
+            foreach (DataRow record in DBConnect.Tables().Rows)
+            {
+                chklbTables.Items.Add(record[0]);
+            }
+        }
+
+        private void PopulateLstChkBoxFiles()
+        {
+            chklbTables.Items.Clear();
+            if (Directory.Exists(Environment.CurrentDirectory + "\\Dump"))
+            {
+                foreach (string file in Directory.GetFiles(Environment.CurrentDirectory + "\\Dump"))
+                {
+                    chklbTables.Items.Add(file.Substring(file.LastIndexOf("\\") + 1, (file.Length - file.LastIndexOf("\\")) - 1));
+                }
+            }
+        }
+
+        private void bttBckT_Click(object sender, EventArgs e)
+        {
+            ArrayList tabelle = new ArrayList();
+            foreach (object chkTable in chklbTables.CheckedItems)
+            {
+                tabelle.Add(chkTable.ToString());
+            }
+            lblSelTables.Text = chklbTables.CheckedItems.Count.ToString();
+            chklbTables.Enabled = false;
+            rdbBackup.Enabled = false;
+            rdbRestore.Enabled = false;
+            bttBckT.Enabled = false;
+            bttCkUnckAll.Enabled = false;
+            bttNavDb.Enabled = false;
+            //chk dir destination
+            if (!Directory.Exists(Environment.CurrentDirectory + "\\Dump\\"))
+            {
+                Directory.CreateDirectory(Environment.CurrentDirectory + "\\Dump\\");
+            }
+
+            bckWorkMysql.RunWorkerAsync(tabelle);
+        }
+
+        private void chklbTables_MouseUp(object sender, MouseEventArgs e)
+        {
+            lblSelTables.Text = chklbTables.CheckedItems.Count.ToString();
+            lblFatteTables.Text = "0";
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbBackup.Checked)
+            {
+                PopulateLstChkBoxTables();
+                bttBckT.Text = "Backup Tables";
+            }
+            else
+            {
+                PopulateLstChkBoxFiles();
+                bttBckT.Text = "Restore Tables";
+            }
+            lblSelTables.Text = "0";
+            lblFatteTables.Text = "0";
+        }
+
+        private void bttCkUnckAll_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < chklbTables.Items.Count; i++)
+            {
+                chklbTables.SetItemChecked(i, true);
+            }
+        }
+
+        private void bttNavDb_Click(object sender, EventArgs e)
+        {
+            DbSurf surfin = new DbSurf();
+            surfin.Show();
+        }
+        #endregion
+
+        #region BackGrounWork for Dump
+        delegate void LabelDelegate(string message);
+        public void UpdatingLabel(string msg)
+        {
+            if (this.lblFatteTables.InvokeRequired)
+                this.lblFatteTables.Invoke(new LabelDelegate(UpdatingLabel), new object[] { msg });
+            else
+                this.lblFatteTables.Text = msg;
+        }
+
+        private void bckWorkMysql_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            ArrayList tabelle = (ArrayList)e.Argument;
+            int fatte = 0;
+            int error = 0;
+            string completeMessage = "";
+
+            if (bttBckT.Text == "Backup Tables")
+            {
+                foreach (string tavola in tabelle)
+                {
+                    if (!DBConnect.Backup(usernameTxtBox.Text, passwordTxtBox.Text, hostTextBox.Text, tavola))
+                        error++;
+                    fatte++;
+                    UpdatingLabel(fatte.ToString());
+                }
+                completeMessage = "Backup process Completed!";
+                if (error > 0)
+                    completeMessage += Environment.NewLine + "with " + error.ToString() + " error/warning!!!";
+                MessageBox.Show(completeMessage);
+            }
+            else
+            {
+                foreach (string tavola in tabelle)
+                {
+                    if (!DBConnect.Restore(usernameTxtBox.Text, passwordTxtBox.Text, hostTextBox.Text, Environment.CurrentDirectory + "\\Dump\\" + tavola))
+                        error++;
+                    fatte++;
+                    UpdatingLabel(fatte.ToString());
+                }
+                completeMessage = "Restore process Completed!";
+                if (error > 0)
+                    completeMessage += Environment.NewLine + "with " + error.ToString() + " error/warning!!!";
+                MessageBox.Show(completeMessage);
+            }
+        }
+
+        private void bckWorkMysql_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        {
+
+        }
+
+        private void bckWorkMysql_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            for (int i = 0; i < chklbTables.Items.Count; i++)
+            {
+                foreach (int strumChk in chklbTables.CheckedIndices)
+                {
+                    chklbTables.SetItemChecked(strumChk, false);
+                }
+            }
+
+            chklbTables.Enabled = true;
+            rdbBackup.Enabled = true;
+            rdbRestore.Enabled = true;
+            bttBckT.Enabled = true;
+            bttCkUnckAll.Enabled = true;
+            bttNavDb.Enabled = true;
+            lblSelTables.Text = "0";
+        }
+        #endregion
 
     }
 }
