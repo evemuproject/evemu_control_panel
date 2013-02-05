@@ -1034,7 +1034,7 @@ namespace Evemu_DB_Editor
             {
                 SelectedOretypeID.Text = record[0].ToString();
             }
-            foreach (DataRow record in DBConnect.AQuery("SELECT typeID, requiredtypeID, quantity, (SELECT typeName FROM invTypes WHERE typeID = requiredtypeID) AS mineralname FROM typeactivitymaterials WHERE typeID IN (SELECT typeID FROM invTypes WHERE typeName = '" + SELECTOre.Text + "')").Rows)
+            foreach (DataRow record in DBConnect.AQuery("SELECT typeID,materialtypeID, quantity, (SELECT typeName FROM invTypes WHERE invTypes.typeID = materialtypeID) AS mineralname FROM invTypeMaterials WHERE typeID IN (SELECT typeID FROM invTypes WHERE typeName = '" + SELECTOre.Text + "')").Rows)
             {
                 string[] temp = new string[4];
                 temp[0] = record[0].ToString();
