@@ -33,7 +33,7 @@ namespace Evemu_DB_Editor
             string query;
                 if (mineralID == "1")
                 {
-                    query = "SELECT quantity from typeactivitymaterials WHERE typeID = " + loadOreID + " and requiredtypeID = " + mineralID;
+                    query = "SELECT quantity from invTypeMaterials WHERE typeID = " + loadOreID + " and materialTypeID = " + mineralID;
                     foreach (DataRow record in DBConnect.AQuery(query).Rows)
                     {                        
                         quantity.Text = record[0].ToString();
@@ -60,11 +60,12 @@ namespace Evemu_DB_Editor
         {
             if (oldmineralid == "0")
             {
-                DBConnect.SQuery("INSERT INTO typeactivitymaterials (typeID, activityid, requiredtypeID, quantity, damageperjob, recycle) VALUES (" + oreID.Text + ", 6, " + newmineralid + "," + quantity.Text + ", 1, 1)");
+                //DBConnect.SQuery("INSERT INTO invTypeMaterials (typeID, activityid, materialTypeID, quantity, damageperjob, recycle) VALUES (" + oreID.Text + ", 6, " + newmineralid + "," + quantity.Text + ", 1, 1)");
+                DBConnect.SQuery("INSERT INTO invTypeMaterials (typeID, materialTypeID, quantity) VALUES (" + oreID.Text + ", " + newmineralid + "," + quantity.Text+")");
             }
             else
             {
-                DBConnect.SQuery("UPDATE typeactivitymaterials set requiredtypeID = " + newmineralid + ", quantity = " + quantity.Text + " WHERE typeID = " + oreID.Text + " and requiredtypeID = " + oldmineralid);
+                DBConnect.SQuery("UPDATE invTypeMaterials set materialTypeID = " + newmineralid + ", quantity = " + quantity.Text + " WHERE typeID = " + oreID.Text + " and materialTypeID = " + oldmineralid);
             }
             Program.m.SELECTOre_SelectedIndexChanged(null, null);
             this.Close();
