@@ -505,6 +505,38 @@ namespace Evemu_DB_Editor
             }
             ItemList.Items.AddRange(items);
         }
+
+        private void searchTypeIDbtn_Click(object sender, EventArgs e)
+        {
+            ItemList.Items.Clear();
+            string SQLQuery = "SELECT invTypes.typeID, invTypes.typeName, invGroups.groupName, chrRaces.raceName, invTypes.description FROM (invCategories RIGHT JOIN (invTypes LEFT JOIN invGroups ON invTypes.groupID = invGroups.groupID) ON invCategories.categoryID = invGroups.categoryID) LEFT JOIN chrRaces ON invTypes.raceID = chrRaces.raceID WHERE (((invCategories.categoryName) = '" + CategoryDropdown.Text + "') and typeID like '%" + searchTypeIDtxtbox.Text + "%')";
+
+            DataTable data = DBConnect.AQuery(SQLQuery);
+            String[] item = new string[data.Columns.Count];
+            ListViewItem[] items = new ListViewItem[data.Rows.Count];
+            int count = 0;
+
+            foreach (DataRow row in data.Rows)
+            {
+                for (int i = 0; i < data.Columns.Count; i++)
+                {
+                    item[i] = row[i].ToString();
+                }
+
+                ListViewItem item2 = new ListViewItem(item);
+                items[count] = item2;
+                count++;
+            }
+            ItemList.Items.AddRange(items);
+        }
+
+        private void searchTypeIDtxtbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                searchTypeIDbtn_Click(null, null);
+            }
+        }
         
         private void searchItemTxtBox_KeyDown(object sender, KeyEventArgs e)
         {
@@ -516,9 +548,12 @@ namespace Evemu_DB_Editor
 
         private void editItemBtn_Click(object sender, EventArgs e)
         {
-            itemAddEdit add = new itemAddEdit();
-            add.Show();
-            add.extractItemInfo(int.Parse(ItemList.SelectedItems[0].SubItems[0].Text));
+            if (ItemList.SelectedItems.Count > 0)
+            {
+                itemAddEdit add = new itemAddEdit();
+                add.Show();
+                add.extractItemInfo(int.Parse(ItemList.SelectedItems[0].SubItems[0].Text));
+            }
         }
 
         private void CategoryDropdown_SelectedIndexChanged(object sender, EventArgs e)
@@ -546,6 +581,9 @@ namespace Evemu_DB_Editor
             searchItem.Visible = true;
             label35.Visible = true;
             searchItemTxtBox.Visible = true;
+            searchTypeIDbtn.Visible = true;
+            label18.Visible = true;
+            searchTypeIDtxtbox.Visible = true;
         }
 
         private void ItemList_DblClick(object sender, EventArgs e)
@@ -1848,7 +1886,6 @@ namespace Evemu_DB_Editor
 
 
         #endregion
-
  
     }
 }

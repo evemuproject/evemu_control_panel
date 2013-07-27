@@ -117,6 +117,9 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabItemEditor = new System.Windows.Forms.TabPage();
+            this.searchTypeIDbtn = new System.Windows.Forms.Button();
+            this.searchTypeIDtxtbox = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.searchItemTxtBox = new System.Windows.Forms.TextBox();
             this.searchItem = new System.Windows.Forms.Button();
@@ -231,12 +234,13 @@
             this.lbBeltLog = new System.Windows.Forms.ListBox();
             this.btBeltSeed = new System.Windows.Forms.Button();
             this.lvBeltSystems = new System.Windows.Forms.ListView();
-            this.columnHeader34 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader35 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader36 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader34 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader35 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader36 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader39 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lvBeltBelts = new System.Windows.Forms.ListView();
-            this.columnHeader37 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader38 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader37 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader38 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label6 = new System.Windows.Forms.Label();
             this.oreTab = new System.Windows.Forms.TabPage();
             this.SelectedOretypeID = new System.Windows.Forms.TextBox();
@@ -339,7 +343,6 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.columnHeader39 = new System.Windows.Forms.ColumnHeader();
             this.menuStrip1.SuspendLayout();
             this.accountTab.SuspendLayout();
             this.tabSQL.SuspendLayout();
@@ -361,7 +364,7 @@
             this.RaceSkillContext.SuspendLayout();
             this.marketTab.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.tabBelts.SuspendLayout();
             this.oreTab.SuspendLayout();
             this.oreMenuStrip.SuspendLayout();
@@ -516,9 +519,9 @@
             // 
             // accountTab
             // 
-            this.accountTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.accountTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.accountTab.Controls.Add(this.tabSQL);
             this.accountTab.Controls.Add(this.tabAccount);
             this.accountTab.Controls.Add(this.tabItemEditor);
@@ -1139,6 +1142,9 @@
             // 
             // tabItemEditor
             // 
+            this.tabItemEditor.Controls.Add(this.searchTypeIDbtn);
+            this.tabItemEditor.Controls.Add(this.searchTypeIDtxtbox);
+            this.tabItemEditor.Controls.Add(this.label18);
             this.tabItemEditor.Controls.Add(this.label35);
             this.tabItemEditor.Controls.Add(this.searchItemTxtBox);
             this.tabItemEditor.Controls.Add(this.searchItem);
@@ -1156,19 +1162,49 @@
             this.tabItemEditor.UseVisualStyleBackColor = true;
             this.tabItemEditor.Enter += new System.EventHandler(this.tabItemEditor_Enter);
             // 
+            // searchTypeIDbtn
+            // 
+            this.searchTypeIDbtn.Location = new System.Drawing.Point(717, 33);
+            this.searchTypeIDbtn.Name = "searchTypeIDbtn";
+            this.searchTypeIDbtn.Size = new System.Drawing.Size(70, 38);
+            this.searchTypeIDbtn.TabIndex = 21;
+            this.searchTypeIDbtn.Text = "Search typeID";
+            this.searchTypeIDbtn.UseVisualStyleBackColor = true;
+            this.searchTypeIDbtn.Visible = false;
+            this.searchTypeIDbtn.Click += new System.EventHandler(this.searchTypeIDbtn_Click);
+            // 
+            // searchTypeIDtxtbox
+            // 
+            this.searchTypeIDtxtbox.Location = new System.Drawing.Point(610, 41);
+            this.searchTypeIDtxtbox.Name = "searchTypeIDtxtbox";
+            this.searchTypeIDtxtbox.Size = new System.Drawing.Size(97, 20);
+            this.searchTypeIDtxtbox.TabIndex = 20;
+            this.searchTypeIDtxtbox.Visible = false;
+            this.searchTypeIDtxtbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchTypeIDtxtbox_KeyDown);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(512, 44);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(93, 13);
+            this.label18.TabIndex = 19;
+            this.label18.Text = "Search on typeID:";
+            this.label18.Visible = false;
+            // 
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(198, 45);
+            this.label35.Location = new System.Drawing.Point(207, 45);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(44, 13);
+            this.label35.Size = new System.Drawing.Size(110, 13);
             this.label35.TabIndex = 18;
-            this.label35.Text = "Search:";
+            this.label35.Text = "Search on typeName:";
             this.label35.Visible = false;
             // 
             // searchItemTxtBox
             // 
-            this.searchItemTxtBox.Location = new System.Drawing.Point(248, 41);
+            this.searchItemTxtBox.Location = new System.Drawing.Point(320, 41);
             this.searchItemTxtBox.Name = "searchItemTxtBox";
             this.searchItemTxtBox.Size = new System.Drawing.Size(101, 20);
             this.searchItemTxtBox.TabIndex = 17;
@@ -1177,11 +1213,11 @@
             // 
             // searchItem
             // 
-            this.searchItem.Location = new System.Drawing.Point(355, 41);
+            this.searchItem.Location = new System.Drawing.Point(427, 33);
             this.searchItem.Name = "searchItem";
-            this.searchItem.Size = new System.Drawing.Size(75, 23);
+            this.searchItem.Size = new System.Drawing.Size(75, 38);
             this.searchItem.TabIndex = 16;
-            this.searchItem.Text = "Search";
+            this.searchItem.Text = "Search typeName";
             this.searchItem.UseVisualStyleBackColor = true;
             this.searchItem.Visible = false;
             this.searchItem.Click += new System.EventHandler(this.searchItem_Click);
@@ -1197,7 +1233,7 @@
             this.ItemList.ContextMenuStrip = this.contextItemEdit;
             this.ItemList.FullRowSelect = true;
             this.ItemList.HideSelection = false;
-            this.ItemList.Location = new System.Drawing.Point(6, 66);
+            this.ItemList.Location = new System.Drawing.Point(6, 76);
             this.ItemList.MultiSelect = false;
             this.ItemList.Name = "ItemList";
             this.ItemList.Size = new System.Drawing.Size(784, 290);
@@ -1281,7 +1317,7 @@
             // 
             // editItemBtn
             // 
-            this.editItemBtn.Location = new System.Drawing.Point(6, 362);
+            this.editItemBtn.Location = new System.Drawing.Point(6, 372);
             this.editItemBtn.Name = "editItemBtn";
             this.editItemBtn.Size = new System.Drawing.Size(121, 23);
             this.editItemBtn.TabIndex = 12;
@@ -2241,6 +2277,11 @@
             this.columnHeader36.Text = "Security";
             this.columnHeader36.Width = 54;
             // 
+            // columnHeader39
+            // 
+            this.columnHeader39.Text = "Class";
+            this.columnHeader39.Width = 41;
+            // 
             // lvBeltBelts
             // 
             this.lvBeltBelts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -2269,7 +2310,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Verdana", 17.25F, ((System.Drawing.FontStyle) ((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label6.Font = new System.Drawing.Font("Verdana", 17.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(6, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(245, 28);
@@ -3182,11 +3223,6 @@
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
-            // columnHeader39
-            // 
-            this.columnHeader39.Text = "Class";
-            this.columnHeader39.Width = 41;
-            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3577,6 +3613,9 @@
         private System.Windows.Forms.Button btBeltSeed;
         private System.Windows.Forms.ListBox lbBeltLog;
         private System.Windows.Forms.ColumnHeader columnHeader39;
+        private System.Windows.Forms.Button searchTypeIDbtn;
+        private System.Windows.Forms.TextBox searchTypeIDtxtbox;
+        private System.Windows.Forms.Label label18;
     }
 }
 
