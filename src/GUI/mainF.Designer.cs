@@ -54,6 +54,49 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectionStatusToolTip = new System.Windows.Forms.ToolStripMenuItem();
             this.accountTab = new System.Windows.Forms.TabControl();
+            this.tabServerControl = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.button20 = new System.Windows.Forms.Button();
+            this.servworkDir = new System.Windows.Forms.TextBox();
+            this.button19 = new System.Windows.Forms.Button();
+            this.serverDir = new System.Windows.Forms.TextBox();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.tabServerConfig = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.groupBox811 = new System.Windows.Forms.GroupBox();
+            this.label5611 = new System.Windows.Forms.Label();
+            this.servPort = new System.Windows.Forms.TextBox();
+            this.groupBox711 = new System.Windows.Forms.GroupBox();
+            this.label5411 = new System.Windows.Forms.Label();
+            this.cacheDir = new System.Windows.Forms.TextBox();
+            this.label5311 = new System.Windows.Forms.Label();
+            this.logStt = new System.Windows.Forms.TextBox();
+            this.label5211 = new System.Windows.Forms.Label();
+            this.logFile = new System.Windows.Forms.TextBox();
+            this.groupBox611 = new System.Windows.Forms.GroupBox();
+            this.label5511 = new System.Windows.Forms.Label();
+            this.label4611 = new System.Windows.Forms.Label();
+            this.label4511 = new System.Windows.Forms.Label();
+            this.startIsk = new System.Windows.Forms.TextBox();
+            this.logonMsg = new System.Windows.Forms.TextBox();
+            this.autoAcct = new System.Windows.Forms.TextBox();
+            this.label4311 = new System.Windows.Forms.Label();
+            this.groupBox511 = new System.Windows.Forms.GroupBox();
+            this.label5111 = new System.Windows.Forms.Label();
+            this.label5011 = new System.Windows.Forms.Label();
+            this.label4911 = new System.Windows.Forms.Label();
+            this.label4811 = new System.Windows.Forms.Label();
+            this.label4711 = new System.Windows.Forms.Label();
+            this.dbPort = new System.Windows.Forms.TextBox();
+            this.dbDB = new System.Windows.Forms.TextBox();
+            this.dbPass = new System.Windows.Forms.TextBox();
+            this.dbUser = new System.Windows.Forms.TextBox();
+            this.dbHost = new System.Windows.Forms.TextBox();
             this.tabSQL = new System.Windows.Forms.TabPage();
             this.label55 = new System.Windows.Forms.Label();
             this.createDatabaseBtn = new System.Windows.Forms.Button();
@@ -230,18 +273,6 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label23 = new System.Windows.Forms.Label();
-            this.tabBelts = new System.Windows.Forms.TabPage();
-            this.lbBeltLog = new System.Windows.Forms.ListBox();
-            this.btBeltSeed = new System.Windows.Forms.Button();
-            this.lvBeltSystems = new System.Windows.Forms.ListView();
-            this.columnHeader34 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader35 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader36 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader39 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvBeltBelts = new System.Windows.Forms.ListView();
-            this.columnHeader37 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader38 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label6 = new System.Windows.Forms.Label();
             this.oreTab = new System.Windows.Forms.TabPage();
             this.SelectedOretypeID = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
@@ -257,46 +288,14 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.SELECTOre = new System.Windows.Forms.ComboBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabMarketGroups = new System.Windows.Forms.TabPage();
             this.label41 = new System.Windows.Forms.Label();
             this.marketGroupsTree = new System.Windows.Forms.TreeView();
             this.marketGroupsContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addMarketGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteMarketGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.groupBox811 = new System.Windows.Forms.GroupBox();
-            this.label5611 = new System.Windows.Forms.Label();
-            this.servPort = new System.Windows.Forms.TextBox();
-            this.groupBox711 = new System.Windows.Forms.GroupBox();
-            this.label5411 = new System.Windows.Forms.Label();
-            this.cacheDir = new System.Windows.Forms.TextBox();
-            this.label5311 = new System.Windows.Forms.Label();
-            this.logStt = new System.Windows.Forms.TextBox();
-            this.label5211 = new System.Windows.Forms.Label();
-            this.logFile = new System.Windows.Forms.TextBox();
-            this.groupBox611 = new System.Windows.Forms.GroupBox();
-            this.label5511 = new System.Windows.Forms.Label();
-            this.label4611 = new System.Windows.Forms.Label();
-            this.label4511 = new System.Windows.Forms.Label();
-            this.startIsk = new System.Windows.Forms.TextBox();
-            this.logonMsg = new System.Windows.Forms.TextBox();
-            this.autoAcct = new System.Windows.Forms.TextBox();
-            this.label4311 = new System.Windows.Forms.Label();
-            this.groupBox511 = new System.Windows.Forms.GroupBox();
-            this.label5111 = new System.Windows.Forms.Label();
-            this.label5011 = new System.Windows.Forms.Label();
-            this.label4911 = new System.Windows.Forms.Label();
-            this.label4811 = new System.Windows.Forms.Label();
-            this.label4711 = new System.Windows.Forms.Label();
-            this.dbPort = new System.Windows.Forms.TextBox();
-            this.dbDB = new System.Windows.Forms.TextBox();
-            this.dbPass = new System.Windows.Forms.TextBox();
-            this.dbUser = new System.Windows.Forms.TextBox();
-            this.dbHost = new System.Windows.Forms.TextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabStuffEditor = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.stuffFiles = new System.Windows.Forms.ListView();
@@ -320,17 +319,18 @@
             this.models = new System.Windows.Forms.ListView();
             this.columnHeader31 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader32 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.button20 = new System.Windows.Forms.Button();
-            this.servworkDir = new System.Windows.Forms.TextBox();
-            this.button19 = new System.Windows.Forms.Button();
-            this.serverDir = new System.Windows.Forms.TextBox();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
+            this.tabBelts = new System.Windows.Forms.TabPage();
+            this.lbBeltLog = new System.Windows.Forms.ListBox();
+            this.btBeltSeed = new System.Windows.Forms.Button();
+            this.lvBeltSystems = new System.Windows.Forms.ListView();
+            this.columnHeader34 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader35 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader36 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader39 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvBeltBelts = new System.Windows.Forms.ListView();
+            this.columnHeader37 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader38 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label6 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.connectToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -343,8 +343,18 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.controlPanelTxtBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.accountTab.SuspendLayout();
+            this.tabServerControl.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.tabServerConfig.SuspendLayout();
+            this.groupBox811.SuspendLayout();
+            this.groupBox711.SuspendLayout();
+            this.groupBox611.SuspendLayout();
+            this.groupBox511.SuspendLayout();
             this.tabSQL.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -365,22 +375,15 @@
             this.marketTab.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            this.tabBelts.SuspendLayout();
             this.oreTab.SuspendLayout();
             this.oreMenuStrip.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabMarketGroups.SuspendLayout();
             this.marketGroupsContext.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.groupBox811.SuspendLayout();
-            this.groupBox711.SuspendLayout();
-            this.groupBox611.SuspendLayout();
-            this.groupBox511.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.tabStuffEditor.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            this.tabPage6.SuspendLayout();
-            this.groupBox6.SuspendLayout();
+            this.tabBelts.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.addToEdit.SuspendLayout();
             this.SuspendLayout();
@@ -522,24 +525,439 @@
             this.accountTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.accountTab.Controls.Add(this.tabServerControl);
+            this.accountTab.Controls.Add(this.tabServerConfig);
             this.accountTab.Controls.Add(this.tabSQL);
             this.accountTab.Controls.Add(this.tabAccount);
             this.accountTab.Controls.Add(this.tabItemEditor);
             this.accountTab.Controls.Add(this.tabInsure);
             this.accountTab.Controls.Add(this.raceTab);
             this.accountTab.Controls.Add(this.marketTab);
-            this.accountTab.Controls.Add(this.tabBelts);
             this.accountTab.Controls.Add(this.oreTab);
-            this.accountTab.Controls.Add(this.tabPage1);
-            this.accountTab.Controls.Add(this.tabPage2);
-            this.accountTab.Controls.Add(this.tabPage3);
-            this.accountTab.Controls.Add(this.tabPage6);
+            this.accountTab.Controls.Add(this.tabMarketGroups);
+            this.accountTab.Controls.Add(this.tabStuffEditor);
             this.accountTab.Location = new System.Drawing.Point(12, 27);
             this.accountTab.Multiline = true;
             this.accountTab.Name = "accountTab";
             this.accountTab.SelectedIndex = 0;
             this.accountTab.Size = new System.Drawing.Size(865, 565);
             this.accountTab.TabIndex = 5;
+            // 
+            // tabServerControl
+            // 
+            this.tabServerControl.Controls.Add(this.controlPanelTxtBox);
+            this.tabServerControl.Controls.Add(this.label57);
+            this.tabServerControl.Controls.Add(this.groupBox6);
+            this.tabServerControl.Location = new System.Drawing.Point(4, 40);
+            this.tabServerControl.Name = "tabServerControl";
+            this.tabServerControl.Padding = new System.Windows.Forms.Padding(3);
+            this.tabServerControl.Size = new System.Drawing.Size(857, 521);
+            this.tabServerControl.TabIndex = 14;
+            this.tabServerControl.Text = "Server Control Panel";
+            this.tabServerControl.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label51);
+            this.groupBox6.Controls.Add(this.label50);
+            this.groupBox6.Controls.Add(this.button20);
+            this.groupBox6.Controls.Add(this.servworkDir);
+            this.groupBox6.Controls.Add(this.button19);
+            this.groupBox6.Controls.Add(this.serverDir);
+            this.groupBox6.Controls.Add(this.button18);
+            this.groupBox6.Controls.Add(this.button17);
+            this.groupBox6.Controls.Add(this.button16);
+            this.groupBox6.Location = new System.Drawing.Point(23, 254);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(496, 109);
+            this.groupBox6.TabIndex = 0;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Server Controls";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(106, 58);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(92, 13);
+            this.label51.TabIndex = 8;
+            this.label51.Text = "Working Directory";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(106, 29);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(48, 13);
+            this.label50.TabIndex = 7;
+            this.label50.Text = "File Path";
+            // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(406, 49);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(75, 23);
+            this.button20.TabIndex = 6;
+            this.button20.Text = "Browse";
+            this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click_1);
+            // 
+            // servworkDir
+            // 
+            this.servworkDir.Location = new System.Drawing.Point(204, 52);
+            this.servworkDir.Name = "servworkDir";
+            this.servworkDir.Size = new System.Drawing.Size(196, 20);
+            this.servworkDir.TabIndex = 5;
+            this.servworkDir.Text = "D:\\Evemu\\bin\\";
+            // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(6, 77);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(88, 23);
+            this.button19.TabIndex = 4;
+            this.button19.Text = "Restart Server";
+            this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // serverDir
+            // 
+            this.serverDir.Location = new System.Drawing.Point(204, 22);
+            this.serverDir.Name = "serverDir";
+            this.serverDir.Size = new System.Drawing.Size(196, 20);
+            this.serverDir.TabIndex = 3;
+            this.serverDir.Text = "D:\\Evemu\\bin\\eve-server.exe";
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(406, 19);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(75, 23);
+            this.button18.TabIndex = 2;
+            this.button18.Text = "Browse";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(6, 48);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(88, 23);
+            this.button17.TabIndex = 1;
+            this.button17.Text = "Stop Server";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(6, 19);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(88, 23);
+            this.button16.TabIndex = 0;
+            this.button16.Text = "Start Server";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
+            // tabServerConfig
+            // 
+            this.tabServerConfig.Controls.Add(this.label56);
+            this.tabServerConfig.Controls.Add(this.button8);
+            this.tabServerConfig.Controls.Add(this.button9);
+            this.tabServerConfig.Controls.Add(this.groupBox811);
+            this.tabServerConfig.Controls.Add(this.groupBox711);
+            this.tabServerConfig.Controls.Add(this.groupBox611);
+            this.tabServerConfig.Controls.Add(this.groupBox511);
+            this.tabServerConfig.Location = new System.Drawing.Point(4, 40);
+            this.tabServerConfig.Name = "tabServerConfig";
+            this.tabServerConfig.Padding = new System.Windows.Forms.Padding(3);
+            this.tabServerConfig.Size = new System.Drawing.Size(857, 521);
+            this.tabServerConfig.TabIndex = 12;
+            this.tabServerConfig.Text = "EvEMU Server Configuration";
+            this.tabServerConfig.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(17, 37);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 23;
+            this.button8.Text = "Load";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(98, 37);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 22;
+            this.button9.Text = "Save";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // groupBox811
+            // 
+            this.groupBox811.Controls.Add(this.label5611);
+            this.groupBox811.Controls.Add(this.servPort);
+            this.groupBox811.Location = new System.Drawing.Point(373, 230);
+            this.groupBox811.Name = "groupBox811";
+            this.groupBox811.Size = new System.Drawing.Size(184, 100);
+            this.groupBox811.TabIndex = 21;
+            this.groupBox811.TabStop = false;
+            this.groupBox811.Text = "Connection Settings";
+            // 
+            // label5611
+            // 
+            this.label5611.AutoSize = true;
+            this.label5611.Location = new System.Drawing.Point(6, 22);
+            this.label5611.Name = "label5611";
+            this.label5611.Size = new System.Drawing.Size(63, 13);
+            this.label5611.TabIndex = 18;
+            this.label5611.Text = "Server Port:";
+            // 
+            // servPort
+            // 
+            this.servPort.Location = new System.Drawing.Point(75, 19);
+            this.servPort.Name = "servPort";
+            this.servPort.Size = new System.Drawing.Size(54, 20);
+            this.servPort.TabIndex = 18;
+            // 
+            // groupBox711
+            // 
+            this.groupBox711.Controls.Add(this.label5411);
+            this.groupBox711.Controls.Add(this.cacheDir);
+            this.groupBox711.Controls.Add(this.label5311);
+            this.groupBox711.Controls.Add(this.logStt);
+            this.groupBox711.Controls.Add(this.label5211);
+            this.groupBox711.Controls.Add(this.logFile);
+            this.groupBox711.Location = new System.Drawing.Point(17, 227);
+            this.groupBox711.Name = "groupBox711";
+            this.groupBox711.Size = new System.Drawing.Size(350, 103);
+            this.groupBox711.TabIndex = 20;
+            this.groupBox711.TabStop = false;
+            this.groupBox711.Text = "File Configuration";
+            // 
+            // label5411
+            // 
+            this.label5411.AutoSize = true;
+            this.label5411.Location = new System.Drawing.Point(12, 74);
+            this.label5411.Name = "label5411";
+            this.label5411.Size = new System.Drawing.Size(86, 13);
+            this.label5411.TabIndex = 20;
+            this.label5411.Text = "Cache Directory:";
+            // 
+            // cacheDir
+            // 
+            this.cacheDir.Location = new System.Drawing.Point(104, 71);
+            this.cacheDir.Name = "cacheDir";
+            this.cacheDir.Size = new System.Drawing.Size(240, 20);
+            this.cacheDir.TabIndex = 2;
+            // 
+            // label5311
+            // 
+            this.label5311.AutoSize = true;
+            this.label5311.Location = new System.Drawing.Point(12, 48);
+            this.label5311.Name = "label5311";
+            this.label5311.Size = new System.Drawing.Size(69, 13);
+            this.label5311.TabIndex = 19;
+            this.label5311.Text = "Log Settings:";
+            // 
+            // logStt
+            // 
+            this.logStt.Location = new System.Drawing.Point(87, 45);
+            this.logStt.Name = "logStt";
+            this.logStt.Size = new System.Drawing.Size(257, 20);
+            this.logStt.TabIndex = 1;
+            // 
+            // label5211
+            // 
+            this.label5211.AutoSize = true;
+            this.label5211.Location = new System.Drawing.Point(12, 22);
+            this.label5211.Name = "label5211";
+            this.label5211.Size = new System.Drawing.Size(47, 13);
+            this.label5211.TabIndex = 18;
+            this.label5211.Text = "Log File:";
+            // 
+            // logFile
+            // 
+            this.logFile.Location = new System.Drawing.Point(65, 19);
+            this.logFile.Name = "logFile";
+            this.logFile.Size = new System.Drawing.Size(279, 20);
+            this.logFile.TabIndex = 0;
+            // 
+            // groupBox611
+            // 
+            this.groupBox611.Controls.Add(this.label5511);
+            this.groupBox611.Controls.Add(this.label4611);
+            this.groupBox611.Controls.Add(this.label4511);
+            this.groupBox611.Controls.Add(this.startIsk);
+            this.groupBox611.Controls.Add(this.logonMsg);
+            this.groupBox611.Controls.Add(this.autoAcct);
+            this.groupBox611.Controls.Add(this.label4311);
+            this.groupBox611.Location = new System.Drawing.Point(17, 66);
+            this.groupBox611.Name = "groupBox611";
+            this.groupBox611.Size = new System.Drawing.Size(350, 155);
+            this.groupBox611.TabIndex = 19;
+            this.groupBox611.TabStop = false;
+            this.groupBox611.Text = "General Configuration";
+            // 
+            // label5511
+            // 
+            this.label5511.AutoSize = true;
+            this.label5511.Location = new System.Drawing.Point(164, 22);
+            this.label5511.Name = "label5511";
+            this.label5511.Size = new System.Drawing.Size(164, 13);
+            this.label5511.TabIndex = 10;
+            this.label5511.Text = "Usage: 1 = Enable // 2 = Disable";
+            // 
+            // label4611
+            // 
+            this.label4611.AutoSize = true;
+            this.label4611.Location = new System.Drawing.Point(12, 126);
+            this.label4611.Name = "label4611";
+            this.label4611.Size = new System.Drawing.Size(105, 13);
+            this.label4611.TabIndex = 9;
+            this.label4611.Text = "Player\'s Starting ISK:";
+            // 
+            // label4511
+            // 
+            this.label4511.AutoSize = true;
+            this.label4511.Location = new System.Drawing.Point(12, 48);
+            this.label4511.Name = "label4511";
+            this.label4511.Size = new System.Drawing.Size(86, 13);
+            this.label4511.TabIndex = 8;
+            this.label4511.Text = "Logon Message:";
+            // 
+            // startIsk
+            // 
+            this.startIsk.Location = new System.Drawing.Point(129, 123);
+            this.startIsk.Name = "startIsk";
+            this.startIsk.Size = new System.Drawing.Size(72, 20);
+            this.startIsk.TabIndex = 5;
+            // 
+            // logonMsg
+            // 
+            this.logonMsg.Location = new System.Drawing.Point(129, 45);
+            this.logonMsg.Multiline = true;
+            this.logonMsg.Name = "logonMsg";
+            this.logonMsg.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.logonMsg.Size = new System.Drawing.Size(215, 72);
+            this.logonMsg.TabIndex = 4;
+            // 
+            // autoAcct
+            // 
+            this.autoAcct.Location = new System.Drawing.Point(129, 19);
+            this.autoAcct.Name = "autoAcct";
+            this.autoAcct.Size = new System.Drawing.Size(29, 20);
+            this.autoAcct.TabIndex = 3;
+            // 
+            // label4311
+            // 
+            this.label4311.AutoSize = true;
+            this.label4311.Location = new System.Drawing.Point(12, 22);
+            this.label4311.Name = "label4311";
+            this.label4311.Size = new System.Drawing.Size(111, 13);
+            this.label4311.TabIndex = 2;
+            this.label4311.Text = "Auto Account feature:";
+            // 
+            // groupBox511
+            // 
+            this.groupBox511.Controls.Add(this.label5111);
+            this.groupBox511.Controls.Add(this.label5011);
+            this.groupBox511.Controls.Add(this.label4911);
+            this.groupBox511.Controls.Add(this.label4811);
+            this.groupBox511.Controls.Add(this.label4711);
+            this.groupBox511.Controls.Add(this.dbPort);
+            this.groupBox511.Controls.Add(this.dbDB);
+            this.groupBox511.Controls.Add(this.dbPass);
+            this.groupBox511.Controls.Add(this.dbUser);
+            this.groupBox511.Controls.Add(this.dbHost);
+            this.groupBox511.Location = new System.Drawing.Point(373, 66);
+            this.groupBox511.Name = "groupBox511";
+            this.groupBox511.Size = new System.Drawing.Size(184, 155);
+            this.groupBox511.TabIndex = 18;
+            this.groupBox511.TabStop = false;
+            this.groupBox511.Text = "Database Information";
+            // 
+            // label5111
+            // 
+            this.label5111.AutoSize = true;
+            this.label5111.Location = new System.Drawing.Point(6, 126);
+            this.label5111.Name = "label5111";
+            this.label5111.Size = new System.Drawing.Size(29, 13);
+            this.label5111.TabIndex = 17;
+            this.label5111.Text = "Port:";
+            // 
+            // label5011
+            // 
+            this.label5011.AutoSize = true;
+            this.label5011.Location = new System.Drawing.Point(6, 100);
+            this.label5011.Name = "label5011";
+            this.label5011.Size = new System.Drawing.Size(56, 13);
+            this.label5011.TabIndex = 16;
+            this.label5011.Text = "Database:";
+            // 
+            // label4911
+            // 
+            this.label4911.AutoSize = true;
+            this.label4911.Location = new System.Drawing.Point(6, 74);
+            this.label4911.Name = "label4911";
+            this.label4911.Size = new System.Drawing.Size(56, 13);
+            this.label4911.TabIndex = 15;
+            this.label4911.Text = "Password:";
+            // 
+            // label4811
+            // 
+            this.label4811.AutoSize = true;
+            this.label4811.Location = new System.Drawing.Point(6, 48);
+            this.label4811.Name = "label4811";
+            this.label4811.Size = new System.Drawing.Size(58, 13);
+            this.label4811.TabIndex = 14;
+            this.label4811.Text = "Username:";
+            // 
+            // label4711
+            // 
+            this.label4711.AutoSize = true;
+            this.label4711.Location = new System.Drawing.Point(6, 22);
+            this.label4711.Name = "label4711";
+            this.label4711.Size = new System.Drawing.Size(32, 13);
+            this.label4711.TabIndex = 13;
+            this.label4711.Text = "Host:";
+            // 
+            // dbPort
+            // 
+            this.dbPort.Location = new System.Drawing.Point(70, 123);
+            this.dbPort.Name = "dbPort";
+            this.dbPort.Size = new System.Drawing.Size(100, 20);
+            this.dbPort.TabIndex = 12;
+            // 
+            // dbDB
+            // 
+            this.dbDB.Location = new System.Drawing.Point(70, 97);
+            this.dbDB.Name = "dbDB";
+            this.dbDB.Size = new System.Drawing.Size(100, 20);
+            this.dbDB.TabIndex = 11;
+            // 
+            // dbPass
+            // 
+            this.dbPass.Location = new System.Drawing.Point(70, 71);
+            this.dbPass.Name = "dbPass";
+            this.dbPass.Size = new System.Drawing.Size(100, 20);
+            this.dbPass.TabIndex = 10;
+            // 
+            // dbUser
+            // 
+            this.dbUser.Location = new System.Drawing.Point(70, 45);
+            this.dbUser.Name = "dbUser";
+            this.dbUser.Size = new System.Drawing.Size(100, 20);
+            this.dbUser.TabIndex = 7;
+            // 
+            // dbHost
+            // 
+            this.dbHost.Location = new System.Drawing.Point(70, 19);
+            this.dbHost.Name = "dbHost";
+            this.dbHost.Size = new System.Drawing.Size(100, 20);
+            this.dbHost.TabIndex = 6;
             // 
             // tabSQL
             // 
@@ -2048,12 +2466,14 @@
             // 
             this.queryMarketSeedTxtBox.AcceptsReturn = true;
             this.queryMarketSeedTxtBox.AcceptsTab = true;
+            this.queryMarketSeedTxtBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.queryMarketSeedTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.queryMarketSeedTxtBox.ForeColor = System.Drawing.Color.Green;
             this.queryMarketSeedTxtBox.Location = new System.Drawing.Point(11, 370);
             this.queryMarketSeedTxtBox.MaxLength = 65535;
             this.queryMarketSeedTxtBox.Multiline = true;
             this.queryMarketSeedTxtBox.Name = "queryMarketSeedTxtBox";
+            this.queryMarketSeedTxtBox.ReadOnly = true;
             this.queryMarketSeedTxtBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.queryMarketSeedTxtBox.Size = new System.Drawing.Size(768, 145);
             this.queryMarketSeedTxtBox.TabIndex = 19;
@@ -2210,113 +2630,6 @@
             this.label23.TabIndex = 10;
             this.label23.Text = "Market seeding";
             // 
-            // tabBelts
-            // 
-            this.tabBelts.Controls.Add(this.lbBeltLog);
-            this.tabBelts.Controls.Add(this.btBeltSeed);
-            this.tabBelts.Controls.Add(this.lvBeltSystems);
-            this.tabBelts.Controls.Add(this.lvBeltBelts);
-            this.tabBelts.Controls.Add(this.label6);
-            this.tabBelts.Location = new System.Drawing.Point(4, 40);
-            this.tabBelts.Name = "tabBelts";
-            this.tabBelts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBelts.Size = new System.Drawing.Size(857, 521);
-            this.tabBelts.TabIndex = 15;
-            this.tabBelts.Text = "Seed belts";
-            this.tabBelts.UseVisualStyleBackColor = true;
-            this.tabBelts.Enter += new System.EventHandler(this.tabBelts_Enter);
-            // 
-            // lbBeltLog
-            // 
-            this.lbBeltLog.FormattingEnabled = true;
-            this.lbBeltLog.Location = new System.Drawing.Point(11, 403);
-            this.lbBeltLog.Name = "lbBeltLog";
-            this.lbBeltLog.Size = new System.Drawing.Size(840, 108);
-            this.lbBeltLog.TabIndex = 18;
-            // 
-            // btBeltSeed
-            // 
-            this.btBeltSeed.Location = new System.Drawing.Point(562, 374);
-            this.btBeltSeed.Name = "btBeltSeed";
-            this.btBeltSeed.Size = new System.Drawing.Size(135, 23);
-            this.btBeltSeed.TabIndex = 17;
-            this.btBeltSeed.Text = "Seed";
-            this.btBeltSeed.UseVisualStyleBackColor = true;
-            this.btBeltSeed.Click += new System.EventHandler(this.btBeltSeed_Click);
-            // 
-            // lvBeltSystems
-            // 
-            this.lvBeltSystems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader34,
-            this.columnHeader35,
-            this.columnHeader36,
-            this.columnHeader39});
-            this.lvBeltSystems.FullRowSelect = true;
-            this.lvBeltSystems.HideSelection = false;
-            this.lvBeltSystems.Location = new System.Drawing.Point(11, 62);
-            this.lvBeltSystems.MultiSelect = false;
-            this.lvBeltSystems.Name = "lvBeltSystems";
-            this.lvBeltSystems.Size = new System.Drawing.Size(263, 335);
-            this.lvBeltSystems.TabIndex = 16;
-            this.lvBeltSystems.UseCompatibleStateImageBehavior = false;
-            this.lvBeltSystems.View = System.Windows.Forms.View.Details;
-            this.lvBeltSystems.SelectedIndexChanged += new System.EventHandler(this.lvBeltSystems_SelectedIndexChanged);
-            // 
-            // columnHeader34
-            // 
-            this.columnHeader34.Text = "System";
-            this.columnHeader34.Width = 96;
-            // 
-            // columnHeader35
-            // 
-            this.columnHeader35.Text = "ID";
-            this.columnHeader35.Width = 67;
-            // 
-            // columnHeader36
-            // 
-            this.columnHeader36.Text = "Security";
-            this.columnHeader36.Width = 54;
-            // 
-            // columnHeader39
-            // 
-            this.columnHeader39.Text = "Class";
-            this.columnHeader39.Width = 41;
-            // 
-            // lvBeltBelts
-            // 
-            this.lvBeltBelts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader37,
-            this.columnHeader38});
-            this.lvBeltBelts.FullRowSelect = true;
-            this.lvBeltBelts.HideSelection = false;
-            this.lvBeltBelts.Location = new System.Drawing.Point(280, 62);
-            this.lvBeltBelts.MultiSelect = false;
-            this.lvBeltBelts.Name = "lvBeltBelts";
-            this.lvBeltBelts.Size = new System.Drawing.Size(276, 335);
-            this.lvBeltBelts.TabIndex = 15;
-            this.lvBeltBelts.UseCompatibleStateImageBehavior = false;
-            this.lvBeltBelts.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader37
-            // 
-            this.columnHeader37.Text = "Belt";
-            this.columnHeader37.Width = 193;
-            // 
-            // columnHeader38
-            // 
-            this.columnHeader38.Text = "Belt ID";
-            this.columnHeader38.Width = 77;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Verdana", 17.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(245, 28);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Asteroid belt seed";
-            // 
             // oreTab
             // 
             this.oreTab.Controls.Add(this.SelectedOretypeID);
@@ -2447,18 +2760,18 @@
             this.SELECTOre.TabIndex = 0;
             this.SELECTOre.SelectedIndexChanged += new System.EventHandler(this.SELECTOre_SelectedIndexChanged);
             // 
-            // tabPage1
+            // tabMarketGroups
             // 
-            this.tabPage1.Controls.Add(this.label41);
-            this.tabPage1.Controls.Add(this.marketGroupsTree);
-            this.tabPage1.Location = new System.Drawing.Point(4, 40);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(857, 521);
-            this.tabPage1.TabIndex = 11;
-            this.tabPage1.Text = "Market groups";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Enter += new System.EventHandler(this.tabPage1_Enter);
+            this.tabMarketGroups.Controls.Add(this.label41);
+            this.tabMarketGroups.Controls.Add(this.marketGroupsTree);
+            this.tabMarketGroups.Location = new System.Drawing.Point(4, 40);
+            this.tabMarketGroups.Name = "tabMarketGroups";
+            this.tabMarketGroups.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMarketGroups.Size = new System.Drawing.Size(857, 521);
+            this.tabMarketGroups.TabIndex = 11;
+            this.tabMarketGroups.Text = "Market groups";
+            this.tabMarketGroups.UseVisualStyleBackColor = true;
+            this.tabMarketGroups.Enter += new System.EventHandler(this.tabPage1_Enter);
             // 
             // label41
             // 
@@ -2510,316 +2823,16 @@
             this.deleteMarketGroupToolStripMenuItem.Text = "Delete";
             this.deleteMarketGroupToolStripMenuItem.Click += new System.EventHandler(this.deleteMarketGroupToolStripMenuItem_Click);
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.button8);
-            this.tabPage2.Controls.Add(this.button9);
-            this.tabPage2.Controls.Add(this.groupBox811);
-            this.tabPage2.Controls.Add(this.groupBox711);
-            this.tabPage2.Controls.Add(this.groupBox611);
-            this.tabPage2.Controls.Add(this.groupBox511);
-            this.tabPage2.Location = new System.Drawing.Point(4, 40);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(857, 521);
-            this.tabPage2.TabIndex = 12;
-            this.tabPage2.Text = "EvEMU Server Configuration";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(17, 37);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 23;
-            this.button8.Text = "Load";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(98, 37);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 22;
-            this.button9.Text = "Save";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // groupBox811
-            // 
-            this.groupBox811.Controls.Add(this.label5611);
-            this.groupBox811.Controls.Add(this.servPort);
-            this.groupBox811.Location = new System.Drawing.Point(373, 230);
-            this.groupBox811.Name = "groupBox811";
-            this.groupBox811.Size = new System.Drawing.Size(184, 100);
-            this.groupBox811.TabIndex = 21;
-            this.groupBox811.TabStop = false;
-            this.groupBox811.Text = "Connection Settings";
-            // 
-            // label5611
-            // 
-            this.label5611.AutoSize = true;
-            this.label5611.Location = new System.Drawing.Point(6, 22);
-            this.label5611.Name = "label5611";
-            this.label5611.Size = new System.Drawing.Size(63, 13);
-            this.label5611.TabIndex = 18;
-            this.label5611.Text = "Server Port:";
-            // 
-            // servPort
-            // 
-            this.servPort.Location = new System.Drawing.Point(75, 19);
-            this.servPort.Name = "servPort";
-            this.servPort.Size = new System.Drawing.Size(54, 20);
-            this.servPort.TabIndex = 18;
-            // 
-            // groupBox711
-            // 
-            this.groupBox711.Controls.Add(this.label5411);
-            this.groupBox711.Controls.Add(this.cacheDir);
-            this.groupBox711.Controls.Add(this.label5311);
-            this.groupBox711.Controls.Add(this.logStt);
-            this.groupBox711.Controls.Add(this.label5211);
-            this.groupBox711.Controls.Add(this.logFile);
-            this.groupBox711.Location = new System.Drawing.Point(17, 227);
-            this.groupBox711.Name = "groupBox711";
-            this.groupBox711.Size = new System.Drawing.Size(350, 103);
-            this.groupBox711.TabIndex = 20;
-            this.groupBox711.TabStop = false;
-            this.groupBox711.Text = "File Configuration";
-            // 
-            // label5411
-            // 
-            this.label5411.AutoSize = true;
-            this.label5411.Location = new System.Drawing.Point(12, 74);
-            this.label5411.Name = "label5411";
-            this.label5411.Size = new System.Drawing.Size(86, 13);
-            this.label5411.TabIndex = 20;
-            this.label5411.Text = "Cache Directory:";
-            // 
-            // cacheDir
-            // 
-            this.cacheDir.Location = new System.Drawing.Point(104, 71);
-            this.cacheDir.Name = "cacheDir";
-            this.cacheDir.Size = new System.Drawing.Size(240, 20);
-            this.cacheDir.TabIndex = 2;
-            // 
-            // label5311
-            // 
-            this.label5311.AutoSize = true;
-            this.label5311.Location = new System.Drawing.Point(12, 48);
-            this.label5311.Name = "label5311";
-            this.label5311.Size = new System.Drawing.Size(69, 13);
-            this.label5311.TabIndex = 19;
-            this.label5311.Text = "Log Settings:";
-            // 
-            // logStt
-            // 
-            this.logStt.Location = new System.Drawing.Point(87, 45);
-            this.logStt.Name = "logStt";
-            this.logStt.Size = new System.Drawing.Size(257, 20);
-            this.logStt.TabIndex = 1;
-            // 
-            // label5211
-            // 
-            this.label5211.AutoSize = true;
-            this.label5211.Location = new System.Drawing.Point(12, 22);
-            this.label5211.Name = "label5211";
-            this.label5211.Size = new System.Drawing.Size(47, 13);
-            this.label5211.TabIndex = 18;
-            this.label5211.Text = "Log File:";
-            // 
-            // logFile
-            // 
-            this.logFile.Location = new System.Drawing.Point(65, 19);
-            this.logFile.Name = "logFile";
-            this.logFile.Size = new System.Drawing.Size(279, 20);
-            this.logFile.TabIndex = 0;
-            // 
-            // groupBox611
-            // 
-            this.groupBox611.Controls.Add(this.label5511);
-            this.groupBox611.Controls.Add(this.label4611);
-            this.groupBox611.Controls.Add(this.label4511);
-            this.groupBox611.Controls.Add(this.startIsk);
-            this.groupBox611.Controls.Add(this.logonMsg);
-            this.groupBox611.Controls.Add(this.autoAcct);
-            this.groupBox611.Controls.Add(this.label4311);
-            this.groupBox611.Location = new System.Drawing.Point(17, 66);
-            this.groupBox611.Name = "groupBox611";
-            this.groupBox611.Size = new System.Drawing.Size(350, 155);
-            this.groupBox611.TabIndex = 19;
-            this.groupBox611.TabStop = false;
-            this.groupBox611.Text = "General Configuration";
-            // 
-            // label5511
-            // 
-            this.label5511.AutoSize = true;
-            this.label5511.Location = new System.Drawing.Point(164, 22);
-            this.label5511.Name = "label5511";
-            this.label5511.Size = new System.Drawing.Size(164, 13);
-            this.label5511.TabIndex = 10;
-            this.label5511.Text = "Usage: 1 = Enable // 2 = Disable";
-            // 
-            // label4611
-            // 
-            this.label4611.AutoSize = true;
-            this.label4611.Location = new System.Drawing.Point(12, 126);
-            this.label4611.Name = "label4611";
-            this.label4611.Size = new System.Drawing.Size(105, 13);
-            this.label4611.TabIndex = 9;
-            this.label4611.Text = "Player\'s Starting ISK:";
-            // 
-            // label4511
-            // 
-            this.label4511.AutoSize = true;
-            this.label4511.Location = new System.Drawing.Point(12, 48);
-            this.label4511.Name = "label4511";
-            this.label4511.Size = new System.Drawing.Size(86, 13);
-            this.label4511.TabIndex = 8;
-            this.label4511.Text = "Logon Message:";
-            // 
-            // startIsk
-            // 
-            this.startIsk.Location = new System.Drawing.Point(129, 123);
-            this.startIsk.Name = "startIsk";
-            this.startIsk.Size = new System.Drawing.Size(72, 20);
-            this.startIsk.TabIndex = 5;
-            // 
-            // logonMsg
-            // 
-            this.logonMsg.Location = new System.Drawing.Point(129, 45);
-            this.logonMsg.Multiline = true;
-            this.logonMsg.Name = "logonMsg";
-            this.logonMsg.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.logonMsg.Size = new System.Drawing.Size(215, 72);
-            this.logonMsg.TabIndex = 4;
-            // 
-            // autoAcct
-            // 
-            this.autoAcct.Location = new System.Drawing.Point(129, 19);
-            this.autoAcct.Name = "autoAcct";
-            this.autoAcct.Size = new System.Drawing.Size(29, 20);
-            this.autoAcct.TabIndex = 3;
-            // 
-            // label4311
-            // 
-            this.label4311.AutoSize = true;
-            this.label4311.Location = new System.Drawing.Point(12, 22);
-            this.label4311.Name = "label4311";
-            this.label4311.Size = new System.Drawing.Size(111, 13);
-            this.label4311.TabIndex = 2;
-            this.label4311.Text = "Auto Account feature:";
-            // 
-            // groupBox511
-            // 
-            this.groupBox511.Controls.Add(this.label5111);
-            this.groupBox511.Controls.Add(this.label5011);
-            this.groupBox511.Controls.Add(this.label4911);
-            this.groupBox511.Controls.Add(this.label4811);
-            this.groupBox511.Controls.Add(this.label4711);
-            this.groupBox511.Controls.Add(this.dbPort);
-            this.groupBox511.Controls.Add(this.dbDB);
-            this.groupBox511.Controls.Add(this.dbPass);
-            this.groupBox511.Controls.Add(this.dbUser);
-            this.groupBox511.Controls.Add(this.dbHost);
-            this.groupBox511.Location = new System.Drawing.Point(373, 66);
-            this.groupBox511.Name = "groupBox511";
-            this.groupBox511.Size = new System.Drawing.Size(184, 155);
-            this.groupBox511.TabIndex = 18;
-            this.groupBox511.TabStop = false;
-            this.groupBox511.Text = "Database Information";
-            // 
-            // label5111
-            // 
-            this.label5111.AutoSize = true;
-            this.label5111.Location = new System.Drawing.Point(6, 126);
-            this.label5111.Name = "label5111";
-            this.label5111.Size = new System.Drawing.Size(29, 13);
-            this.label5111.TabIndex = 17;
-            this.label5111.Text = "Port:";
-            // 
-            // label5011
-            // 
-            this.label5011.AutoSize = true;
-            this.label5011.Location = new System.Drawing.Point(6, 100);
-            this.label5011.Name = "label5011";
-            this.label5011.Size = new System.Drawing.Size(56, 13);
-            this.label5011.TabIndex = 16;
-            this.label5011.Text = "Database:";
-            // 
-            // label4911
-            // 
-            this.label4911.AutoSize = true;
-            this.label4911.Location = new System.Drawing.Point(6, 74);
-            this.label4911.Name = "label4911";
-            this.label4911.Size = new System.Drawing.Size(56, 13);
-            this.label4911.TabIndex = 15;
-            this.label4911.Text = "Password:";
-            // 
-            // label4811
-            // 
-            this.label4811.AutoSize = true;
-            this.label4811.Location = new System.Drawing.Point(6, 48);
-            this.label4811.Name = "label4811";
-            this.label4811.Size = new System.Drawing.Size(58, 13);
-            this.label4811.TabIndex = 14;
-            this.label4811.Text = "Username:";
-            // 
-            // label4711
-            // 
-            this.label4711.AutoSize = true;
-            this.label4711.Location = new System.Drawing.Point(6, 22);
-            this.label4711.Name = "label4711";
-            this.label4711.Size = new System.Drawing.Size(32, 13);
-            this.label4711.TabIndex = 13;
-            this.label4711.Text = "Host:";
-            // 
-            // dbPort
-            // 
-            this.dbPort.Location = new System.Drawing.Point(70, 123);
-            this.dbPort.Name = "dbPort";
-            this.dbPort.Size = new System.Drawing.Size(100, 20);
-            this.dbPort.TabIndex = 12;
-            // 
-            // dbDB
-            // 
-            this.dbDB.Location = new System.Drawing.Point(70, 97);
-            this.dbDB.Name = "dbDB";
-            this.dbDB.Size = new System.Drawing.Size(100, 20);
-            this.dbDB.TabIndex = 11;
-            // 
-            // dbPass
-            // 
-            this.dbPass.Location = new System.Drawing.Point(70, 71);
-            this.dbPass.Name = "dbPass";
-            this.dbPass.Size = new System.Drawing.Size(100, 20);
-            this.dbPass.TabIndex = 10;
-            // 
-            // dbUser
-            // 
-            this.dbUser.Location = new System.Drawing.Point(70, 45);
-            this.dbUser.Name = "dbUser";
-            this.dbUser.Size = new System.Drawing.Size(100, 20);
-            this.dbUser.TabIndex = 7;
-            // 
-            // dbHost
-            // 
-            this.dbHost.Location = new System.Drawing.Point(70, 19);
-            this.dbHost.Name = "dbHost";
-            this.dbHost.Size = new System.Drawing.Size(100, 20);
-            this.dbHost.TabIndex = 6;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.tabControl2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 40);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(857, 521);
-            this.tabPage3.TabIndex = 13;
-            this.tabPage3.Text = "Stuff Editor";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            // tabStuffEditor
+            // 
+            this.tabStuffEditor.Controls.Add(this.tabControl2);
+            this.tabStuffEditor.Location = new System.Drawing.Point(4, 40);
+            this.tabStuffEditor.Name = "tabStuffEditor";
+            this.tabStuffEditor.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStuffEditor.Size = new System.Drawing.Size(857, 521);
+            this.tabStuffEditor.TabIndex = 13;
+            this.tabStuffEditor.Text = "Stuff Editor";
+            this.tabStuffEditor.UseVisualStyleBackColor = true;
             // 
             // tabControl2
             // 
@@ -3043,118 +3056,112 @@
             // 
             this.columnHeader32.Width = 0;
             // 
-            // tabPage6
+            // tabBelts
             // 
-            this.tabPage6.Controls.Add(this.groupBox6);
-            this.tabPage6.Location = new System.Drawing.Point(4, 40);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(857, 521);
-            this.tabPage6.TabIndex = 14;
-            this.tabPage6.Text = "Server Control Panel";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.tabBelts.Controls.Add(this.lbBeltLog);
+            this.tabBelts.Controls.Add(this.btBeltSeed);
+            this.tabBelts.Controls.Add(this.lvBeltSystems);
+            this.tabBelts.Controls.Add(this.lvBeltBelts);
+            this.tabBelts.Controls.Add(this.label6);
+            this.tabBelts.Location = new System.Drawing.Point(4, 40);
+            this.tabBelts.Name = "tabBelts";
+            this.tabBelts.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBelts.Size = new System.Drawing.Size(857, 521);
+            this.tabBelts.TabIndex = 15;
+            this.tabBelts.Text = "Seed belts";
+            this.tabBelts.UseVisualStyleBackColor = true;
+            this.tabBelts.Enter += new System.EventHandler(this.tabBelts_Enter);
             // 
-            // groupBox6
+            // lbBeltLog
             // 
-            this.groupBox6.Controls.Add(this.label51);
-            this.groupBox6.Controls.Add(this.label50);
-            this.groupBox6.Controls.Add(this.button20);
-            this.groupBox6.Controls.Add(this.servworkDir);
-            this.groupBox6.Controls.Add(this.button19);
-            this.groupBox6.Controls.Add(this.serverDir);
-            this.groupBox6.Controls.Add(this.button18);
-            this.groupBox6.Controls.Add(this.button17);
-            this.groupBox6.Controls.Add(this.button16);
-            this.groupBox6.Location = new System.Drawing.Point(23, 25);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(496, 109);
-            this.groupBox6.TabIndex = 0;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Server Controls";
+            this.lbBeltLog.FormattingEnabled = true;
+            this.lbBeltLog.Location = new System.Drawing.Point(11, 403);
+            this.lbBeltLog.Name = "lbBeltLog";
+            this.lbBeltLog.Size = new System.Drawing.Size(840, 108);
+            this.lbBeltLog.TabIndex = 18;
             // 
-            // label51
+            // btBeltSeed
             // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(106, 58);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(92, 13);
-            this.label51.TabIndex = 8;
-            this.label51.Text = "Working Directory";
+            this.btBeltSeed.Location = new System.Drawing.Point(562, 374);
+            this.btBeltSeed.Name = "btBeltSeed";
+            this.btBeltSeed.Size = new System.Drawing.Size(135, 23);
+            this.btBeltSeed.TabIndex = 17;
+            this.btBeltSeed.Text = "Seed";
+            this.btBeltSeed.UseVisualStyleBackColor = true;
+            this.btBeltSeed.Click += new System.EventHandler(this.btBeltSeed_Click);
             // 
-            // label50
+            // lvBeltSystems
             // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(106, 29);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(48, 13);
-            this.label50.TabIndex = 7;
-            this.label50.Text = "File Path";
+            this.lvBeltSystems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader34,
+            this.columnHeader35,
+            this.columnHeader36,
+            this.columnHeader39});
+            this.lvBeltSystems.FullRowSelect = true;
+            this.lvBeltSystems.HideSelection = false;
+            this.lvBeltSystems.Location = new System.Drawing.Point(11, 62);
+            this.lvBeltSystems.MultiSelect = false;
+            this.lvBeltSystems.Name = "lvBeltSystems";
+            this.lvBeltSystems.Size = new System.Drawing.Size(263, 335);
+            this.lvBeltSystems.TabIndex = 16;
+            this.lvBeltSystems.UseCompatibleStateImageBehavior = false;
+            this.lvBeltSystems.View = System.Windows.Forms.View.Details;
+            this.lvBeltSystems.SelectedIndexChanged += new System.EventHandler(this.lvBeltSystems_SelectedIndexChanged);
             // 
-            // button20
+            // columnHeader34
             // 
-            this.button20.Location = new System.Drawing.Point(406, 49);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(75, 23);
-            this.button20.TabIndex = 6;
-            this.button20.Text = "Browse";
-            this.button20.UseVisualStyleBackColor = true;
-            this.button20.Click += new System.EventHandler(this.button20_Click_1);
+            this.columnHeader34.Text = "System";
+            this.columnHeader34.Width = 96;
             // 
-            // servworkDir
+            // columnHeader35
             // 
-            this.servworkDir.Location = new System.Drawing.Point(204, 52);
-            this.servworkDir.Name = "servworkDir";
-            this.servworkDir.Size = new System.Drawing.Size(196, 20);
-            this.servworkDir.TabIndex = 5;
-            this.servworkDir.Text = "D:\\Evemu\\bin\\";
+            this.columnHeader35.Text = "ID";
+            this.columnHeader35.Width = 67;
             // 
-            // button19
+            // columnHeader36
             // 
-            this.button19.Location = new System.Drawing.Point(6, 77);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(88, 23);
-            this.button19.TabIndex = 4;
-            this.button19.Text = "Restart Server";
-            this.button19.UseVisualStyleBackColor = true;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
+            this.columnHeader36.Text = "Security";
+            this.columnHeader36.Width = 54;
             // 
-            // serverDir
+            // columnHeader39
             // 
-            this.serverDir.Location = new System.Drawing.Point(204, 22);
-            this.serverDir.Name = "serverDir";
-            this.serverDir.Size = new System.Drawing.Size(196, 20);
-            this.serverDir.TabIndex = 3;
-            this.serverDir.Text = "D:\\Evemu\\bin\\eve-server.exe";
+            this.columnHeader39.Text = "Class";
+            this.columnHeader39.Width = 41;
             // 
-            // button18
+            // lvBeltBelts
             // 
-            this.button18.Location = new System.Drawing.Point(406, 19);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(75, 23);
-            this.button18.TabIndex = 2;
-            this.button18.Text = "Browse";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.lvBeltBelts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader37,
+            this.columnHeader38});
+            this.lvBeltBelts.FullRowSelect = true;
+            this.lvBeltBelts.HideSelection = false;
+            this.lvBeltBelts.Location = new System.Drawing.Point(280, 62);
+            this.lvBeltBelts.MultiSelect = false;
+            this.lvBeltBelts.Name = "lvBeltBelts";
+            this.lvBeltBelts.Size = new System.Drawing.Size(276, 335);
+            this.lvBeltBelts.TabIndex = 15;
+            this.lvBeltBelts.UseCompatibleStateImageBehavior = false;
+            this.lvBeltBelts.View = System.Windows.Forms.View.Details;
             // 
-            // button17
+            // columnHeader37
             // 
-            this.button17.Location = new System.Drawing.Point(6, 48);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(88, 23);
-            this.button17.TabIndex = 1;
-            this.button17.Text = "Stop Server";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.columnHeader37.Text = "Belt";
+            this.columnHeader37.Width = 193;
             // 
-            // button16
+            // columnHeader38
             // 
-            this.button16.Location = new System.Drawing.Point(6, 19);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(88, 23);
-            this.button16.TabIndex = 0;
-            this.button16.Text = "Start Server";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
+            this.columnHeader38.Text = "Belt ID";
+            this.columnHeader38.Width = 77;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Verdana", 17.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(6, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(245, 28);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Asteroid belt seed";
             // 
             // contextMenuStrip1
             // 
@@ -3223,6 +3230,36 @@
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Verdana", 17.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(6, 3);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(278, 28);
+            this.label56.TabIndex = 24;
+            this.label56.Text = "Server Configuration";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Verdana", 17.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(6, 3);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(276, 28);
+            this.label57.TabIndex = 8;
+            this.label57.Text = "Server Control Panel";
+            // 
+            // controlPanelTxtBox
+            // 
+            this.controlPanelTxtBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.controlPanelTxtBox.Location = new System.Drawing.Point(11, 34);
+            this.controlPanelTxtBox.Multiline = true;
+            this.controlPanelTxtBox.Name = "controlPanelTxtBox";
+            this.controlPanelTxtBox.ReadOnly = true;
+            this.controlPanelTxtBox.Size = new System.Drawing.Size(828, 204);
+            this.controlPanelTxtBox.TabIndex = 9;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3240,6 +3277,20 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.accountTab.ResumeLayout(false);
+            this.tabServerControl.ResumeLayout(false);
+            this.tabServerControl.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.tabServerConfig.ResumeLayout(false);
+            this.tabServerConfig.PerformLayout();
+            this.groupBox811.ResumeLayout(false);
+            this.groupBox811.PerformLayout();
+            this.groupBox711.ResumeLayout(false);
+            this.groupBox711.PerformLayout();
+            this.groupBox611.ResumeLayout(false);
+            this.groupBox611.PerformLayout();
+            this.groupBox511.ResumeLayout(false);
+            this.groupBox511.PerformLayout();
             this.tabSQL.ResumeLayout(false);
             this.tabSQL.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -3275,31 +3326,19 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            this.tabBelts.ResumeLayout(false);
-            this.tabBelts.PerformLayout();
             this.oreTab.ResumeLayout(false);
             this.oreTab.PerformLayout();
             this.oreMenuStrip.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabMarketGroups.ResumeLayout(false);
+            this.tabMarketGroups.PerformLayout();
             this.marketGroupsContext.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.groupBox811.ResumeLayout(false);
-            this.groupBox811.PerformLayout();
-            this.groupBox711.ResumeLayout(false);
-            this.groupBox711.PerformLayout();
-            this.groupBox611.ResumeLayout(false);
-            this.groupBox611.PerformLayout();
-            this.groupBox511.ResumeLayout(false);
-            this.groupBox511.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
+            this.tabStuffEditor.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
+            this.tabBelts.ResumeLayout(false);
+            this.tabBelts.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.addToEdit.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -3497,7 +3536,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem deleteAccountToolStripMenuItem1;
         private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabMarketGroups;
         private System.Windows.Forms.TreeView marketGroupsTree;
         private System.Windows.Forms.ContextMenuStrip marketGroupsContext;
         private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
@@ -3519,7 +3558,7 @@
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.ColumnHeader columnHeader29;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabServerConfig;
         private System.Windows.Forms.Label label4511;
         private System.Windows.Forms.TextBox dbUser;
         private System.Windows.Forms.TextBox dbHost;
@@ -3553,7 +3592,7 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabStuffEditor;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.ProgressBar progressBar2;
@@ -3578,7 +3617,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader32;
         private System.Windows.Forms.ListView stuffFiles;
         private System.Windows.Forms.ColumnHeader columnHeader33;
-        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tabServerControl;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox serverDir;
         private System.Windows.Forms.Button button18;
@@ -3616,6 +3655,9 @@
         private System.Windows.Forms.Button searchTypeIDbtn;
         private System.Windows.Forms.TextBox searchTypeIDtxtbox;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox controlPanelTxtBox;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label56;
     }
 }
 

@@ -99,10 +99,10 @@ namespace Evemu_DB_Editor
             this.attributeID = new System.Windows.Forms.TextBox();
             this.attributeDescription = new System.Windows.Forms.ComboBox();
             this.itemAttributes = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.itemAttributeContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -112,9 +112,9 @@ namespace Evemu_DB_Editor
             this.effectID = new System.Windows.Forms.TextBox();
             this.effectDescription = new System.Windows.Forms.ComboBox();
             this.itemEffects = new System.Windows.Forms.ListView();
-            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.itemEffectContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
@@ -328,6 +328,7 @@ namespace Evemu_DB_Editor
             this.description.Location = new System.Drawing.Point(120, 138);
             this.description.Multiline = true;
             this.description.Name = "description";
+            this.description.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.description.Size = new System.Drawing.Size(284, 120);
             this.description.TabIndex = 18;
             // 
@@ -551,6 +552,7 @@ namespace Evemu_DB_Editor
             // 
             // itemAttributes
             // 
+            this.itemAttributes.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.itemAttributes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,

@@ -88,26 +88,32 @@ namespace Evemu_DB_Editor
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Refer to EVEmu Wiki for Account roles:  http://wiki.evemu.org/index.php/EVEmu_Account_Roles
             string acctrole = accountLevel.Text;
                 if (acctrole == "SUPER ADMIN")
                 {
-                    acctrole = "4294967231";
+                    acctrole = "5003499186008621056";
                 }
                 else if (acctrole == "ADMIN")
                 {
-                    acctrole = "32";
+                    acctrole = "1090519040";
                 }
                 else if (acctrole == "GAME MASTER HIGH")
                 {
-                    acctrole = "16";
+                    acctrole = "1075838976";
                 }
                 else if (acctrole == "GAME MASTER LOW")
                 {
-                    acctrole = "8";
+                    acctrole = "1077936128";
+                }
+                else if (acctrole == "PLAYER")
+                {
+                    acctrole = "1610612736";
                 }
                 else
                 {
-                    acctrole = "2";
+                    MessageBox.Show("You have not selected a role, the account will be \"PLAYER\" by default.");
+                    acctrole = "1610612736";
                 }
 
                 if (checkBox1.Checked == true || checkBox2.Checked == true)

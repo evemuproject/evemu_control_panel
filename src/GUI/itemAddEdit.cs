@@ -18,7 +18,13 @@ namespace Evemu_DB_Editor
     {
         public itemAddEdit()
         {
+            int x = 0;
+            int y = 0;
             InitializeComponent();
+            x = Evemu_DB_Editor.Program.m.GetDesktopX() + 50;
+            y = Evemu_DB_Editor.Program.m.GetDesktopY() + 50;
+            StartPosition = FormStartPosition.Manual;
+            Location = new Point(x, y);
         }
 
         public void extractItemInfo(int itemID)

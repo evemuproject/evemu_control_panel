@@ -65,6 +65,14 @@ namespace Evemu_DB_Editor
             queryMarketSeedTxtBox.Text += "* UN-check check box to show query without affecting the Database." + Environment.NewLine + Environment.NewLine;
             queryMarketSeedTxtBox.Text += "* Click the Clear Query button to clear this window at any time." + Environment.NewLine + Environment.NewLine;
             queryMarketSeedTxtBox.Text += "* Each click of the Seed Market button will replace this window's current contents with the new query.";
+
+            controlPanelTxtBox.Text = "Welcome to EVEmu Control Panel" + Environment.NewLine + Environment.NewLine;
+            controlPanelTxtBox.Text += "1. If you want to perform Database maintenance or browsing, first proceed to SQL Settings tab to the right and login" + Environment.NewLine + Environment.NewLine;
+            controlPanelTxtBox.Text += "2. Add User Accounts to your Database on the Account/Character Editor tab to the right" + Environment.NewLine + Environment.NewLine;
+            controlPanelTxtBox.Text += "3. Setup your Server Configuration on the next tab to the right from here" + Environment.NewLine + Environment.NewLine;
+            controlPanelTxtBox.Text += "4. Proceed to start your server by setting the paths below and pressing START" + Environment.NewLine + Environment.NewLine;
+            controlPanelTxtBox.Text += "5. Browse the entire Item Database with the Item/Ship Editor tab" + Environment.NewLine + Environment.NewLine;
+            controlPanelTxtBox.Text += "6. Input Market Buy/Sell orders into your Database with the Seed Market tab" + Environment.NewLine + Environment.NewLine;
         }
 
         private void main_Load(object sender, EventArgs e)
@@ -188,7 +196,7 @@ namespace Evemu_DB_Editor
                     ((Control)raceTab).Enabled = true;
                     ((Control)marketTab).Enabled = true;
                     ((Control)oreTab).Enabled = true;
-                    ((Control)tabPage1).Enabled = true;
+                    ((Control)tabMarketGroups).Enabled = true;
 
                 }
                 else
@@ -217,7 +225,7 @@ namespace Evemu_DB_Editor
             ((Control)raceTab).Enabled = false;
             ((Control)marketTab).Enabled = false;
             ((Control)oreTab).Enabled = false;
-            ((Control)tabPage1).Enabled = false;
+            ((Control)tabMarketGroups).Enabled = false;
         }
 
         private void runSQLFileBtn_Click(object sender, EventArgs e)
@@ -291,32 +299,33 @@ namespace Evemu_DB_Editor
 
             if (newUsername.Text != "" && newPassword.Text != "" && newAcctLevel.Text != "")
             {
+                // Refer to EVEmu Wiki for Account roles:  http://wiki.evemu.org/index.php/EVEmu_Account_Roles
                 conn = new MySqlConnection(connection);
                 string acctrole = newAcctLevel.Text;
                 if (acctrole == "SUPER ADMIN")
                 {
-                    acctrole = "4294967231";
+                    acctrole = "5003499186008621056";
                 }
                 else if (acctrole == "ADMIN")
                 {
-                    acctrole = "32";
+                    acctrole = "1090519040";
                 }
                 else if (acctrole == "GAME MASTER HIGH")
                 {
-                    acctrole = "16";
+                    acctrole = "1075838976";
                 }
                 else if (acctrole == "GAME MASTER LOW")
                 {
-                    acctrole = "8";
+                    acctrole = "1077936128";
                 }
                 else if (acctrole == "PLAYER")
                 {
-                    acctrole = "2";
+                    acctrole = "1610612736";
                 }
                 else
                 {
-                    MessageBox.Show("You have not selected a role, the account will be \"2 (PLAYER)\" by default.");
-                    acctrole = "2";
+                    MessageBox.Show("You have not selected a role, the account will be \"PLAYER\" by default.");
+                    acctrole = "1610612736";
                 }
 
                 query = "INSERT INTO account (accountName, password, role) VALUES ('" + newUsername.Text + "', '" + newPassword.Text + "', '" + acctrole + "')";
@@ -1665,6 +1674,18 @@ namespace Evemu_DB_Editor
             }
         }
 
+        public int GetDesktopX()
+        {
+            return this.Location.X;
+            //return DesktopLocation.X;
+        }
+
+        public int GetDesktopY()
+        {
+            return this.Location.Y;
+            //return DesktopLocation.Y;
+        }
+
         public static string CalculateMD5Hash(string strInput)
         {
             MD5 md5 = System.Security.Cryptography.MD5.Create();
@@ -1859,7 +1880,7 @@ namespace Evemu_DB_Editor
             // 162 = raduis
             // 161 = volume (not shown in "Show info", need survey scanners to check)
             // 805 = quantity contained (need survey scanner to check)
-            // 182 (primary kill required) and 790 (reprocessing skill) seem to be unncececary as they are in dgmTypeAttributes
+            // 182 (primary skill required) and 790 (reprocessing skill) seem to be unncececary as they are in dgmTypeAttributes
             // 4 = mass (not shown in eve??)
             return "SELECT @ang:=RAND()*PI(),@rad:=17000+RAND()*6000;"+
                 "INSERT INTO entity(typeID, itemName, locationID, quantity, singleton, ownerId, x,y,z) SELECT "
