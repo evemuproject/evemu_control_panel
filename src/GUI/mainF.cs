@@ -1946,7 +1946,7 @@ namespace Evemu_DB_Editor
             // First, remove all attributes rows from 'entity_attributes':
             status = DBConnect.SQuery(
                 "DELETE FROM `entity_attributes` WHERE `itemID` IN " +
-                  "(SELECT `itemID` FROM `entity` WHERE `typeID` IN " +
+                  "(SELECT `itemID` FROM `entity` WHERE `flag` = 0 AND `typeID` IN " +
                     "(SELECT `typeID` FROM `invTypes` WHERE `groupID` IN " +
                       "(SELECT `groupID` FROM `invGroups` WHERE `categoryID` = 25)))"
                 );
@@ -1963,7 +1963,7 @@ namespace Evemu_DB_Editor
             // Second, remove all attributes rows from 'entity_default_attributes':
             status = DBConnect.SQuery(
                "DELETE FROM `entity_default_attributes` WHERE `itemID` IN " +
-                  "(SELECT `itemID` FROM `entity` WHERE `typeID` IN " +
+                  "(SELECT `itemID` FROM `entity` WHERE `flag` = 0 AND `typeID` IN " +
                     "(SELECT `typeID` FROM `invTypes` WHERE `groupID` IN " +
                       "(SELECT `groupID` FROM `invGroups` WHERE `categoryID` = 25)))"
                 );
@@ -1979,7 +1979,7 @@ namespace Evemu_DB_Editor
 
             // Finally, remove all rows from 'entity':
             status = DBConnect.SQuery(
-                "DELETE FROM `entity` WHERE `typeID` IN " +
+                "DELETE FROM `entity` WHERE `flag` = 0 AND `typeID` IN " +
                   "(SELECT `typeID` FROM `invTypes` WHERE `groupID` IN " +
                     "(SELECT `groupID` FROM `invGroups` WHERE `categoryID` = 25))"
                 );
