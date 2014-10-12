@@ -55,6 +55,8 @@
             this.connectionStatusToolTip = new System.Windows.Forms.ToolStripMenuItem();
             this.accountTab = new System.Windows.Forms.TabControl();
             this.tabServerControl = new System.Windows.Forms.TabPage();
+            this.controlPanelTxtBox = new System.Windows.Forms.TextBox();
+            this.label57 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label51 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
@@ -66,6 +68,7 @@
             this.button17 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.tabServerConfig = new System.Windows.Forms.TabPage();
+            this.label56 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.groupBox811 = new System.Windows.Forms.GroupBox();
@@ -124,6 +127,7 @@
             this.usernameTxtBox = new System.Windows.Forms.TextBox();
             this.hostTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.tabDatabaseMgmt = new System.Windows.Forms.TabPage();
             this.tabAccount = new System.Windows.Forms.TabPage();
             this.searchAccountBtn = new System.Windows.Forms.Button();
             this.label40 = new System.Windows.Forms.Label();
@@ -343,9 +347,14 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.controlPanelTxtBox = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.groupBoxItemCleanup = new System.Windows.Forms.GroupBox();
+            this.removeAsteroidsBtn = new System.Windows.Forms.Button();
+            this.removedAllAsteroidsChk = new System.Windows.Forms.CheckBox();
+            this.consolidateEntityIDsBtn = new System.Windows.Forms.Button();
+            this.consolidatedEntityIDsChk = new System.Windows.Forms.CheckBox();
+            this.downtimeTaskStatusTxtBox = new System.Windows.Forms.TextBox();
+            this.label59 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.accountTab.SuspendLayout();
             this.tabServerControl.SuspendLayout();
@@ -358,6 +367,7 @@
             this.tabSQL.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabDatabaseMgmt.SuspendLayout();
             this.tabAccount.SuspendLayout();
             this.characterSkillMenuStrip.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -386,6 +396,7 @@
             this.tabBelts.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.addToEdit.SuspendLayout();
+            this.groupBoxItemCleanup.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -528,6 +539,7 @@
             this.accountTab.Controls.Add(this.tabServerControl);
             this.accountTab.Controls.Add(this.tabServerConfig);
             this.accountTab.Controls.Add(this.tabSQL);
+            this.accountTab.Controls.Add(this.tabDatabaseMgmt);
             this.accountTab.Controls.Add(this.tabAccount);
             this.accountTab.Controls.Add(this.tabItemEditor);
             this.accountTab.Controls.Add(this.tabInsure);
@@ -555,6 +567,26 @@
             this.tabServerControl.TabIndex = 14;
             this.tabServerControl.Text = "Server Control Panel";
             this.tabServerControl.UseVisualStyleBackColor = true;
+            // 
+            // controlPanelTxtBox
+            // 
+            this.controlPanelTxtBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.controlPanelTxtBox.Location = new System.Drawing.Point(11, 34);
+            this.controlPanelTxtBox.Multiline = true;
+            this.controlPanelTxtBox.Name = "controlPanelTxtBox";
+            this.controlPanelTxtBox.ReadOnly = true;
+            this.controlPanelTxtBox.Size = new System.Drawing.Size(828, 204);
+            this.controlPanelTxtBox.TabIndex = 9;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Verdana", 17.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(6, 3);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(276, 28);
+            this.label57.TabIndex = 8;
+            this.label57.Text = "Server Control Panel";
             // 
             // groupBox6
             // 
@@ -674,6 +706,16 @@
             this.tabServerConfig.TabIndex = 12;
             this.tabServerConfig.Text = "EvEMU Server Configuration";
             this.tabServerConfig.UseVisualStyleBackColor = true;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Verdana", 17.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(6, 3);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(278, 28);
+            this.label56.TabIndex = 24;
+            this.label56.Text = "Server Configuration";
             // 
             // button8
             // 
@@ -1234,6 +1276,21 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Password: ";
             // 
+            // tabDatabaseMgmt
+            // 
+            this.tabDatabaseMgmt.Controls.Add(this.label59);
+            this.tabDatabaseMgmt.Controls.Add(this.downtimeTaskStatusTxtBox);
+            this.tabDatabaseMgmt.Controls.Add(this.groupBoxItemCleanup);
+            this.tabDatabaseMgmt.Controls.Add(this.label58);
+            this.tabDatabaseMgmt.Location = new System.Drawing.Point(4, 40);
+            this.tabDatabaseMgmt.Name = "tabDatabaseMgmt";
+            this.tabDatabaseMgmt.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDatabaseMgmt.Size = new System.Drawing.Size(857, 521);
+            this.tabDatabaseMgmt.TabIndex = 15;
+            this.tabDatabaseMgmt.Text = "Downtime Tasks";
+            this.tabDatabaseMgmt.UseVisualStyleBackColor = true;
+            this.tabDatabaseMgmt.Enter += new System.EventHandler(this.tabDatabaseMgmt_Enter);
+            // 
             // tabAccount
             // 
             this.tabAccount.Controls.Add(this.searchAccountBtn);
@@ -1263,6 +1320,7 @@
             this.tabAccount.TabIndex = 0;
             this.tabAccount.Text = "Account/Character Editor";
             this.tabAccount.UseVisualStyleBackColor = true;
+            this.tabAccount.Enter += new System.EventHandler(this.tabAccount_Enter);
             // 
             // searchAccountBtn
             // 
@@ -1765,6 +1823,7 @@
             this.tabInsure.TabIndex = 4;
             this.tabInsure.Text = "Insurance Editor";
             this.tabInsure.UseVisualStyleBackColor = true;
+            this.tabInsure.Enter += new System.EventHandler(this.tabInsure_Enter);
             // 
             // label12
             // 
@@ -3230,35 +3289,90 @@
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
-            // label56
+            // label58
             // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Verdana", 17.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(6, 3);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(278, 28);
-            this.label56.TabIndex = 24;
-            this.label56.Text = "Server Configuration";
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Verdana", 17.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.Location = new System.Drawing.Point(6, 3);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(225, 28);
+            this.label58.TabIndex = 9;
+            this.label58.Text = "Downtime Tasks";
             // 
-            // label57
+            // groupBoxItemCleanup
             // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Verdana", 17.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(6, 3);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(276, 28);
-            this.label57.TabIndex = 8;
-            this.label57.Text = "Server Control Panel";
+            this.groupBoxItemCleanup.Controls.Add(this.consolidatedEntityIDsChk);
+            this.groupBoxItemCleanup.Controls.Add(this.consolidateEntityIDsBtn);
+            this.groupBoxItemCleanup.Controls.Add(this.removedAllAsteroidsChk);
+            this.groupBoxItemCleanup.Controls.Add(this.removeAsteroidsBtn);
+            this.groupBoxItemCleanup.Location = new System.Drawing.Point(29, 46);
+            this.groupBoxItemCleanup.Name = "groupBoxItemCleanup";
+            this.groupBoxItemCleanup.Size = new System.Drawing.Size(366, 316);
+            this.groupBoxItemCleanup.TabIndex = 10;
+            this.groupBoxItemCleanup.TabStop = false;
+            this.groupBoxItemCleanup.Text = "Item Cleanup";
             // 
-            // controlPanelTxtBox
+            // removeAsteroidsBtn
             // 
-            this.controlPanelTxtBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.controlPanelTxtBox.Location = new System.Drawing.Point(11, 34);
-            this.controlPanelTxtBox.Multiline = true;
-            this.controlPanelTxtBox.Name = "controlPanelTxtBox";
-            this.controlPanelTxtBox.ReadOnly = true;
-            this.controlPanelTxtBox.Size = new System.Drawing.Size(828, 204);
-            this.controlPanelTxtBox.TabIndex = 9;
+            this.removeAsteroidsBtn.Location = new System.Drawing.Point(26, 30);
+            this.removeAsteroidsBtn.Name = "removeAsteroidsBtn";
+            this.removeAsteroidsBtn.Size = new System.Drawing.Size(289, 37);
+            this.removeAsteroidsBtn.TabIndex = 0;
+            this.removeAsteroidsBtn.Text = "REMOVE all Asteroids from Database";
+            this.removeAsteroidsBtn.UseVisualStyleBackColor = true;
+            this.removeAsteroidsBtn.Click += new System.EventHandler(this.removeAsteroidsBtn_Click);
+            // 
+            // removedAllAsteroidsChk
+            // 
+            this.removedAllAsteroidsChk.AutoCheck = false;
+            this.removedAllAsteroidsChk.AutoSize = true;
+            this.removedAllAsteroidsChk.Location = new System.Drawing.Point(331, 42);
+            this.removedAllAsteroidsChk.Name = "removedAllAsteroidsChk";
+            this.removedAllAsteroidsChk.Size = new System.Drawing.Size(15, 14);
+            this.removedAllAsteroidsChk.TabIndex = 1;
+            this.removedAllAsteroidsChk.UseVisualStyleBackColor = true;
+            // 
+            // consolidateEntityIDsBtn
+            // 
+            this.consolidateEntityIDsBtn.Enabled = false;
+            this.consolidateEntityIDsBtn.Location = new System.Drawing.Point(27, 260);
+            this.consolidateEntityIDsBtn.Name = "consolidateEntityIDsBtn";
+            this.consolidateEntityIDsBtn.Size = new System.Drawing.Size(289, 37);
+            this.consolidateEntityIDsBtn.TabIndex = 2;
+            this.consolidateEntityIDsBtn.Text = "Consolidate Entity IDs";
+            this.consolidateEntityIDsBtn.UseVisualStyleBackColor = true;
+            this.consolidateEntityIDsBtn.Click += new System.EventHandler(this.consolidateEntityIDsBtn_Click);
+            // 
+            // consolidatedEntityIDsChk
+            // 
+            this.consolidatedEntityIDsChk.AutoCheck = false;
+            this.consolidatedEntityIDsChk.AutoSize = true;
+            this.consolidatedEntityIDsChk.Location = new System.Drawing.Point(331, 272);
+            this.consolidatedEntityIDsChk.Name = "consolidatedEntityIDsChk";
+            this.consolidatedEntityIDsChk.Size = new System.Drawing.Size(15, 14);
+            this.consolidatedEntityIDsChk.TabIndex = 3;
+            this.consolidatedEntityIDsChk.UseVisualStyleBackColor = true;
+            // 
+            // downtimeTaskStatusTxtBox
+            // 
+            this.downtimeTaskStatusTxtBox.AcceptsReturn = true;
+            this.downtimeTaskStatusTxtBox.AcceptsTab = true;
+            this.downtimeTaskStatusTxtBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.downtimeTaskStatusTxtBox.Location = new System.Drawing.Point(429, 46);
+            this.downtimeTaskStatusTxtBox.Multiline = true;
+            this.downtimeTaskStatusTxtBox.Name = "downtimeTaskStatusTxtBox";
+            this.downtimeTaskStatusTxtBox.ReadOnly = true;
+            this.downtimeTaskStatusTxtBox.Size = new System.Drawing.Size(399, 316);
+            this.downtimeTaskStatusTxtBox.TabIndex = 11;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(429, 28);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(340, 13);
+            this.label59.TabIndex = 12;
+            this.label59.Text = "Downtime Tasks Status Message Window (most recent action at TOP)";
             // 
             // main
             // 
@@ -3297,6 +3411,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabDatabaseMgmt.ResumeLayout(false);
+            this.tabDatabaseMgmt.PerformLayout();
             this.tabAccount.ResumeLayout(false);
             this.tabAccount.PerformLayout();
             this.characterSkillMenuStrip.ResumeLayout(false);
@@ -3341,6 +3457,8 @@
             this.tabBelts.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.addToEdit.ResumeLayout(false);
+            this.groupBoxItemCleanup.ResumeLayout(false);
+            this.groupBoxItemCleanup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3658,6 +3776,15 @@
         private System.Windows.Forms.TextBox controlPanelTxtBox;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.TabPage tabDatabaseMgmt;
+        private System.Windows.Forms.GroupBox groupBoxItemCleanup;
+        private System.Windows.Forms.Button removeAsteroidsBtn;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.CheckBox removedAllAsteroidsChk;
+        private System.Windows.Forms.CheckBox consolidatedEntityIDsChk;
+        private System.Windows.Forms.Button consolidateEntityIDsBtn;
+        private System.Windows.Forms.TextBox downtimeTaskStatusTxtBox;
+        private System.Windows.Forms.Label label59;
     }
 }
 

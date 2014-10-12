@@ -127,7 +127,7 @@ namespace Evemu_DB_Editor
 
         private void showNotConnected() {
             MessageBox.Show("Please connect to the database!", "Not conneced!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            accountTab.SelectedIndex = 0;
+            accountTab.SelectedIndex = 2;
         }
 
         #endregion
@@ -287,7 +287,16 @@ namespace Evemu_DB_Editor
         #endregion
 
         #region Account/Character Editor Tab
-        
+
+        private void tabAccount_Enter(object sender, EventArgs e)
+        {
+            if (!DBConnect.isConnected())
+            {
+                showNotConnected();
+                return;
+            }
+        }
+
         private void searchAccountBtn_Click(object sender, EventArgs e)
         {
             populateAccountList();
@@ -648,6 +657,15 @@ namespace Evemu_DB_Editor
         #endregion
 
         #region Insurance Tab
+        private void tabInsure_Enter(object sender, EventArgs e)
+        {
+            if (!DBConnect.isConnected())
+            {
+                showNotConnected();
+                return;
+            }
+        }
+
         private void goBtn_Click(object sender, EventArgs e)
         {
             //not implemented
@@ -1905,6 +1923,86 @@ namespace Evemu_DB_Editor
             DBConnect.SQuery(getRoidSpawnSql(typeId, beltId, systemId) );
         }
 
+
+        #endregion
+
+        #region DatabaseManagement
+        private void tabDatabaseMgmt_Enter(object sender, EventArgs e)
+        {
+            if (!DBConnect.isConnected())
+            {
+                showNotConnected();
+                return;
+            }
+        }
+
+        // Remove all spawned asteroids from the database:
+        private void removeAsteroidsBtn_Click(object sender, EventArgs e)
+        {
+            int status = 0;
+
+            downtimeTaskStatusTxtBox.Text = downtimeTaskStatusTxtBox.Text.Insert(0, "Removing Asteroid data from Database..." + Environment.NewLine);
+
+            // First, remove all attributes rows from 'entity_attributes':
+            status = DBConnect.SQuery(
+                "DELETE FROM `entity_attributes` WHERE `itemID` IN " +
+                  "(SELECT `itemID` FROM `entity` WHERE `typeID` IN " +
+                    "(SELECT `typeID` FROM `invTypes` WHERE `groupID` IN " +
+                      "(SELECT `groupID` FROM `invGroups` WHERE `categoryID` = 25)))"
+                );
+
+            if (status < 0)
+            {
+                //downtimeTaskStatusTxtBox.Select(0, 0);
+                downtimeTaskStatusTxtBox.Text = downtimeTaskStatusTxtBox.Text.Insert(0, "ERROR Deleting Asteroid Data from 'entity_attributes' table!" + Environment.NewLine);
+                return;
+            }
+            else
+                downtimeTaskStatusTxtBox.Text = downtimeTaskStatusTxtBox.Text.Insert(0, "Removed data from 'entity_attributes'" + Environment.NewLine);
+
+            // Second, remove all attributes rows from 'entity_default_attributes':
+            status = DBConnect.SQuery(
+               "DELETE FROM `entity_default_attributes` WHERE `itemID` IN " +
+                  "(SELECT `itemID` FROM `entity` WHERE `typeID` IN " +
+                    "(SELECT `typeID` FROM `invTypes` WHERE `groupID` IN " +
+                      "(SELECT `groupID` FROM `invGroups` WHERE `categoryID` = 25)))"
+                );
+
+            if (status < 0)
+            {
+                //downtimeTaskStatusTxtBox.Select(0, 0);
+                downtimeTaskStatusTxtBox.Text = downtimeTaskStatusTxtBox.Text.Insert(0, "ERROR Deleting Asteroid Data from 'entity_default_attributes' table!" + Environment.NewLine);
+                return;
+            }
+            else
+                downtimeTaskStatusTxtBox.Text = downtimeTaskStatusTxtBox.Text.Insert(0, "Removed data from 'entity_default_attributes'" + Environment.NewLine);
+
+            // Finally, remove all rows from 'entity':
+            status = DBConnect.SQuery(
+                "DELETE FROM `entity` WHERE `typeID` IN " +
+                  "(SELECT `typeID` FROM `invTypes` WHERE `groupID` IN " +
+                    "(SELECT `groupID` FROM `invGroups` WHERE `categoryID` = 25))"
+                );
+
+            if(status < 0)
+            {
+                //downtimeTaskStatusTxtBox.Select(0, 0);
+                downtimeTaskStatusTxtBox.Text = downtimeTaskStatusTxtBox.Text.Insert(0, "ERROR Deleting Asteroid Data from 'entity' table!" + Environment.NewLine);
+                return;
+            }
+            else
+                downtimeTaskStatusTxtBox.Text = downtimeTaskStatusTxtBox.Text.Insert(0, "Removed data from 'entity'" + Environment.NewLine);
+
+            downtimeTaskStatusTxtBox.Text = downtimeTaskStatusTxtBox.Text.Insert(0, "Finished!" + Environment.NewLine);
+
+            removedAllAsteroidsChk.CheckState = CheckState.Checked;
+            removeAsteroidsBtn.Enabled = false;
+        }
+
+        private void consolidateEntityIDsBtn_Click(object sender, EventArgs e)
+        {
+
+        }
 
         #endregion
  
