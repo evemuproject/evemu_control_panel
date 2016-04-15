@@ -1,0 +1,5 @@
+**** Must have Visual Studio installed to add MySql.data.dll to GAC ****
+1. Run visual studio command prompt as Administrator.
+2. Navigate to evemu_control_pannel folder in the command window.
+3. Type "gacutil /i MySql.Data.dll" (without quotes of course) You should get a message that it was installed.
+4. Use the .exe in bin/Release to connect to your database.
